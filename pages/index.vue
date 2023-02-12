@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  layout:"navbar",
+  layout:"content",
   name: 'IndexPage',
 }
 </script>
