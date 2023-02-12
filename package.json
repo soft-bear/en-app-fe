@@ -12,6 +12,12 @@
     "lintfix": "prettier --write --list-different ."
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.4",
+    "@fullcalendar/daygrid": "^6.1.4",
+    "@fullcalendar/interaction": "^6.1.4",
+    "@fullcalendar/list": "^6.1.4",
+    "@fullcalendar/timegrid": "^6.1.4",
+    "@fullcalendar/vue": "^6.1.4",
     "@nuxtjs/axios": "^5.13.6",
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",

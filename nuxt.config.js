@@ -51,3 +51,16 @@ export default {
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
 }
+import PnpWebpackPlugin from "pnp-webpack-plugin";
+
+// module.exports = {
+//     build: {
+//         transpile: /@fullcalendar.*/, // always needed
+
+//         // this `extend` callback is only needed if using Yarn Plug-n-Play
+//         extend(config) {
+//             config.resolve.plugins.push(PnpWebpackPlugin);
+//             config.resolveLoader.plugins.push(PnpWebpackPlugin.moduleLoader(module));
+//         }
+//     }
+// };

@@ -1,15 +1,12 @@
 <template>
-  <div>
-  <!-- <Tutorial/> -->
-  <span class="material-symbols-outlined">
-    account_circle
-  </span>
-  </div>
+    <div style="padding-top: 56px;">
+      <homepage-final />
+    </div>
 </template>
 
 <script>
-export default {
-  layout:"content",
-  name: 'IndexPage',
-}
+    export default {
+        layout: "content",
+        name: 'IndexPage',
+    }
 </script>
