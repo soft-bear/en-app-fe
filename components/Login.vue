@@ -1,7 +1,3 @@
-
-<style scoped>
-@import '~/assets/login_style.css';
-</style>
 <template>
 
   <div class="vue-tempalte">
