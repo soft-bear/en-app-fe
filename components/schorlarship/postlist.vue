@@ -4,14 +4,14 @@
      v-for="(post,idx) in posts"
      :key="idx"
      :id = "post.id"
-     :title = "post.name"
-     :content = "post.detail"
-     :image = "post.coverimage"
+     :title = "post.title"
+     :content = "post.description"
+     :image = "post.image"
     />
   </b-row>
 </template>
 <script>
-import PostContent from '@/components/annouce/postcontent'
+import PostContent from '@/components/schorlarship/postcontent'
 export default {
   components: {
     PostContent

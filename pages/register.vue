@@ -1,42 +1,33 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-4 is-offset-4">
-          <h2 class="title has-text-centered">Register!</h2>
+    <div style="padding-top: 80px;padding-bottom: 20px;">
+        <b-row class="mx-auto justify-content-center">
+            <b-col cols="6" lg="6" md="6">
+                <b-card border-variant="dark"
+        header="dark"
+        header-bg-variant="dark"
+        header-text-variant="white"
+        >
+                    <template #header>
+                        <h4 class="mb-0">ลงทะเบียน</h4>
+                    </template>
 
-          <!-- <Notification :message="error" v-if="error" /> -->
-
-          <form method="post">
-            <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
-                <input type="text" class="input" name="username" required />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input type="email" class="input" name="email" required />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input type="password" class="input" name="password" required />
-              </div>
-            </div>
-            <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Register</button>
-            </div>
-          </form>
-
-          <div class="has-text-centered" style="margin-top: 20px">
-            Already got an account? <nuxt-link to="/login">Login</nuxt-link>
-          </div>
-        </div>
-      </div>
+                    <b-card-body>
+                        <b-card-title>Card Title</b-card-title>
+                        <b-card-sub-title class="mb-2">Card Sub Title</b-card-sub-title>
+                        <b-card-text>
+                            Some quick example text to build on the card title and make up the bulk of the card's
+                            content.
+                        </b-card-text>
+                    </b-card-body>
+                </b-card>
+            </b-col>
+        </b-row>
     </div>
-  </section>
 </template>
 
+<script>
+    export default {
+        // layout: "content",
+        name: 'IndexPage',
+    }
+</script>

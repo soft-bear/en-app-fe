@@ -11,8 +11,6 @@
               <b-col cols="6" class="text-right">
                 <nuxt-link class="text" to="annouce">
                   ดูทั้งหมด <b-icon icon="chevron-right"></b-icon></nuxt-link>
-                <div class="text-center">
-                </div>
               </b-col>
             </b-row>
           </template>

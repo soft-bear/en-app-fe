@@ -1,8 +1,8 @@
 <template>
     <b-col cols="12" lg="3" md="6" sm="12">
-        <b-card :id=id :title=title :img-src=image img-alt="title" img-top tag="article" class="mb-2">
+        <b-card :id=id :title=title :img-src=image :img-alt=title img-top tag="article" img-height="200px" class="mb-2">
             <b-card-text>
-                {{ content.substring(0,130) }}
+                {{ content . substring(0, 200) }}
             </b-card-text>
             <div class="text-center">
                 <nuxt-link :to="postLink" class="btn btn-success text-center">รายละเอียด</nuxt-link>
@@ -33,7 +33,7 @@
         },
         computed: {
             postLink() {
-                return '/articles/' + this.id
+                return '/scholarships/' + this.id
             }
         }
     }

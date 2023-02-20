@@ -1,32 +1,76 @@
 <template>
+    <div>
+        <b-modal id="modal-1" hide-footer>
+            <template #modal-title>
+                เข้าสู่ระบบ
+            </template>
+            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+                <b-form-group id="input-group-1" label="Email :" label-for="input-1">
+                    <b-form-input id="input-1" v-model="form.email" type="email" placeholder="Enter email" required>
+                    </b-form-input>
+                </b-form-group>
 
-  <div class="vue-tempalte">
-    <b-card border-variant="primary" header="Primary" header-bg-variant="primary" header-text-variant="white"
-      align="center">
-      <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
-    </b-card>
-    <form>
-      <h3>Sign In</h3>
-      <div class="form-group">
-        <label>Email address</label>
-        <input type="email" class="form-control form-control-lg" />
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" class="form-control form-control-lg" />
-      </div>
-      <button type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
-      <p class="forgot-password text-right mt-2 mb-4">
-        <router-link to="/forgot-password">Forgot password ?</router-link>
-      </p>
-    </form>
-  </div>
+                <b-form-group id="input-group-2" label="Password :" label-for="input-2">
+                    <b-form-input id="input-2" v-model="form.password" type="password" placeholder="Enter password"
+                        required></b-form-input>
+                </b-form-group>
+
+                <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
+                    <b-form-checkbox-group v-model="form.checked" id="checkboxes-4" :aria-describedby="ariaDescribedby">
+                        <b-form-checkbox value="me">จำฉันไว้ในระบบ</b-form-checkbox>
+                    </b-form-checkbox-group>
+                </b-form-group>
+                <div class="d-block text-center">
+                    <b-button type="submit" variant="success">
+                        <b-icon icon="box-arrow-in-right"></b-icon> เข้าสู่ระบบ
+                    </b-button>
+                    <nuxt-link class="btn btn-primary" to="/register"  @click="$bvModal.hide('modal-1')">
+                        <b-icon icon="pencil-square"></b-icon> ลงทะเบียน
+                    </nuxt-link>
+                    <b-button type="reset" variant="primary">
+                        <b-icon icon="arrow-repeat"></b-icon> ล้างข้อมูล
+                    </b-button>
+                </div>
+            </b-form>
+        </b-modal>
+    </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {}
-  }
-}
+    export default {
+        data() {
+            return {
+                form: {
+                    email: '',
+                    name: '',
+                    food: null,
+                    checked: []
+                },
+                foods: [{
+                    text: 'Select One',
+                    value: null
+                }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+                show: true
+            }
+        },
+        methods: {
+            onSubmit(event) {
+                event.preventDefault()
+                alert(JSON.stringify(this.form))
+            },
+            onReset(event) {
+                event.preventDefault()
+                // Reset our form values
+                this.form.email = ''
+                this.form.name = ''
+                this.form.food = null
+                this.form.checked = []
+                // Trick to reset/clear native browser form validation state
+                this.show = false
+                this.$nextTick(() => {
+                    this.show = true
+                })
+            }
+        }
+    }
 </script>
