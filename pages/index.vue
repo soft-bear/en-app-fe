@@ -1,12 +1,12 @@
 <template>
-  <div>
-    Hello UBU APP!
-  </div>
-  <!-- <Tutorial/> -->
+    <div style="padding-top: 56px;">
+      <homepage-final />
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'IndexPage'
-}
+    export default {
+        layout: "content",
+        name: 'IndexPage',
+    }
 </script>
