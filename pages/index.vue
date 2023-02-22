@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello UBU APP
+    Hello UBU APP!
   </div>
   <!-- <Tutorial/> -->
 </template>
