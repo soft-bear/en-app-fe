@@ -1,5 +1,8 @@
 <template>
-  <Tutorial/>
+  <div>
+    Hello UBU APP
+  </div>
+  <!-- <Tutorial/> -->
 </template>
 
 <script>
