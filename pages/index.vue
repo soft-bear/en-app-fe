@@ -1,12 +1,11 @@
 <template>
-    <div style="padding-top: 56px;">
-      <homepage-final />
-    </div>
+	<div style="margin-top: 56px;">
+		<home />
+	</div>
 </template>
 
 <script>
-    export default {
-        layout: "content",
-        name: 'IndexPage',
-    }
+export default {
+	layout: "content",
+}
 </script>
