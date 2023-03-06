@@ -1,25 +1,21 @@
 <template>
-	<b-container fluid style="padding-top: 70px;">
-		<b-row>
-			<b-col cols="12" lg="8" md="6" sm="12">
-				<b-card border-variant="dark" class="mb-2">
+	<b-container fluid>
+		<b-row class="my-4">
+			<b-col cols="12" lg="9" md="6" sm="12">
+				<b-card class="mb-2">
 					<template #header>
-						<h4 class="mb-0">{{ loadData.name }}</h4>
-						<p><span>
-								{{ loadData.latitude }}
-							</span> | <span>
-								โดย : {{ loadData.longitude }}
-							</span></p>
+						<b-row>
+							<b-col>{{ data.name }}</b-col>
+							<b-col class="text-right small">{{ data.latitude }} | โดย : {{ data.longitude }}</b-col>
+						</b-row>
 					</template>
-					<b-card-text>
-						<div class="text-center mb-3">
-							<b-img :src=loadData.coverimage fluid :alt=loadData.name></b-img>
-						</div>
-						{{ loadData.detail }}
-					</b-card-text>
+					<div class="text-center mb-3">
+						<b-img :src=data.coverimage fluid :alt=data.name />
+					</div>
+					{{ data.detail }}
 				</b-card>
 			</b-col>
-			<b-col cols="12" lg="4" md="6" sm="12">
+			<b-col cols="12" lg="3" md="6" sm="12">
 				<b-card border-variant="dark" class="mb-2">
 					<template #header>
 						<h4 class="mb-0">เอกสารประกอบ</h4>
@@ -30,20 +26,18 @@
 				</b-card>
 			</b-col>
 		</b-row>
-
 	</b-container>
 </template>
 <script>
-//const id = this.$route.params.id
 export default {
 	layout: "content",
 	data() {
 		return {
-			loadData: {}
+			data: {}
 		}
 	},
-	created() {
-		this.getArticle()
+	async created() {
+		await this.getArticle()
 	},
 	methods: {
 		async getArticle() {
@@ -51,7 +45,7 @@ export default {
 				`https://www.melivecode.com/api/attractions/${this.$route.params.id}`)
 			const userIdJson = userIdPromise.json()
 			userIdJson.then((res) => {
-				this.loadData = res.attraction
+				this.data = res.attraction
 				console.log(res.attraction)
 			})
 		}
