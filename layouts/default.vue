@@ -1,7 +1,7 @@
 <template>
   <div>
     <layouts-navbar/>
-    <nuxt/>
+    <nuxt class="content"/>
     <layouts-footer/>
   </div>
 </template>

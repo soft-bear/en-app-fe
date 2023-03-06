@@ -1,5 +1,5 @@
 <template>
 	<b-container>
-		<nuxt />
+		<nuxt class="content" />
 	</b-container>
 </template>

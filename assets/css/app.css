@@ -26,18 +26,18 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-.google-sans {
-    font-family: 'Google Sans', sans-serif !important;
-}
-
 footer {
-	position: fixed;
-	bottom: 0;
-	max-width: 100%;
-	min-width: 100%;
-	margin-top: -111px;
+	height: 111px;
 }
 
 nav.bg-eng {
 	background-color: var(---primary);
+}
+
+.google-sans {
+    font-family: 'Google Sans', sans-serif !important;
+}
+
+.content {
+	min-height: calc(100vh - 167px);
 }
