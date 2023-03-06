@@ -6,9 +6,9 @@
           <template #header>
             <h4 class="mb-0">{{ loadData.title }}</h4>
             <p><span>
-                <b-icon icon="calendar"></b-icon> {{ loadData.countries }}
+                {{ loadData.countries }}
               </span> | <span>
-                <b-icon icon="person"></b-icon> โดย : {{ loadData.continent }}
+                ดย : {{ loadData.continent }}
               </span></p>
           </template>
           <b-card-text>
@@ -22,7 +22,7 @@
       <b-col cols="12" lg="4" md="6" sm="12">
         <b-card border-variant="dark" class="mb-2">
           <template #header>
-            <h4 class="mb-0"><b-icon icon="file-earmark"></b-icon> เอกสารประกอบ</h4>
+            <h4 class="mb-0">เอกสารประกอบ</h4>
           </template>
           <b-card-text>
             <b-alert show variant="secondary">ไม่มีเอกสารประกอบสำหรับทุนการศึกษานี้</b-alert>

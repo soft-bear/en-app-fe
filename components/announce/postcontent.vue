@@ -1,6 +1,6 @@
 <template>
 	<b-col cols="12" lg="3" md="6" sm="12">
-		<b-card :id=id :title=title :img-src=image :img-alt=title img-top tag="article" img-height="200px" class="mb-2">
+		<b-card :id=id :title=title :img-src=image img-alt="title" img-top tag="article" class="mb-2">
 			<b-card-text>
 				{{ content }}
 			</b-card-text>
@@ -33,7 +33,7 @@ export default {
 	},
 	computed: {
 		postLink() {
-			return '/scholarships/' + this.id
+			return '/announce/' + this.id
 		}
 	}
 }

@@ -1,11 +1,8 @@
 <template>
-	<div style="margin-top: 56px;">
-		<home />
+	<div>
+		<slider />
+		<b-container fluid>
+			<home />
+		</b-container>
 	</div>
 </template>
-
-<script>
-export default {
-	layout: "content",
-}
-</script>
