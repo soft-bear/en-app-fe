@@ -1,6 +1,6 @@
 <template>
 	<footer class="bg-dark text-light py-4">
-		<b-container fluid>
+		<b-container>
 			<b-row>
 				<b-col cols="12" lg="6" md="6">
 					<p class="text-light small pb-0 mb-0">

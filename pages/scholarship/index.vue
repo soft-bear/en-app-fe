@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid>
+	<b-container>
 		<announce-postlist :posts="data" />
 	</b-container>
 </template>

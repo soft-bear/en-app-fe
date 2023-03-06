@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<slider />
-		<b-container fluid>
+		<b-container>
 			<home />
 		</b-container>
 	</div>

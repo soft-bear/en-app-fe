@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid style="padding-top: 70px;">
+  <b-container style="padding-top: 70px;">
     <b-row>
       <b-col cols="12" lg="8" md="6" sm="12">
         <b-card border-variant="dark" class="mb-2">
@@ -13,7 +13,7 @@
           </template>
           <b-card-text>
             <div class="text-center mb-3">
-              <b-img :src=loadData.image fluid :alt=loadData.title style="max-height: 20rem;"></b-img>
+              <b-img :src=loadData.image :alt=loadData.title style="max-height: 20rem;"></b-img>
             </div>
             {{ loadData.description }}
           </b-card-text>

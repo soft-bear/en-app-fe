@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid>
+	<b-container>
 		<nuxt />
 	</b-container>
 </template>

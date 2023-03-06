@@ -1,5 +1,5 @@
 <template>
-	<b-container fluid>
+	<b-container>
 		<b-row class="my-4">
 			<b-col cols="12" lg="9" md="6" sm="12">
 				<b-card class="mb-2">
@@ -10,7 +10,7 @@
 						</b-row>
 					</template>
 					<div class="text-center mb-3">
-						<b-img :src=data.coverimage fluid :alt=data.name />
+						<b-img :src=data.coverimage :alt=data.name />
 					</div>
 					{{ data.detail }}
 				</b-card>
