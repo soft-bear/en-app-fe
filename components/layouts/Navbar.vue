@@ -1,21 +1,24 @@
 <template>
-  <div>
-  <b-navbar toggleable="lg" type="dark" variant="info" fixed="top">
-    <b-navbar-brand href="/">EN UBU APP</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <nuxt-link class="nav-link" to="/articles">
-          <b-icon icon="megaphone"></b-icon> ข่าวประชาสัมพันธ์</nuxt-link>
-        <nuxt-link class="nav-link" to="/scholarships">
-          <b-icon icon="cash"></b-icon> ทุนการศึกษา</nuxt-link>
-      </b-navbar-nav>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#" v-b-modal.modal-1><b-icon icon="person"></b-icon> เข้าสู่ระบบ</b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-  <Login />
-</div>
+	<b-navbar toggleable="lg" type="dark" class="bg-eng">
+		<b-container>
+			<nuxt-link to="/" class="navbar-brand">EN UBU APP</nuxt-link>
+			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+			<b-collapse id="nav-collapse" is-nav>
+				<b-navbar-nav>
+					<nuxt-link class="nav-link" to="/announce">
+						ประชาสัมพันธ์
+					</nuxt-link>
+					<nuxt-link class="nav-link" to="/scholarship">
+						ทุนการศึกษา
+					</nuxt-link>
+				</b-navbar-nav>
+				<b-navbar-nav class="ml-auto">
+					<b-nav-item href="#" v-b-modal.modal-login>
+						เข้าสู่ระบบ
+					</b-nav-item>
+					<login />
+				</b-navbar-nav>
+			</b-collapse>
+		</b-container>
+	</b-navbar>
 </template>

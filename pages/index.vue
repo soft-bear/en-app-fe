@@ -1,12 +1,8 @@
 <template>
-    <div style="padding-top: 56px;">
-      <homepage-final />
-    </div>
+	<div>
+		<slider />
+		<b-container>
+			<home />
+		</b-container>
+	</div>
 </template>
-
-<script>
-    export default {
-        layout: "content",
-        name: 'IndexPage',
-    }
-</script>

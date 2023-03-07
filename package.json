@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build --output dist",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
@@ -19,15 +19,21 @@
     "@fullcalendar/timegrid": "^6.1.4",
     "@fullcalendar/vue": "^6.1.4",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/vercel-builder": "0.23.0",
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",
+    "collect.js": "^4.34.3",
     "core-js": "^3.25.3",
+    "moment": "^2.29.4",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1"
   }

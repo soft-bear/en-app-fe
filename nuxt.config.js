@@ -1,28 +1,31 @@
 export default {
+    // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+    ssr: false,
+
+    // Target: https://go.nuxtjs.dev/config-target
+    target: 'static',
+
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'en-ubu-app',
+        title: 'en-ubu-fe',
         htmlAttrs: {
-            lang: 'en',
+            lang: 'en'
         },
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'description', name: 'description', content: '' },
-            { name: 'format-detection', content: 'telephone=no' },
+            { name: 'format-detection', content: 'telephone=no' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/en-ubu-logo.ico' },
-            { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-            { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-            // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Sarabun&display=swap' },
-            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' },
-
-        ],
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        ]
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['@/assets/style/main_style.css'],
+    css: [
+        '@/assets/css/app.css',
+    ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [],
@@ -31,7 +34,19 @@ export default {
     components: true,
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: [],
+    buildModules: [
+        '@nuxtjs/fontawesome'
+    ],
+
+    fontawesome: {
+        icons: {
+            solid: [
+                'faHouse',
+                'faRightToBracket',
+                'faUserPlus'
+            ],
+        }
+    },
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -40,7 +55,6 @@ export default {
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
     ],
-    bootstrapVue: { icons: true },
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
@@ -49,13 +63,8 @@ export default {
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {}
 }
-import PnpWebpackPlugin from "pnp-webpack-plugin";
-
-// module.exports = {
-//     build: {
-//         transpile: /@fullcalendar.*/, // always needed
 
 //         // this `extend` callback is only needed if using Yarn Plug-n-Play
 //         extend(config) {
