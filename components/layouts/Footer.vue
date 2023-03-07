@@ -12,7 +12,7 @@
 					</p>
 				</b-col>
 				<b-col cols="12" lg="6" md="6" class="text-left text-md-right">
-					<nuxt-link to="policy">นโยบายคุกกี้</nuxt-link>
+					<nuxt-link to="/policy">นโยบายคุกกี้</nuxt-link>
 				</b-col>
 			</b-row>
 		</b-container>
