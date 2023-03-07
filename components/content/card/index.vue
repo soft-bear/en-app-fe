@@ -3,7 +3,7 @@
 		<template #header>
 			<b-row>
 				<b-col>{{ cardName }}</b-col>
-				<b-col class="text-right">
+				<b-col class="text-right small">
 					<nuxt-link v-if="target" :to="target">แสดงทั้งหมด</nuxt-link>
 				</b-col>
 			</b-row>
