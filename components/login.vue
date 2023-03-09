@@ -27,7 +27,6 @@
 
 <script>
 export default {
- //$('#modal-login').modal('hide'),
 	data() {
 		return {
 			auth: {
@@ -35,6 +34,11 @@ export default {
 				password: '',
 			}
 		}
+  },
+  methods: {
+    onSubmit() {
+      alert('Form Is Submitted.');
+    }
   }
 }
 </script>

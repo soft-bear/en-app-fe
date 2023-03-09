@@ -160,7 +160,7 @@
     export default {
         //layout: "defult",
         name: 'registerPage',
-        el: '#app',
+       // el: '#app',
         data() {
             return {
                 step: 1,
