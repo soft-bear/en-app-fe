@@ -1,6 +1,6 @@
 <template>
 	<b-row class="my-4">
-		<content-card-info v-for="(post, index) in posts" :key="index" :id="post.id" :title="post.name" :content="post.detail"
+		<content-card-info v-for="(post, index) in posts" :key="index" :id="post._id" :title="post.title" :content="post.content"
 			:image="post.coverimage" :post-type="postType" />
 	</b-row>
 </template>

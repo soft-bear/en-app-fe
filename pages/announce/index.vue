@@ -1,7 +1,7 @@
 <template>
 	<b-container>
 		<b-overlay :show="loading">
-			<content-card-post :posts="data" post-type="announce" />
+			<content-card-post :posts="announces" post-type="announce" />
 		</b-overlay>
 	</b-container>
 </template>
@@ -11,13 +11,14 @@ export default {
 	data() {
 		return {
 			loading: false,
-			data: []
+			announces: []
 		}
 	},
 	methods: {
 		async fetch() {
-			const { data } = await this.$axios.get('https://www.melivecode.com/api/attractions')
-			this.data = data
+			const {data:{data:{data:announces}}} = await this.$axios.get('announces')
+			this.announces = announces
+      console.log(this.announces)
 		}
 	},
 	async created() {

@@ -6,14 +6,11 @@
 					<b-card class="mb-2">
 						<template #header>
 							<b-row>
-								<b-col>{{ data.name }}</b-col>
-								<b-col class="text-right small">{{ data.latitude }} | โดย : {{ data.longitude }}</b-col>
+								<b-col>{{ data.title }}</b-col>
+								<b-col class="text-right small">{{ data.created_at }} | โดย : {{ data.author_user_id }}</b-col>
 							</b-row>
 						</template>
-						<div class="text-center mb-3">
-							<b-img :src=data.coverimage :alt=data.name />
-						</div>
-						{{ data.detail }}
+						<div class="text-center mb-3" v-html="data.content"></div>
 					</b-card>
 				</b-col>
 				<b-col cols="12" lg="3" md="6" sm="12">

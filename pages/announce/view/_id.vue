@@ -11,8 +11,8 @@ export default {
 	},
 	methods: {
 		async getArticle() {
-			const {data} = await this.$axios.get(`https://www.melivecode.com/api/attractions/${this.$route.params.id}`)
-			this.data = data.attraction
+			const {data:{data}} = await this.$axios.get(`announces/${this.$route.params.id}`)
+			this.data = data
 		}
 	},
 	async created() {
