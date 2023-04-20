@@ -16,7 +16,7 @@ export default {
 	},
 	methods: {
 		async fetch() {
-			const {data:{data:{data:announces}}} = await this.$axios.get('announces')
+			const {data:{data:announces}} = await this.$axios.get('announces')
 			this.announces = announces
       console.log(this.announces)
 		}

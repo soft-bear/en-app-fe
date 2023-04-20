@@ -12,28 +12,7 @@
 
 <script>
 export default {
-	props: {
-		id: {
-			type: Number,
-			required: false
-		},
-		title: {
-			type: String,
-			required: true
-		},
-		image: {
-			type: String,
-			required: true
-		},
-		content: {
-			type: String,
-			required: true
-		},
-		postType: {
-			type: String,
-			required: true
-		}
-	},
+  props: ['id', 'title', 'image', 'content', 'postType'],
 	computed: {
 		cardLink() {
 			const target = this.postType == 'announce' ? 'announce' : 'scholarship'

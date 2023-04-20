@@ -7,7 +7,7 @@
 						<template #header>
 							<b-row>
 								<b-col>{{ data.title }}</b-col>
-								<b-col class="text-right small">{{ data.created_at }} | โดย : {{ data.author_user_id }}</b-col>
+								<b-col class="text-right small">{{ formatdate(data.created_at) }} | โดย : {{ data?.author?.username }}</b-col>
 							</b-row>
 						</template>
 						<div class="text-center mb-3" v-html="data.content"></div>
@@ -24,17 +24,15 @@
 	</b-container>
 </template>
 <script>
+import moment from 'moment'
+
 export default {
 	layout: "content",
-	props: {
-		data: {
-			type: Array,
-			required: true
-		},
-		loading: {
-			type: Boolean,
-			required: true,
-		}
-	}
+  props: ['data', 'loading'],
+  methods: {
+    formatdate(date) {
+      return moment(date).add(543, 'years').format('DD/MM/YYYY HH:mm:ss')
+    }
+  }
 }
 </script>
