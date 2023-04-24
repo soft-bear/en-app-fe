@@ -1,8 +1,12 @@
 <template>
   <b-row class="my-4">
     <b-col cols="12" lg="6">
-      <content-card :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" class="mb-2" />
-      <content-card :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" class="mt-2" />
+      <b-overlay :show="loading">
+        <content-card :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" class="mb-2" />
+      </b-overlay>
+      <b-overlay :show="loading">
+        <content-card :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" class="mt-2" />
+      </b-overlay>
     </b-col>
     <b-col cols="12" lg="6"></b-col>
   </b-row>
@@ -14,6 +18,7 @@ import moment from 'moment'
 export default {
   data() {
     return {
+      loading: false,
       announces: [],
       scholarships: []
     }
@@ -40,8 +45,10 @@ export default {
     }
   },
   async created() {
+    this.loading = true
     await this.getAnnounces()
     await this.getScholarships()
+    this.loading = false
   }
 }
 </script>
