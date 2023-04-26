@@ -25,9 +25,7 @@ export default {
   },
   computed: {
     sortAnnounce() {
-      return this.announces.length ? this.announces.sort((a, b) => {
-        return moment(a.created_at).format('x') < moment(b.created_at).format('x') ? 1 : -1
-      }).splice(0, 3) : []
+      return this.announces ? this.announces.splice(0, 5) : []
     }
   },
   methods: {
