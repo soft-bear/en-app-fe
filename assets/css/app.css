@@ -5,8 +5,6 @@
 }
 
 html, body {
-	margin: 0;
-	height: 100%;
     font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
 }
 
@@ -26,18 +24,10 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-footer {
-	height: 111px;
-}
-
 nav.bg-eng {
 	background-color: var(---primary);
 }
 
 .google-sans {
     font-family: 'Google Sans', sans-serif !important;
-}
-
-.content {
-	min-height: calc(100vh - 167px);
 }
