@@ -60,6 +60,6 @@ blockquote {
   height: calc((100vh - 56px)/2);
 }
 
-.card-post-detail>p:last-child {
+.card-post-detail>:last-child {
   margin-bottom: 0;
 }
