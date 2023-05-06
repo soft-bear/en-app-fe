@@ -63,8 +63,16 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
-}
+  build: {
+    terser: {
+      // https://github.com/terser/terser#compress-options
+      terserOptions: {
+        compress: {
+          drop_console: true
+        }
+      }
+    }
+  }
 
 //         // this `extend` callback is only needed if using Yarn Plug-n-Play
 //         extend(config) {
