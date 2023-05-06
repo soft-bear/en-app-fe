@@ -16,7 +16,7 @@ export default {
   computed: {
     cardLink() {
       const target = this.postType == 'announce' ? 'announce' : 'scholarship'
-      return `/${target}/view/${this.slug}`
+      return `/${target}/view/${this.slug ?? this.id}`
     }
   }
 }

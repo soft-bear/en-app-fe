@@ -1,9 +1,9 @@
 <template>
-  <footer class="pt-2 pb-4">
+  <footer class="pb-4">
     <b-container>
       <b-row>
         <b-col>
-          <hr class="mt-0" />
+          <hr class="mt-0 mb-4" />
         </b-col>
       </b-row>
       <b-row>

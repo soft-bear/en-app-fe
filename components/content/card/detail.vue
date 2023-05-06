@@ -11,10 +11,10 @@
                 }}</b-col>
               </b-row>
             </template>
-            <b-row>
+            <b-row v-if="data.content">
               <b-col class="card-post-detail" v-html="data.content"></b-col>
             </b-row>
-            <b-row>
+            <b-row v-if="data.content">
               <b-col>
                 <hr class="my-2" />
               </b-col>
