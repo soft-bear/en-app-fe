@@ -31,3 +31,7 @@ nav.bg-eng {
 .google-sans {
     font-family: 'Google Sans', sans-serif !important;
 }
+
+#carousel-1,.carousel-item>img {
+  height: calc((100vh - 56px)/2);
+}
