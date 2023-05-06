@@ -1,33 +1,42 @@
 <template>
-	<b-container>
-		<b-overlay :show="loading">
-			<b-row class="my-4">
-				<b-col cols="12" lg="9" md="6" sm="12">
-					<b-card class="mb-2">
-						<template #header>
-							<b-row>
-								<b-col>{{ data.title }}</b-col>
-								<b-col class="text-right small">{{ formatdate(data.created_at) }} | โดย : {{ data?.author?.username }}</b-col>
-							</b-row>
-						</template>
-						<div class="text-center mb-3" v-html="data.content"></div>
-					</b-card>
-				</b-col>
-				<b-col cols="12" lg="3" md="6" sm="12">
-					<b-card class="mb-2" header-tag="div">
-						<template #header>เอกสารประกอบ</template>
-						ไม่มีเอกสารประกอบสำหรับข่าวนี้
-					</b-card>
-				</b-col>
-			</b-row>
-		</b-overlay>
-	</b-container>
+  <b-container>
+    <b-overlay :show="loading">
+      <b-row class="my-4">
+        <b-col>
+          <b-card>
+            <template #header>
+              <b-row>
+                <b-col>{{ data.title }}</b-col>
+                <b-col class="text-right small">{{ formatdate(data.created_at) }} | โดย : {{ data?.author?.username
+                }}</b-col>
+              </b-row>
+            </template>
+            <b-row>
+              <b-col v-html="data.content"></b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <hr class="mt-0" />
+              </b-col>
+            </b-row>
+            <b-row>
+              <b-col>
+                <b-card header-tag="div" class="small">
+                  ไม่มีเอกสารประกอบ
+                </b-card>
+              </b-col>
+            </b-row>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-overlay>
+  </b-container>
 </template>
 <script>
 import moment from 'moment'
 
 export default {
-	layout: "content",
+  layout: "content",
   props: ['data', 'loading'],
   methods: {
     formatdate(date) {

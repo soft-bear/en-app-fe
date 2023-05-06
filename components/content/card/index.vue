@@ -11,7 +11,7 @@
     <b-card-body class="p-2" v-if="cardData.length">
       <ul class="my-0 py-0 px-2" style="list-style: none;">
         <li v-for="(data, index) in cardData" :key="index">
-          <nuxt-link :to="`/announce/view/${data.id}`">
+          <nuxt-link :to="`/announce/view/${data.slug}`">
             {{ data.title }}
           </nuxt-link>
           <div class="badge badge-danger" v-if="data.is_important">สำคัญ</div>
