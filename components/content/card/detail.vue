@@ -12,11 +12,11 @@
               </b-row>
             </template>
             <b-row>
-              <b-col v-html="data.content"></b-col>
+              <b-col class="card-post-detail" v-html="data.content"></b-col>
             </b-row>
             <b-row>
               <b-col>
-                <hr class="mt-0" />
+                <hr class="my-2" />
               </b-col>
             </b-row>
             <b-row>

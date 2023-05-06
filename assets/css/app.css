@@ -1,37 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&family=Google+Sans&display=swap');
 
 :root {
-	---primary: #771E10 !important;
+  ---primary: #771E10 !important;
 }
 
-html, body {
-    font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
+html,
+body {
+  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
 }
 
-input, select,
+input,
+select,
 textarea {
-    font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
-    /* font-family: 'Google Sans', sans-serif; */
+  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
+  /* font-family: 'Google Sans', sans-serif; */
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 nav.bg-eng {
-	background-color: var(---primary);
+  background-color: var(---primary);
 }
 
 .google-sans {
-    font-family: 'Google Sans', sans-serif !important;
+  font-family: 'Google Sans', sans-serif !important;
 }
 
-#carousel-1,.carousel-item>img {
+pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+
+blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+  padding-left: 16px !important;
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+#carousel-1,
+.carousel-item>img {
   height: calc((100vh - 56px)/2);
+}
+
+.card-post-detail>p:last-child {
+  margin-bottom: 0;
 }
