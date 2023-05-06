@@ -73,6 +73,7 @@ export default {
       }
     }
   }
+}
 
 //         // this `extend` callback is only needed if using Yarn Plug-n-Play
 //         extend(config) {
