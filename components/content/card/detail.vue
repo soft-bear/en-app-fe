@@ -29,6 +29,14 @@
           </b-card>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col>
+          <b-card header-tag="div" class="text-center">
+            กรุณาเข้าสู่ระบบด้วยบัญชีนักศึกษาเพื่อสมัครทุนการศึกษานี้
+            <b-button variant="outline-success"><b-icon icon="pencil"></b-icon> สมัครทุนนี้</b-button>
+          </b-card>
+        </b-col>
+      </b-row>
     </b-overlay>
   </b-container>
 </template>

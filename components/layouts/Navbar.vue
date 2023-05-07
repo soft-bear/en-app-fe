@@ -6,15 +6,15 @@
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav>
 					<nuxt-link class="nav-link" to="/announce">
-						ประชาสัมพันธ์
+						<b-icon icon="megaphone"></b-icon> ประชาสัมพันธ์
 					</nuxt-link>
 					<nuxt-link class="nav-link" to="/scholarship">
-						ทุนการศึกษา
+						<b-icon icon="stack"></b-icon> ทุนการศึกษา
 					</nuxt-link>
 				</b-navbar-nav>
 				<b-navbar-nav class="ml-auto">
 					<b-nav-item href="#" v-b-modal.modal-login>
-						เข้าสู่ระบบ
+						<b-icon icon="box-arrow-in-right"></b-icon> เข้าสู่ระบบ
 					</b-nav-item>
 					<login />
 				</b-navbar-nav>

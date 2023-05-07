@@ -1,7 +1,7 @@
 <template>
 	<b-modal id="modal-login" hide-footer hide-header>
 		<template #modal-title>
-			เข้าสู่ระบบ
+			<b-icon icon="box-arrow-in-right"></b-icon> เข้าสู่ระบบ
 		</template>
 		<b-form @submit="onSubmit">
 			<b-form-group label="อีเมลแอดเดรส">
@@ -15,10 +15,10 @@
 
 			<div class="d-block text-center">
 				<b-button type="submit" variant="primary" size="sm">
-					เข้าสู่ระบบ
+					<b-icon icon="box-arrow-in-right"></b-icon>  เข้าสู่ระบบ
 				</b-button>
 				<nuxt-link class="btn btn-secondary btn-sm" to="/register">
-					ลงทะเบียน
+					<b-icon icon="pen"></b-icon>  ลงทะเบียน
 				</nuxt-link>
 			</div>
 		</b-form>
