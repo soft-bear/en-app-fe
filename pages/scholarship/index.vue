@@ -1,5 +1,6 @@
 <template>
 	<b-container>
+    <content-card-postList :posts="data" post-type="scholarship"/>
 		<b-overlay :show="loading">
 			<content-card-post :posts="data" post-type="scholarship" />
 		</b-overlay>
