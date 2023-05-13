@@ -4,11 +4,12 @@
       <b-overlay :show="loading">
         <content-homepage-card-list :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" class="mb-2" />
       </b-overlay>
+    </b-col>
+    <b-col cols="12" lg="6">
       <b-overlay :show="loading">
         <content-homepage-card-list :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" class="mt-2" />
       </b-overlay>
     </b-col>
-    <b-col cols="12" lg="6"></b-col>
   </b-row>
 </template>
 
