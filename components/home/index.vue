@@ -2,13 +2,14 @@
   <b-row class="my-4">
     <b-col cols="12" lg="6">
       <b-overlay :show="loading">
-        <content-card :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" class="mb-2" />
-      </b-overlay>
-      <b-overlay :show="loading">
-        <content-card :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" class="mt-2" />
+        <content-homepage-card-list :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" />
       </b-overlay>
     </b-col>
-    <b-col cols="12" lg="6"></b-col>
+    <b-col cols="12" lg="6">
+      <b-overlay :show="loading">
+        <content-homepage-card-list :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" />
+      </b-overlay>
+    </b-col>
   </b-row>
 </template>
 

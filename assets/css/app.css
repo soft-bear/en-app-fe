@@ -59,6 +59,9 @@ blockquote {
 .carousel-item>img {
   height: calc((100vh - 56px)/2);
 }
+.card-post-detail * {
+  max-width: 100%;
+}
 
 .card-post-detail>:last-child {
   margin-bottom: 0;

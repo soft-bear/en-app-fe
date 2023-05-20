@@ -1,8 +1,8 @@
 <template>
     <b-container>
         <b-row class="my-4">
-            <content-card-info v-for="(post, index) in posts" :key="index" :id="post.id"
-                :slug="post.slug" :title="post.title" :content="post.content" :image="post.coverimage"
+            <content-card-post-list-item v-for="(post, index) in posts" :key="index" :id="post.id"
+                :slug="post.slug" :title="post.title" :content="post.content" :image="post?.thumbnail?.path"
                 :post-type="postType" />
         </b-row>
     </b-container>
