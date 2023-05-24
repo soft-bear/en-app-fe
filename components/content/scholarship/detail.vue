@@ -21,7 +21,7 @@
             <b-row>
               <b-col>
                 <b-card header-tag="div" class="small" v-if="data.document">
-                  เอกสารประกอบ
+                  <a :href="data.document.path" target="_blank" noopener noreferrer>{{ data.document.name }}</a>
                 </b-card>
                 <b-card header-tag="div" class="small" v-else>
                   ไม่มีเอกสารประกอบ
