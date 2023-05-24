@@ -2,7 +2,7 @@
   <b-row class="my-4">
     <b-col cols="12" lg="6">
       <b-overlay :show="loading">
-        <content-homepage-card-list :card-data="scholarships" card-name="ทุนการศึกษา" target="scholarship" />
+        <content-homepage-card-list :card-data="sortScholarship" card-name="ทุนการศึกษา" target="scholarship" />
       </b-overlay>
     </b-col>
     <b-col cols="12" lg="6">
@@ -23,6 +23,13 @@ export default {
     }
   },
   computed: {
+    sortScholarship() {
+      const scholarships = this.scholarships.splice(0, 5).map(scholarship => {
+        return {slug: scholarship.slug, id: scholarship.id, title: scholarship.name}
+      })
+
+      return scholarships
+    },
     sortAnnounce() {
       return this.announces ? this.announces.splice(0, 5) : []
     }

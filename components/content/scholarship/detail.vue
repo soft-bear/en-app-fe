@@ -6,21 +6,24 @@
           <b-card>
             <template #header>
               <b-row>
-                <b-col>{{ data.title }}</b-col>
+                <b-col>{{ data.name }}</b-col>
                 <b-col class="text-right small">{{ formatdate(data.created_at) }} | โดย : {{ data?.author?.username }}</b-col>
               </b-row>
             </template>
             <b-row v-if="data.content">
               <b-col class="card-post-detail" v-html="data.content"></b-col>
             </b-row>
-            <b-row v-if="checkAuthAndPage && data.content">
+            <b-row v-if="data.content">
               <b-col>
                 <hr class="my-2" />
               </b-col>
             </b-row>
-            <b-row v-if="checkAuthAndPage">
+            <b-row>
               <b-col>
-                <b-card header-tag="div" class="small">
+                <b-card header-tag="div" class="small" v-if="data.document">
+                  เอกสารประกอบ
+                </b-card>
+                <b-card header-tag="div" class="small" v-else>
                   ไม่มีเอกสารประกอบ
                 </b-card>
               </b-col>
@@ -28,11 +31,11 @@
           </b-card>
         </b-col>
       </b-row>
-      <b-row v-if="checkAuthAndPage">
+      <b-row v-if="!$auth.loggedIn">
         <b-col>
           <b-card header-tag="div" class="text-center">
             <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
-            <div class="d-block"><b-button variant="outline-success" size="sm">สมัครทุนการศึกษา</b-button></div>
+            <div class="d-block"><b-button variant="outline-success" size="sm" @click="$router.push({ path: '/login' })">สมัครทุนการศึกษา</b-button></div>
           </b-card>
         </b-col>
       </b-row>
@@ -52,8 +55,7 @@ export default {
   },
   computed: {
     checkAuthAndPage () {
-      return true
-      // return this.pageType == 'scholarship' && this.$auth.loggedIn
+      return this.pageType == 'scholarship' && this.$auth.loggedIn
     }
   },
   methods: {
@@ -62,8 +64,8 @@ export default {
     }
   },
   created() {
-    this.pageType = this.$route.path.split('/')[1].toLowerCase()
     console.log(this.$auth)
+    this.pageType = this.$route.path.split('/')[1].toLowerCase()
   }
 }
 </script>

@@ -1,23 +1,23 @@
 <template>
-	<content-detail :data="data" :loading="loading" />
+	<content-scholarship-detail :data="scholarship" :loading="loading" />
 </template>
 <script>
 export default {
 	data() {
 		return {
 			loading: false,
-			data: {}
+      scholarship: {}
 		}
 	},
 	methods: {
-		async getArticle() {
-			const {data} = await this.$axios.get(`https://www.melivecode.com/api/attractions/${this.$route.params.id}`)
-			this.data = data.attraction
+		async getScholarship() {
+			const {data : {data}} = await this.$axios.get(`/scholarships/${this.$route.params.id}`)
+      this.scholarship = data
 		}
 	},
 	async created() {
 		this.loading = true
-		await this.getArticle()
+		await this.getScholarship()
 		this.loading = false
 	},
 }

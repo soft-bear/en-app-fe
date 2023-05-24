@@ -9,9 +9,8 @@
 					<nuxt-link class="nav-link" to="/scholarship">ทุนการศึกษา</nuxt-link>
 				</b-navbar-nav>
 				<b-navbar-nav class="ml-auto">
-					<b-nav-item href="#" v-b-modal.modal-login>
-            เข้าสู่ระบบ
-					</b-nav-item>
+					<nuxt-link class="nav-link" to="/login" v-if="!$auth.loggedIn">เข้าสู่ระบบ</nuxt-link>
+					<a href="#" class="nav-link" v-else>ออกจากระบบ</a>
 					<login />
 				</b-navbar-nav>
 			</b-collapse>

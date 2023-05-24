@@ -4,7 +4,7 @@
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
                     <p class="mb-0">
-                        <b-icon icon="person"></b-icon> ข้อมูลทั่วไป
+                        ข้อมูลทั่วไป
                     </p>
                 </template>
                 <b-row>
@@ -45,8 +45,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="geo-alt"></b-icon> ที่อยู่ปัจจุบันฝหอพัก
+                    <p class="mb-0">ที่อยู่ปัจจุบันฝหอพัก
                     </p>
                 </template>
                 <b-row>
@@ -84,8 +83,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="geo-alt"></b-icon> ที่อยู่ตามภูมิลำเนา
+                    <p class="mb-0">ที่อยู่ตามภูมิลำเนา
                     </p>
                 </template>
                 <b-row>
@@ -123,8 +121,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="currency-dollar"></b-icon> ทุนการศึกษาที่เคยได้รับในปีการศึกษาที่ผ่านมา
+                    <p class="mb-0">ทุนการศึกษาที่เคยได้รับในปีการศึกษาที่ผ่านมา
                     </p>
                 </template>
                 <b-row>
@@ -145,8 +142,7 @@
                     </div>
                     <div class="col-md-2">
                         <b-form-group id="input-group-2" label="." label-for="input-2">
-                            <b-button variant="primary">
-                                <b-icon icon="plus-circle"></b-icon> เพิ่ม
+                            <b-button variant="primary">เพิ่ม
                             </b-button>
                         </b-form-group>
 
@@ -155,8 +151,7 @@
             </b-card>
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="file-earmark-richtext"></b-icon> ทุนการศึกษาที่เคยได้รับในปีการศึกษาที่ผ่านมา
+                    <p class="mb-0">ทุนการศึกษาที่เคยได้รับในปีการศึกษาที่ผ่านมา
                     </p>
                 </template>
                 <table class="table table-hover">
@@ -174,8 +169,7 @@
                             <td>200</td>
                             <td>ต่อเนื่อง</td>
                             <td>
-                                <b-button variant="danger">
-                                    <b-icon icon="trash"></b-icon> ลบ
+                                <b-button variant="danger">ลบ
                                 </b-button>
                             </td>
                         </tr>
@@ -184,8 +178,7 @@
                             <td>20000</td>
                             <td>รายปี</td>
                             <td>
-                                <b-button variant="danger">
-                                    <b-icon icon="trash"></b-icon> ลบ
+                                <b-button variant="danger">ลบ
                                 </b-button>
                             </td>
                         </tr>
@@ -194,8 +187,7 @@
             </b-card>
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="currency-dollar"></b-icon> กองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.,กรอ,)
+                    <p class="mb-0">กองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.,กรอ,)
                     </p>
                 </template>
                 <b-row>
@@ -213,8 +205,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="file-earmark-richtext"></b-icon> ปีการศึกษาล่าสุด - ภาคเรียนที่ 1
+                    <p class="mb-0">ปีการศึกษาล่าสุด - ภาคเรียนที่ 1
                     </p>
                 </template>
                 <b-row>
@@ -233,8 +224,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="file-earmark-richtext"></b-icon> ปีการศึกษาล่าสุด - ภาคเรียนที่ 2
+                    <p class="mb-0">ปีการศึกษาล่าสุด - ภาคเรียนที่ 2
                     </p>
                 </template>
                 <b-row>
@@ -253,8 +243,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="people"></b-icon> ข้อมูลด้านครอบครัว <span
+                    <p class="mb-0">ข้อมูลด้านครอบครัว <span
                             style="font-size: 12px;
                               ">(ระบุทุกคน บิดา/มารดา/พี่/น้อง
                             รวมถึงนักศึกษาด้วย)</span>
@@ -299,15 +288,13 @@
                         </b-form-group>
                     </div>
                 </b-row>
-                <b-button variant="primary">
-                    <b-icon icon="plus-circle"></b-icon> เพิ่มข้อมูล
+                <b-button variant="primary">เพิ่มข้อมูล
                 </b-button>
             </b-card>
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="people"></b-icon> รายชื่อบุคคลในครอบครัว
+                    <p class="mb-0">รายชื่อบุคคลในครอบครัว
                     </p>
                 </template>
                 <b-row>
@@ -335,8 +322,7 @@
                                     <td>ทุ่งนา</td>
                                     <td>500</td>
                                     <td>
-                                        <b-button variant="danger">
-                                            <b-icon icon="trash"></b-icon> ลบ
+                                        <b-button variant="danger">ลบ
                                         </b-button>
                                     </td>
                                 </tr>
@@ -348,8 +334,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> การทำงานในปีที่ผ่านมา
+                    <p class="mb-0">การทำงานในปีที่ผ่านมา
                     </p>
                 </template>
                 <b-row>
@@ -381,15 +366,13 @@
                         </b-form-group>
                     </div>
                 </b-row>
-                <b-button variant="primary">
-                    <b-icon icon="plus-circle"></b-icon> เพิ่มข้อมูล
+                <b-button variant="primary">เพิ่มข้อมูล
                 </b-button>
             </b-card>
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> ประวัติการทำงานพิเศษ
+                    <p class="mb-0">ประวัติการทำงานพิเศษ
                     </p>
                 </template>
                 <b-row>
@@ -411,8 +394,7 @@
                                     <td>1 เดือน</td>
                                     <td>10,000</td>
                                     <td>
-                                        <b-button variant="danger">
-                                            <b-icon icon="trash"></b-icon> ลบ
+                                        <b-button variant="danger">ลบ
                                         </b-button>
                                     </td>
                                 </tr>
@@ -424,8 +406,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> ข้อมูลรายได้ของนักศึกษา
+                    <p class="mb-0">ข้อมูลรายได้ของนักศึกษา
                     </p>
                 </template>
                 <b-row>
@@ -467,8 +448,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> ข้อมูลรายได้ของนักศึกษา
+                    <p class="mb-0">ข้อมูลรายได้ของนักศึกษา
                     </p>
                 </template>
                 <b-row>
@@ -505,8 +485,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="people"></b-icon> สถานะภาพบิดา-มารดา
+                    <p class="mb-0">สถานะภาพบิดา-มารดา
                     </p>
                 </template>
                 <b-row>
@@ -521,8 +500,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="house-door"></b-icon> บ้านที่อยู่อาศัย
+                    <p class="mb-0">บ้านที่อยู่อาศัย
                     </p>
                 </template>
                 <b-row>
@@ -555,8 +533,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pin-map"></b-icon> ที่ดิน
+                    <p class="mb-0">ที่ดิน
                     </p>
                 </template>
                 <b-row>
@@ -595,8 +572,7 @@
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> การทำกิจกรรม
+                    <p class="mb-0">การทำกิจกรรม
                     </p>
                 </template>
                 <b-row>
@@ -623,15 +599,13 @@
                         </b-form-group>
                     </div>
                 </b-row>
-                <b-button variant="primary">
-                    <b-icon icon="plus-circle"></b-icon> เพิ่มข้อมูล
+                <b-button variant="primary">เพิ่มข้อมูล
                 </b-button>
             </b-card>
 
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
-                    <p class="mb-0">
-                        <b-icon icon="pencil"></b-icon> ประวัติการทำงานพิเศษ
+                    <p class="mb-0">ประวัติการทำงานพิเศษ
                     </p>
                 </template>
                 <b-row>
@@ -653,8 +627,7 @@
                                     <td>2566</td>
                                     <td>8</td>
                                     <td>
-                                        <b-button variant="danger">
-                                            <b-icon icon="trash"></b-icon> ลบ
+                                        <b-button variant="danger">ลบ
                                         </b-button>
                                     </td>
                                 </tr>
