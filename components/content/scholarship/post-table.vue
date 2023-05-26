@@ -6,7 +6,7 @@
           <template #header>
             ทุนการศึกษาที่อยู่ระหว่างดำเนินการ
           </template>
-          <b-card-boy class="m-0 p-0">
+          <b-card-body class="m-0 p-0">
             <table class="table table-sm m-0 table-hover table-striped">
               <thead>
                 <tr class="text-center">
@@ -40,7 +40,7 @@
                 </tr>
               </tbody>
             </table>
-          </b-card-boy>
+          </b-card-body>
         </b-card>
       </b-col>
     </b-row>
@@ -50,7 +50,7 @@
           <template #header>
             ทุนการศึกษาที่ผ่านมา
           </template>
-          <b-card-boy class="m-0 p-0">
+          <b-card-body class="m-0 p-0">
             <table class="table table-sm m-0 table-hover table-striped">
               <thead>
                 <tr class="text-center">
@@ -84,7 +84,7 @@
                 </tr>
               </tbody>
             </table>
-          </b-card-boy>
+          </b-card-body>
         </b-card>
       </b-col>
     </b-row>
