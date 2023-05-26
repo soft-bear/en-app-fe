@@ -26,7 +26,6 @@
                   <td>2566</td>
                   <td>14 เม.ย. 2566-30 เม.ย.2566</td>
                   <td>
-                    <b-icon icon="check"></b-icon>
                   </td>
                 </tr>
                 <tr class="text-center">
@@ -37,7 +36,6 @@
                   <td>2566</td>
                   <td>14 เม.ย. 2566-30 เม.ย.2566</td>
                   <td>
-                    <b-icon icon="x"></b-icon>
                   </td>
                 </tr>
               </tbody>
@@ -72,7 +70,6 @@
                   <td>2566</td>
                   <td>14 เม.ย. 2566-30 เม.ย.2566</td>
                   <td>
-                    <b-icon icon="check"></b-icon>
                   </td>
                 </tr>
                 <tr class="text-center">
@@ -83,7 +80,6 @@
                   <td>2566</td>
                   <td>14 เม.ย. 2566-30 เม.ย.2566</td>
                   <td>
-                    <b-icon icon="x"></b-icon>
                   </td>
                 </tr>
               </tbody>

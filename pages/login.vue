@@ -1,7 +1,15 @@
 <template>
   <b-container>
-    <b-row>
-      <b-col>12</b-col>
+    <b-row class="justify-content-center">
+      <b-col cols="12" md="4">
+        <login class="my-4" />
+      </b-col>
     </b-row>
   </b-container>
 </template>
+
+<script>
+export default {
+  layout: 'normal'
+}
+</script>

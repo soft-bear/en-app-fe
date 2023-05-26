@@ -63,6 +63,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: process.env.API_URL || 'https://en-ubu-be.test',
+    credentials: true
   },
 
   router: {
@@ -71,29 +72,28 @@ export default {
   auth: {
     strategies: {
       'laravelSanctum': {
-        provider: 'laravel/sanctum',
-        url: `${process.env.API_URL || 'https://en-ubu-be.test'}`
-      },
+				provider: 'laravel/sanctum',
+				url: `${process.env.API_URL || 'https://en-ubu-be.test'}`
+			},
       sanctumToken: {
         provider: 'laravel/jwt',
-        url: `${process.env.API_URL || 'https://en-ubu-be.test'}`,
-        token: {
-          property: 'token',
-          global: true,
-        },
+        url: process.env.API_URL || 'https://en-ubu-api.test',
+				token: {
+					property: 'token',
+					global: true,
+				},
         endpoints: {
           login: { url: '/auth/login', method: 'post' },
-          logout: { url: '/auth/logout', method: 'get' },
-          user: { url: '/user/me', method: 'get' },
-          refresh: false,
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/user/me', method: 'get' }
         }
       }
     },
     redirect: {
       login: '/login',
       logout: '/login',
-      home: '/'
-    },
+			home: '/'
+		},
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -108,11 +108,3 @@ export default {
     },
   }
 }
-
-// // this `extend` callback is only needed if using Yarn Plug-n-Play
-// extend(config) {
-// config.resolve.plugins.push(PnpWebpackPlugin);
-// config.resolveLoader.plugins.push(PnpWebpackPlugin.moduleLoader(module));
-// }
-// }
-// };
