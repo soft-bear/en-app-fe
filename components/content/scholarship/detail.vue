@@ -31,11 +31,11 @@
           </b-card>
         </b-col>
       </b-row>
-      <b-row v-if="!$auth.loggedIn">
+      <b-row v-if="!loggedIn">
         <b-col>
           <b-card header-tag="div" class="text-center">
             <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
-            <div class="d-block"><b-button variant="outline-success" size="sm" @click="$router.push({ path: '/login' })">สมัครทุนการศึกษา</b-button></div>
+            <div class="d-block"><b-button variant="outline-success" size="sm" @click="$router.push('/login')">สมัครทุนการศึกษา</b-button></div>
           </b-card>
         </b-col>
       </b-row>
@@ -50,12 +50,7 @@ export default {
   props: ['data', 'loading'],
   data() {
     return {
-      pageType: ''
-    }
-  },
-  computed: {
-    checkAuthAndPage () {
-      return this.pageType == 'scholarship' && this.$auth.loggedIn
+      loggedIn: this.$auth.loggedIn
     }
   },
   methods: {
@@ -63,9 +58,5 @@ export default {
       return moment(date).add(543, 'years').format('DD/MM/YYYY HH:mm:ss')
     }
   },
-  created() {
-    console.log(this.$auth)
-    this.pageType = this.$route.path.split('/')[1].toLowerCase()
-  }
 }
 </script>
