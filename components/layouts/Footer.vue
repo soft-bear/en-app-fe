@@ -17,7 +17,7 @@
           </p>
         </b-col>
         <b-col cols="12" lg="6" md="6" class="text-left text-md-right">
-          <nuxt-link to="/policy" class="text-muted">นโยบายคุกกี้</nuxt-link>
+          <a href="https://docs.t-reg.co/6827fa77-6460-4fa2-ac5a-b7eea72f6f79/CookPol/ubu_cookie.pdf" class="text-muted" rel="noreferrer noopener">นโยบายคุกกี้</a>
         </b-col>
       </b-row>
     </b-container>
