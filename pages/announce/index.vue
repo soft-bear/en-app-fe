@@ -1,12 +1,14 @@
 <template>
-  <b-container>
+  <div class="container">
     <div class="row mt-4">
       <div class="col">
         <h4><strong>ประชาสัมพันธ์</strong></h4>
       </div>
     </div>
     <b-overlay :show="loading">
-      <content-announce :posts="announces" post-type="announce" v-if="!loading && announces.length" />
+      <div v-if="!loading && announces.length">
+        <content-announce :posts="announces" post-type="announce" />
+      </div>
       <div v-else-if="!loading && !announces.length" class="row mt-2 mb-4">
         <div class="col-12">
           <div class="card">
@@ -15,7 +17,7 @@
         </div>
       </div>
     </b-overlay>
-  </b-container>
+  </div>
 </template>
 
 <script>
