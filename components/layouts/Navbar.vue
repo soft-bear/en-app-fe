@@ -10,7 +10,7 @@
 				</b-navbar-nav>
 				<b-navbar-nav class="ml-auto">
 					<nuxt-link class="nav-link" to="/login" v-if="!isLoggedIn">เข้าสู่ระบบ</nuxt-link>
-					<a href="#" class="nav-link" @click="handleLogOut" v-else>ออกจากระบบ</a>
+					<a class="nav-link" style="cursor: pointer;" @click="handleLogOut" v-else>ออกจากระบบ</a>
 				</b-navbar-nav>
 			</b-collapse>
 		</b-container>

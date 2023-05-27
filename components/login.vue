@@ -34,10 +34,17 @@ export default {
       this.loading = true
       try {
         await this.$auth.loginWith('sanctumToken', { data: { username: this.username, password: this.password } })
-        console.log(this.$auth)
         this.$router.push('/')
       } catch (e) {
-        console.log('eiei', e)
+        this.$bvModal.msgBoxOk('ไม่สามารถเข้าสู่ระบบ', {
+          title: 'ผิดพลาด',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'danger',
+          headerClass: 'p-2 border-bottom-0',
+          footerClass: 'p-2 border-top-0',
+          centered: true
+        })
       }
       this.loading = false
     }
