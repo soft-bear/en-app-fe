@@ -6,14 +6,14 @@
     </b-form-group>
 
     <b-form-group label="รหัสผ่าน :">
-      <b-form-input :state="isInputPassword" v-model="password" type="password" placeholder="ระบุรหัสผ่านของคุณ" required size="sm"></b-form-input>
+      <b-form-input :state="isInputPassword" v-model="password" type="password" placeholder="ระบุรหัสผ่าน" required size="sm"></b-form-input>
     </b-form-group>
 
     <div class="d-block text-center">
-      <b-button type="submit" variant="primary" size="sm" :disabled="loading || !(isInputPassword && emailValidation)">
+      <b-button type="submit" variant="outline-success" size="sm" :disabled="loading || !(isInputPassword && emailValidation)">
         เข้าสู่ระบบ
       </b-button>
-      <nuxt-link class="btn btn-secondary btn-sm" to="/register">
+      <nuxt-link class="btn btn-outline-secondary btn-sm" to="/register">
         ลงทะเบียน
       </nuxt-link>
     </div>

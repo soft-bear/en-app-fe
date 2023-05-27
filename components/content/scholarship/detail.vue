@@ -114,7 +114,7 @@
             <b-card header-tag="div" class="text-center">
               <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
               <div class="d-block">
-                <b-button variant="outline-success" class="mt-1" size="sm" @click="$router.push('/login')">สมัครทุนการศึกษา</b-button>
+                <b-button variant="outline-success" class="mt-1" size="sm" @click="$router.push('/login')">เข้าสู่ระบบ</b-button>
               </div>
             </b-card>
           </div>

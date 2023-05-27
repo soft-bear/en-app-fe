@@ -1,6 +1,11 @@
 <template>
   <div class="container my-4">
     <div class="row">
+      <div class="col">
+        <h4><strong>ลงทะเบียน</strong></h4>
+      </div>
+    </div>
+    <div class="row mt-2">
       <div class="col-12">
         <div class="card">
           <div class="bg-info text-white card-header">
@@ -9,23 +14,23 @@
           <div class="card-body">
             <div class="mb-3">
               <label class="form-label">ชื่อ - นามสกุล</label>
-              <b-form-input class="form-control form-control-sm" :state="isInputFullname" v-model="form.fullname" required type="text"
-                placeholder="ไม่ต้องใส่คำนำหน้านาม" />
+              <b-form-input class="form-control form-control-sm" :state="isInputFullname" v-model="form.fullname" required
+                type="text" placeholder="ไม่ต้องใส่คำนำหน้านาม" />
             </div>
             <div class="mb-3">
               <label class="form-label">อีเมลแอดเดรส</label>
-              <b-form-input class="form-control form-control-sm" :state="emailValidation" v-model="form.username" required type="email"
-                placeholder="example@ubu.ac.th" />
+              <b-form-input class="form-control form-control-sm" :state="emailValidation" v-model="form.username" required
+                type="email" placeholder="example@ubu.ac.th" />
             </div>
             <div class="mb-3">
               <label class="form-label">ตั้งค่ารหัสผ่าน</label>
-              <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.set_password" required type="password"
-                placeholder="ระบุการตั้งค่ารหัสผ่าน" />
+              <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.set_password"
+                required type="password" placeholder="ระบุการตั้งค่ารหัสผ่าน" />
             </div>
             <div class="mb-3">
               <label class="form-label">ยืนยันรหัสผ่าน</label>
-              <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.con_password" required type="password"
-                placeholder="ระบุการยืนยันรหัสผ่าน" />
+              <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.con_password"
+                required type="password" placeholder="ระบุการยืนยันรหัสผ่าน" />
             </div>
           </div>
         </div>
