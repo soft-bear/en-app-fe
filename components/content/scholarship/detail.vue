@@ -87,6 +87,18 @@
                 <b-col class="card-post-detail" v-html="data.content"></b-col>
               </b-row>
               <div v-else class="text-center">ไม่มีข้อมูลในส่วนนี้</div>
+              <div class="row mt-4">
+                <div class="col">
+                  <small class="text-muted m-0 p-0">
+                    <ul class="m-0 p-0 small" style="list-style: none;">
+                      <li>เขียนโดย : {{ data.author?.name }}</li>
+                      <li v-if="data.created_at">แก้ไขโดย : {{ data.editor?.name }}</li>
+                      <li>เขียนเมื่อ : {{ onlyDate(data.created_at) }} {{ onlyTime(data.created_at) }} น.</li>
+                      <li v-if="data.updated_at">แก้ไขเมื่อ : {{ onlyDate(data.updated_at) }} {{ onlyTime(data.updated_at) }} น.</li>
+                    </ul>
+                  </small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -136,6 +148,17 @@ export default {
       }) : ''
     },
     onlyTime(datetime) {
+      let data = ''
+      if (datetime) {
+        data = new Date(datetime).toLocaleDateString('th-TH', {
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: false,
+        })
+        return data.split(' ')[1]
+      }
+
       return datetime
     },
     formatdate(date) {
