@@ -28,7 +28,9 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/moment-thai.js', mode: 'client' }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -57,7 +59,7 @@ export default {
     '@nuxtjs/auth-next',
   ],
   bootstrapVue: {
-    icons: false
+    icons: true
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

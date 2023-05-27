@@ -1,5 +1,5 @@
 <template>
-	<content-detail :data="data" :loading="loading" />
+	<content-announce-detail :data="data" :loading="loading" />
 </template>
 <script>
 export default {

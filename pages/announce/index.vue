@@ -6,7 +6,7 @@
       </div>
     </div>
     <b-overlay :show="loading">
-      <content-card-post-list :posts="announces" post-type="announce" />
+      <content-announce :posts="announces" post-type="announce" />
     </b-overlay>
   </b-container>
 </template>
