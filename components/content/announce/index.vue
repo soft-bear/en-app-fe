@@ -38,6 +38,6 @@ export default {
 <style scoped>
 .box-shadow img {
   max-height: 195px;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 </style>
