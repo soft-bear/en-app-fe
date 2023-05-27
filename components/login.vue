@@ -1,16 +1,16 @@
 <template>
   <b-form @submit.prevent.stop="handleSubmit">
     <b-form-group label="อีเมลแอดเดรส">
-      <b-form-input id="input-1" v-model="username" type="email" placeholder="email@ubu.ac.th" required size="sm">
+      <b-form-input :state="emailValidation" v-model="username" type="email" placeholder="email@ubu.ac.th" required size="sm">
       </b-form-input>
     </b-form-group>
 
     <b-form-group label="รหัสผ่าน :">
-      <b-form-input v-model="password" type="password" placeholder="ระบุรหัสผ่านของคุณ" required size="sm"></b-form-input>
+      <b-form-input :state="isInputPassword" v-model="password" type="password" placeholder="ระบุรหัสผ่านของคุณ" required size="sm"></b-form-input>
     </b-form-group>
 
     <div class="d-block text-center">
-      <b-button type="submit" variant="primary" size="sm" :disabled="loading">
+      <b-button type="submit" variant="primary" size="sm" :disabled="loading || !(isInputPassword && emailValidation)">
         เข้าสู่ระบบ
       </b-button>
       <nuxt-link class="btn btn-secondary btn-sm" to="/register">
@@ -29,12 +29,25 @@ export default {
       password: '',
     }
   },
+  computed: {
+    emailValidation() {
+      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      return this.username === '' ? null : pattern.test(this.username)
+    },
+    isInputPassword() {
+      return this.password === '' ? null : true
+    }
+  },
   methods: {
     async handleSubmit() {
       this.loading = true
       try {
-        await this.$auth.loginWith('sanctumToken', { data: { username: this.username, password: this.password } })
-        this.$router.push('/')
+        if (this.emailValidation && this.isInputPassword) {
+          await this.$auth.loginWith('sanctumToken', { data: { username: this.username, password: this.password } })
+          this.$router.push('/')
+        }
+
+        throw new Error('validation error')
       } catch (e) {
         this.$bvModal.msgBoxOk('ไม่สามารถเข้าสู่ระบบ', {
           title: 'ผิดพลาด',

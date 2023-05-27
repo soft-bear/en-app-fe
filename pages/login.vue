@@ -10,6 +10,7 @@
 
 <script>
 export default {
-  layout: 'normal'
+  middleware: ['authenticated'],
+  layout: 'content'
 }
 </script>
