@@ -1,7 +1,7 @@
 <template>
   <b-form @submit.prevent.stop="handleSubmit">
     <b-form-group label="อีเมลแอดเดรส">
-      <b-form-input :state="emailValidation" v-model="username" type="email" placeholder="email@ubu.ac.th" required size="sm">
+      <b-form-input :state="emailValidation" v-model="username" type="email" placeholder="example@ubu.ac.th" required size="sm">
       </b-form-input>
     </b-form-group>
 
