@@ -25,7 +25,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6">
-                  <div class="row">
+                  <div class="row mt-2 mt-md-0">
                     <div class="col-12 col-md-4"><strong>หมวดหมู่ทุนการศึกษา</strong></div>
                     <div class="col-12 col-md-8">{{ data.category?.name }}</div>
                   </div>
@@ -58,11 +58,11 @@
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>ชั่วโมงกิจกรรม</strong></div>
-                    <div class="col-12 col-md-8">{{ data.activity_hours ? `${data.activity_hours} ชั่วโมง` : '-' }}</div>
+                    <div class="col-12 col-md-8">{{ data.activity_hours ? `${data.activity_hours} ชั่วโมง` : 'ไม่กำหนด' }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>เกรดเฉลี่ยขั้นต่ำ</strong></div>
-                    <div class="col-12 col-md-8">{{ data.minimum_grade ? parseFloat(data.minimum_grade).toFixed(2) : '-' }}</div>
+                    <div class="col-12 col-md-8">{{ data.minimum_grade ? parseFloat(data.minimum_grade).toFixed(2) : 'ไม่กำหนด' }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>เอกสารประกอบ</strong></div>
