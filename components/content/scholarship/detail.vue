@@ -103,22 +103,24 @@
           </div>
         </div>
       </div>
-      <div class="row" v-if="!loggedIn && data.is_active">
-        <div class="col">
-          <b-card header-tag="div" class="text-center">
-            <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
-            <div class="d-block">
-              <b-button variant="outline-success" class="mt-1" size="sm" @click="$router.push('/login')">สมัครทุนการศึกษา</b-button>
-            </div>
-          </b-card>
-        </div>
-      </div>
-      <div class="row" v-else>
-        <div class="col">
-          <div class="card">
-            <div class="card-body text-center">
+      <div v-if="data.is_active">
+        <div class="row" v-if="!loggedIn">
+          <div class="col">
+            <b-card header-tag="div" class="text-center">
+              <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
               <div class="d-block">
-                <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
+                <b-button variant="outline-success" class="mt-1" size="sm" @click="$router.push('/login')">สมัครทุนการศึกษา</b-button>
+              </div>
+            </b-card>
+          </div>
+        </div>
+        <div class="row" v-else>
+          <div class="col">
+            <div class="card">
+              <div class="card-body text-center">
+                <div class="d-block">
+                  <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
+                </div>
               </div>
             </div>
           </div>
