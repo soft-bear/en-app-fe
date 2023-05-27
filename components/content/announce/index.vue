@@ -39,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.box-shadow img {
+  max-height: 195px;
+}
+</style>
