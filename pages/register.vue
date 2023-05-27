@@ -57,10 +57,14 @@
         </div>
       </div>
     </div>
-    <div class="row mt-4">
-      <div class="col text-center">
-        <button class="btn btn-sm" :class="form.is_consent ? 'btn-success' : 'btn-outline-secondary'"
-          :disabled="!form.is_consent">ลงทะเบียน</button>
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col text-center">
+            <button class="btn btn-sm" :class="checkSubmitForm ? 'btn-success' : 'btn-outline-secondary'"
+              :disabled="!checkSubmitForm">ลงทะเบียน</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -93,6 +97,9 @@ export default {
     },
     isInputFullname() {
       return this.form.fullname === '' ? null : true
+    },
+    checkSubmitForm() {
+      return this.emailValidation && this.isMatchPassword && this.isInputFullname && this.form.is_consent
     }
   }
 }
