@@ -24,6 +24,7 @@
     "bootstrap": "^4.6.2",
     "bootstrap-vue": "^2.22.0",
     "collect.js": "^4.34.3",
+    "cookieconsent": "^3.1.1",
     "core-js": "^3.25.3",
     "moment": "^2.29.4",
     "nuxt": "^2.15.8",
@@ -33,7 +34,6 @@
     "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
-    "@dargmuesli/nuxt-cookie-control": "^5.9.2",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@nuxtjs/fontawesome": "^1.1.2",
