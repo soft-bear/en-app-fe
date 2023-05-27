@@ -6,7 +6,14 @@
       </div>
     </div>
     <b-overlay :show="loading">
-      <content-announce :posts="announces" post-type="announce" />
+      <content-announce :posts="announces" post-type="announce" v-if="!loading && announces.length" />
+      <div v-else-if="!loading && !announces.length" class="row mt-2 mb-4">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center">ไม่มีข้อมูลในส่วนนี้</div>
+          </div>
+        </div>
+      </div>
     </b-overlay>
   </b-container>
 </template>
