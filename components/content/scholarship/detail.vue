@@ -9,7 +9,7 @@
                 <div class="col">
                   <div style="line-height: 34.6px;">ข้อมูลทุนการศึกษา - {{ data.name }}</div>
                 </div>
-                <div class="col text-right">
+                <div class="col text-right" v-if="loggedIn">
                   <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
                 </div>
               </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-      <div class="row" v-if="loggedIn">
+      <div class="row" v-if="!loggedIn">
         <div class="col">
           <b-card header-tag="div" class="text-center">
             <div class="d-block">เข้าสู่ระบบเพื่อดำเนินการสมัครทุนการศึกษา</div>
