@@ -92,7 +92,7 @@
                   <small class="text-muted m-0 p-0">
                     <ul class="m-0 p-0 small" style="list-style: none;">
                       <li>เขียนโดย : {{ data.author?.name }}</li>
-                      <li v-if="data.created_at">แก้ไขโดย : {{ data.editor?.name }}</li>
+                      <li v-if="data.updated_at">แก้ไขโดย : {{ data.editor?.name }}</li>
                       <li>เขียนเมื่อ : {{ onlyDate(data.created_at) }} {{ onlyTime(data.created_at) }} น.</li>
                       <li v-if="data.updated_at">แก้ไขเมื่อ : {{ onlyDate(data.updated_at) }} {{ onlyTime(data.updated_at) }} น.</li>
                     </ul>
