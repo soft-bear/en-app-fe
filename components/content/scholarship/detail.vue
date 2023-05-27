@@ -7,7 +7,9 @@
             <div class="card-header">
               <div class="row">
                 <div class="col">
-                  <div :style="loggedIn && data.is_active ? 'line-height: 34.6px;' : ''">ข้อมูลทุนการศึกษา - {{ data.name }}</div>
+                  <div :style="loggedIn && data.is_active ? 'line-height: 34.6px;' : ''">
+                    ข้อมูลทุนการศึกษา - {{ data.name }} (ภาคเรียนที่ {{ data.semester }}/{{ data.year }})
+                  </div>
                 </div>
                 <div class="col text-right" v-if="loggedIn && data.is_active">
                   <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
@@ -24,12 +26,12 @@
                 </div>
                 <div class="col-lg-6">
                   <div class="row">
-                    <div class="col-12 col-md-4"><strong>หมวดหมู่ทุน</strong></div>
-                    <div class="col-12 col-md-8">ทุนให้เปล่า</div>
+                    <div class="col-12 col-md-4"><strong>หมวดหมู่ทุนการศึกษา</strong></div>
+                    <div class="col-12 col-md-8">{{ data.category?.name }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>ประเภททุนการศึกษา</strong></div>
-                    <div class="col-12 col-md-8">ทุนให้เปล่า</div>
+                    <div class="col-12 col-md-8">{{ data.is_goingon ? 'ทุนต่อเนื่อง' : 'ทุนไม่ต่อเนื่อง' }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>จำนวนเงิน</strong></div>
