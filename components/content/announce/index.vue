@@ -19,11 +19,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-12 col-md-4" v-for="(post, index) in posts" :key="index">
-        <div class="card">
-          <div class="card-body">{{ post }}</div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -43,5 +38,6 @@ export default {
 <style scoped>
 .box-shadow img {
   max-height: 195px;
+  object-fit: scale-down;
 }
 </style>
