@@ -6,10 +6,17 @@
       </div>
     </div>
     <b-overlay :show="loading">
-      <div v-if="!loading && announces.length">
+      <div v-if="loading" class="row mt-2 mb-4">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body text-center">กำลังโหลด</div>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="announces.length">
         <content-announce :posts="announces" post-type="announce" />
       </div>
-      <div v-else-if="!loading && !announces.length" class="row mt-2 mb-4">
+      <div v-else class="row mt-2 mb-4">
         <div class="col-12">
           <div class="card">
             <div class="card-body text-center">ไม่มีข้อมูลในส่วนนี้</div>

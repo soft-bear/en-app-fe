@@ -12,7 +12,7 @@
       </thead>
       <tbody class="text-center text-nowrap">
         <tr>
-          <td class="text-primary text-left">
+          <td class="text-primary text-left scholarship-name">
             <b-link href="#">
               <strong>ทุนการศึกษาที่ 1</strong><br /><small class="text-muted">หมวดหมู่จ้า</small>
             </b-link>
@@ -31,5 +31,11 @@
 <style>
 td {
   vertical-align: middle !important;
+}
+
+.scholarship-name {
+  max-width: 50px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 </style>

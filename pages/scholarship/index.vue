@@ -6,7 +6,7 @@
       </div>
     </div>
     <b-overlay :show="loading">
-      <content-scholarship :posts="data" post-type="scholarship" />
+      <content-scholarship :posts="data" />
     </b-overlay>
   </b-container>
 </template>
