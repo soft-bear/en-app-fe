@@ -17,33 +17,35 @@
                 <div class="card-body small">
                   <b-form @submit.stop.prevent="setStudentData">
                     <div class="row">
-                      <div class="col-12 col-md-2">
+                      <div class="col-12 col-md-4">
                         <div class="form-group">
                           <label class="form-label" for="title">คำนำหน้านาม</label>
-                          <select v-model="student.title" class="form-control form-control-sm" id="title" required>
-                            <option>== เลือก ==</option>
-                            <option value="นาง">นาง</option>
-                            <option value="นางสาว">นางสาว</option>
-                            <option value="นาย">นาย</option>
-                          </select>
+                          <b-select :options="titleOptions" v-model="student.title" size="sm" id="title" required>
+                          </b-select>
                         </div>
                       </div>
-                      <div class="col-12 col-md-10">
+                      <div class="col-12 col-md-8">
                         <div class="form-group">
                           <label class="form-label" for="fullname">ชื่อจริง</label>
                           <input type="text" class="form-control form-control-sm" id="fullname" v-model="student.name" />
                         </div>
                       </div>
-                      <div class="col-12">
+                      <div class="col-12 col-md-4">
                         <div class="form-group">
                           <label class="form-label" for="student_id">เลขประจำตัวนักศึกษา</label>
                           <input type="number" class="form-control form-control-sm" id="student_id" v-model="student.student_id" />
                         </div>
                       </div>
-                      <div class="col-12">
+                      <div class="col-12 col-md-4">
                         <div class="form-group">
-                          <label class="form-label" for="username">อีเมลแอดเดรส</label>
-                          <input type="email" class="form-control form-control-sm" disabled :value="$auth.user.data.username" />
+                          <label class="form-label" for="username">คณะ/วิทยาลัย</label>
+                          <b-select size="sm" :options="facultyOptions" v-model="student.faculty_id"></b-select>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4">
+                        <div class="form-group">
+                          <label class="form-label" for="department_id">ภาควิชา</label>
+                          <b-select size="sm" :options="departmentOptions" v-model="student.department_id"></b-select>
                         </div>
                       </div>
                       <div class="col-12">
@@ -116,14 +118,32 @@ export default {
       loading: false,
       student: {
         student_id: '',
-        title: this.$auth.user.data?.title,
-        name: this.$auth.user.data.name,
+        title: '',
+        name: '',
+        faculty_id: '',
+        department_id: '',
       },
       password: {
         old_password: '',
         set_password: '',
         con_password: '',
-      }
+      },
+      titleOptions: [
+        { text: '== เลือก ==', value: '' },
+        { text: 'นาง', value: 'นาง' },
+        { text: 'นางสาว', value: 'นางสาว' },
+        { text: 'นาย', value: 'นาย' }
+      ],
+    }
+  },
+  computed: {
+    facultyOptions() {
+      const options = [{ text: '== เลือก ==', value: '' }]
+      return options
+    },
+    departmentOptions() {
+      const options = [{ text: '== เลือก ==', value: '' }]
+      return options
     }
   },
   methods: {
