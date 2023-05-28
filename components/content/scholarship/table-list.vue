@@ -57,7 +57,7 @@ td {
 }
 
 .scholarship-name {
-  max-width: 50px;
+  max-width: 300px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
