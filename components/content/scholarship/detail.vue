@@ -12,7 +12,7 @@
                   </div>
                 </div>
                 <div class="col text-right" v-if="loggedIn && data.is_active">
-                  <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
+                  <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
                 </div>
               </div>
             </div>
@@ -119,12 +119,12 @@
             </b-card>
           </div>
         </div>
-        <div class="row" v-else>
+        <div class="row mb-4" v-else>
           <div class="col">
             <div class="card">
               <div class="card-body text-center">
                 <div class="d-block">
-                  <b-button variant="outline-primary" class="mt-1" size="sm">สมัครทุนการศึกษา</b-button>
+                  <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
                 </div>
               </div>
             </div>
@@ -142,6 +142,7 @@ export default {
   props: ['data', 'loading'],
   data() {
     return {
+      checking: false,
       loggedIn: this.$auth.loggedIn
     }
   },
@@ -185,6 +186,32 @@ export default {
     },
     formatdate(date) {
       return moment(date).add(543, 'years').format('DD/MM/YYYY HH:mm:ss')
+    },
+    messageBox(data, error=false) {
+      return this.$bvModal.msgBoxOk(data, {
+        title: !error ? 'สำเร็จ' : 'ผิดพลาด',
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: !error ? 'success' : 'danger',
+        headerClass: 'p-2 border-bottom-0',
+        footerClass: 'p-2 border-top-0',
+        centered: true
+      })
+    },
+    async onClickRegisterButton() {
+      this.checking = true
+      try {
+        const { data: { data } } = await this.$axios.get('/user/me')
+        data.student && this.$bvModal.show('modal-application-form')
+        throw 'ไม่พบข้อมูลนักศึกษา'
+      } catch (e) {
+        this.messageBox(e, true).then(() => {
+          this.messageBox('ระบบกำลังพาไปหน้าบันทึกข้อมูลนักศึกษา').then(() => {
+            this.$router.push('/account')
+          })
+        })
+      }
+      this.checking = false
     }
   },
 }

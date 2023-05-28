@@ -22,7 +22,7 @@
               <strong>{{ item.name }}</strong><br /><small class="text-muted">{{ item.category?.name }}</small>
             </nuxt-link>
           </td>
-          <td class="text-success">กำลังเปิดรับสมัคร</td>
+          <td :class="txtColor(item.status)">{{ progress(item.status) }}</td>
           <td>{{ item.semester }}/{{ item.year }}</td>
           <td>{{ onlyDate(item.from_date) }} - {{ onlyDate(item.to_date) }}</td>
           <td>
@@ -39,6 +39,15 @@
 export default {
   props: ['data'],
   methods: {
+    progress(status) {
+      switch (status) {
+        case 'opening': return 'กำลังเปิดรับสมัคร'; break;
+        case 'in_progress': return 'กำลังดำเนินการ'; break;
+        case 'canceled': return 'ยกเลิกการรับสมัคร'; break;
+        case 'announced': return 'ประกาศผลแล้ว'; break;
+        default: return 'ไม่ระบุ'; break;
+      }
+    },
     onlyDate(datetime) {
       return datetime ? new Date(datetime).toLocaleString('th-TH', {
         year: 'numeric',
@@ -47,6 +56,15 @@ export default {
         weekday: 'short'
       }) : ''
     },
+    txtColor(status) {
+      switch (status) {
+        case 'opening': return 'text-success'; break;
+        case 'in_progress': return 'text-warning'; break;
+        case 'canceled': return 'text-danger'; break;
+        case 'announced': return 'text-primary'; break;
+        default: return 'text-muted'; break;
+      }
+    }
   }
 }
 </script>

@@ -1,5 +1,8 @@
 <template>
-    <div>
+  <div class="card">
+    <div class="card-body">Hello</div>
+  </div>
+    <!-- <div>
         <b-container class="py-4">
             <b-card class="mb-3" border-variant="primary" header-bg-variant="primary" header-text-variant="white">
                 <template #header>
@@ -637,7 +640,7 @@
                 </b-row>
             </b-card>
         </b-container>
-    </div>
+    </div> -->
 </template>
 
 <script>
