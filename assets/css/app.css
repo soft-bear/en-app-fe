@@ -6,13 +6,14 @@
 
 html,
 body {
-  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
+  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif !important;
 }
 
 input,
 select,
-textarea {
-  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif;
+textarea,
+.vth-addr-input {
+  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif !important;
   /* font-family: 'Google Sans', sans-serif; */
 }
 

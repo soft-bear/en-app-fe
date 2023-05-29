@@ -79,7 +79,7 @@
           </div>
         </b-col>
       </div>
-      <div class="row mb-4">
+      <div class="row mb-4" v-if="!showForm">
         <div class="col">
           <div class="card">
             <div class="card-header">รายละเอียด</div>
@@ -121,7 +121,16 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card">
+            <div class="card border-info" v-if="showForm">
+              <div class="card-header bg-info text-white text-center">
+                แบบฟอร์มลงทะเบียนทุนการศึกษา
+              </div>
+              <div class="card-body">
+                <register-step1 />
+                <!-- <content-scholarship-register /> -->
+              </div>
+            </div>
+            <div class="card" v-else>
               <div class="card-body text-center">
                 <div class="d-block">
                   <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
@@ -143,6 +152,7 @@ export default {
   data() {
     return {
       checking: false,
+      showForm: false,
       loggedIn: this.$auth.loggedIn
     }
   },
@@ -203,11 +213,13 @@ export default {
       try {
         const { data: { data } } = await this.$axios.get('/user/me')
         if (data.student) {
-          this.$bvModal.show('modal-application-form')
+          this.showForm = true
+          // this.$bvModal.show('modal-application-form')
         } else {
           throw 'ไม่พบข้อมูลนักศึกษา'
         }
       } catch (e) {
+        this.showForm = false
         this.messageBox(e, true).then(() => {
           this.messageBox('ระบบกำลังพาไปหน้าบันทึกข้อมูลนักศึกษา').then(() => {
             this.$router.push('/account')
