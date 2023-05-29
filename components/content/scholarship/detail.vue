@@ -121,13 +121,14 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-info" v-if="showForm">
+            <div class="card border-info" v-if="!showForm">
               <div class="card-header bg-info text-white text-center">
                 แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
               <div class="card-body">
                 <register-step1 />
-                <!-- <content-scholarship-register /> -->
+                <!-- <register-step2 /> -->
+                <!-- <register-step3 /> -->
               </div>
             </div>
             <div class="card" v-else>

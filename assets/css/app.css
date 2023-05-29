@@ -11,10 +11,32 @@ body {
 
 input,
 select,
-textarea,
-.vth-addr-input {
+textarea {
   font-family: 'Noto Sans Thai', 'Google Sans', sans-serif !important;
   /* font-family: 'Google Sans', sans-serif; */
+}
+
+.vth-addr-input,
+.vth-addr-list,
+.vth-addr-list-container,
+.item-first,
+.vth-addr-item-first,
+.vth-addr-item-second,
+.vth-addr-item-third {
+  font-family: 'Noto Sans Thai', 'Google Sans', sans-serif !important;
+}
+
+.vth-addr-input-size-default,
+.vth-addr-list,
+.vth-addr-list-container,
+.vth-addr-item-first,
+.vth-addr-item-second,
+.vth-addr-item-third {
+  font-size: 0.875rem !important;
+}
+
+.vth-addr-input {
+  box-shadow: none !important;
 }
 
 input::-webkit-outer-spin-button,
