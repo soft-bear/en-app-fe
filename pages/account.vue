@@ -172,6 +172,11 @@ export default {
       this.loading = true
       try {
         await this.$axios.put('/user/me/change-password', this.password)
+        this.password = {
+          old_password: '',
+          set_password: '',
+          con_password: '',
+        }
         this.messageBox('เปลี่ยนรหัสผ่านสำเร็จแล้ว')
       } catch (e) {
         this.messageBox('ไม่สามารถเปลี่ยนรหัสผ่าน', true)
