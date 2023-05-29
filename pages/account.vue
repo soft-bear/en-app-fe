@@ -39,7 +39,7 @@
                       <div class="col-12 col-md-4">
                         <div class="form-group">
                           <label class="form-label" for="username">คณะ/วิทยาลัย</label>
-                          <b-select size="sm" :options="facultyOptions" v-model="student.faculty_id"></b-select>
+                          <b-select size="sm" :options="facultyOptions" @change="student.department_id = ''" v-model="student.faculty_id"></b-select>
                         </div>
                       </div>
                       <div class="col-12 col-md-4">
@@ -134,16 +134,23 @@ export default {
         { text: 'นางสาว', value: 'นางสาว' },
         { text: 'นาย', value: 'นาย' }
       ],
+      faculties: []
     }
   },
   computed: {
     facultyOptions() {
       const options = [{ text: '== เลือก ==', value: '' }]
-      return options
+      const result = this.faculties.map(i => ({ text: i.name, value: i.id }))
+
+      return [...options, ...result]
     },
     departmentOptions() {
       const options = [{ text: '== เลือก ==', value: '' }]
-      return options
+      const faculty = this.student.faculty_id != '' ? this.faculties.find(i => i.id == this.student.faculty_id) : []
+      const getData = Object.keys(faculty).length ? faculty.departments.map(i => ({ text: i.name, value: i.id })) : []
+      const result = getData.sort((a,b) => a.text.localeCompare(b.text, "th"))
+
+      return [...options, ...result]
     }
   },
   methods: {
@@ -182,7 +189,18 @@ export default {
         this.messageBox('ไม่สามารถเปลี่ยนรหัสผ่าน', true)
       }
       this.loading = false
+    },
+    async getFacultiesData() {
+      try {
+        const { data: { data } } = await this.$axios.get('/faculties')
+        this.faculties = data
+      } catch (e) { }
     }
   },
+  async created() {
+    this.loading = true
+    await this.getFacultiesData()
+    this.loading = false
+  }
 }
 </script>
