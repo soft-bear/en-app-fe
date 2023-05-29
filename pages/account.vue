@@ -33,7 +33,7 @@
                       <div class="col-12 col-md-4">
                         <div class="form-group">
                           <label class="form-label" for="student_id">เลขประจำตัวนักศึกษา</label>
-                          <input type="number" class="form-control form-control-sm" id="student_id" v-model="student.student_id" />
+                          <input type="number" class="form-control form-control-sm" id="student_id" v-model="student.student_id" min="0" />
                         </div>
                       </div>
                       <div class="col-12 col-md-4">
@@ -147,7 +147,7 @@ export default {
     departmentOptions() {
       const options = [{ text: '== เลือก ==', value: '' }]
       const faculty = this.student.faculty_id != '' ? this.faculties.find(i => i.id == this.student.faculty_id) : []
-      const getData = Object.keys(faculty).length ? faculty.departments.map(i => ({ text: i.name, value: i.id })) : []
+      const getData = faculty != null && Object.keys(faculty).length ? faculty.departments.map(i => ({ text: i.name, value: i.id })) : []
       const result = getData.sort((a,b) => a.text.localeCompare(b.text, "th"))
 
       return [...options, ...result]
@@ -190,15 +190,30 @@ export default {
       }
       this.loading = false
     },
+    async setStudentData() {
+      try {
+        await this.$axios.put('/user/me/student', this.student)
+        this.messageBox('บันทึกการเปลี่ยนแปลงสำเร็จแล้ว')
+      } catch (e) {
+        this.messageBox('ไม่สามารถบันทึกการเปลี่ยนแปลง', true)
+      }
+    },
     async getFacultiesData() {
       try {
         const { data: { data } } = await this.$axios.get('/faculties')
         this.faculties = data
       } catch (e) { }
-    }
+    },
   },
   async created() {
     this.loading = true
+    this.student = {
+      student_id: this.$auth.user.data.student?.student_id ?? '',
+      title: this.$auth.user.data.student?.title ?? '',
+      name: this.$auth.user.data.name,
+      faculty_id: this.$auth.user.data.student?.faculty_id ?? '',
+      department_id: this.$auth.user.data.student?.department_id ?? '',
+    },
     await this.getFacultiesData()
     this.loading = false
   }
