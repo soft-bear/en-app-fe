@@ -202,7 +202,11 @@ export default {
       this.checking = true
       try {
         const { data: { data } } = await this.$axios.get('/user/me')
-        data.student ? this.$bvModal.show('modal-application-form') : throw 'ไม่พบข้อมูลนักศึกษา'
+        if (data.student) {
+          this.$bvModal.show('modal-application-form')
+        } else {
+          throw 'ไม่พบข้อมูลนักศึกษา'
+        }
       } catch (e) {
         this.messageBox(e, true).then(() => {
           this.messageBox('ระบบกำลังพาไปหน้าบันทึกข้อมูลนักศึกษา').then(() => {
