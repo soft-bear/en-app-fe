@@ -38,14 +38,14 @@
                       </div>
                       <div class="col-12 col-md-4">
                         <div class="form-group">
-                          <label class="form-label" for="username">คณะ/วิทยาลัย</label>
-                          <b-select size="sm" :options="facultyOptions" @change="student.department_id = ''" v-model="student.faculty_id"></b-select>
+                          <label class="form-label" for="faculty_id">คณะ/วิทยาลัย</label>
+                          <b-select size="sm" :options="facultyOptions" id="faculty_id" v-model="student.faculty_id" @change="student.department_id = ''"></b-select>
                         </div>
                       </div>
                       <div class="col-12 col-md-4">
                         <div class="form-group">
                           <label class="form-label" for="department_id">ภาควิชา</label>
-                          <b-select size="sm" :options="departmentOptions" v-model="student.department_id"></b-select>
+                          <b-select size="sm" :options="departmentOptions" id="department_id" v-model="student.department_id"></b-select>
                         </div>
                       </div>
                       <div class="col-12">
