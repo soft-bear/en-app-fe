@@ -49,8 +49,12 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-nav.bg-eng {
-  background-color: var(---primary);
+.bg-eng {
+  background-color: var(---primary) !important;
+}
+
+.border-eng {
+  border-color: var(---primary) !important;
 }
 
 .google-sans {

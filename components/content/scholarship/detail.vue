@@ -16,7 +16,7 @@
                 </div>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body" v-if="!loading">
               <div class="row">
                 <div class="col-12 col-md-6 text-center">
                   <div class="image-container" v-if="!loading">
@@ -76,6 +76,11 @@
                 </div>
               </div>
             </div>
+            <div class="card-body text-center" v-else>
+              <div class="row">
+                <div class="col">กำลังโหลด</div>
+              </div>
+            </div>
           </div>
         </b-col>
       </div>
@@ -121,14 +126,14 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-info" v-if="showForm">
-              <div class="card-header bg-info text-white text-center">
+            <div class="card border-primary" v-if="!showForm">
+              <div class="card-header bg-primary text-white text-center">
                 แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
               <div class="card-body">
-                <register-step1 v-if="currStep == 1" />
-                <register-step2 v-if="currStep == 2" />
-                <register-step3 v-if="currStep == 3" />
+                <!-- <register-step1 /> -->
+                <!-- <register-step2 /> -->
+                <register-step3 />
               </div>
             </div>
             <div class="card" v-else>
