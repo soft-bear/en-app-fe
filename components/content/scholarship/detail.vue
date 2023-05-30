@@ -121,14 +121,14 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-info" v-if="!showForm">
+            <div class="card border-info" v-if="showForm">
               <div class="card-header bg-info text-white text-center">
                 แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
               <div class="card-body">
-                <register-step1 />
-                <!-- <register-step2 /> -->
-                <!-- <register-step3 /> -->
+                <register-step1 v-if="currStep == 1" />
+                <register-step2 v-if="currStep == 2" />
+                <register-step3 v-if="currStep == 3" />
               </div>
             </div>
             <div class="card" v-else>
@@ -158,6 +158,9 @@ export default {
     }
   },
   computed: {
+    currStep() {
+      return this.$store.state.application.curStep
+    },
     dateDiff() {
       if (this.data.from_date && this.data.to_date) {
         const date1 = new Date()

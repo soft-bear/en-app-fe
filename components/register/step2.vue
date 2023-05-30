@@ -1,5 +1,5 @@
 <template>
-  <form class="small">
+  <form @submit.stop.prevent="handleSubmit" class="small">
     <div class="row">
       <div class="col">
         <div class="card border-primary">
@@ -11,13 +11,13 @@
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="name">ชื่อทุนการศึกษา</label>
-                  <input class="form-control form-control-sm" name="name" required />
+                  <input class="form-control form-control-sm" name="name" />
                 </div>
               </div>
               <div class="mb-3 col-md-3">
                 <div>
                   <label class="form-label" for="fund">จำนวนเงิน</label>
-                  <input class="form-control form-control-sm" name="money" required type="number" />
+                  <input class="form-control form-control-sm" name="money" type="number" />
                 </div>
               </div>
               <div class="mb-3 col-md-3">
@@ -34,7 +34,7 @@
                 <div>
                   <label class="form-label" for="addItem">&nbsp;</label><br />
                   <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-sm btn-block">
+                    <button class="btn btn-primary btn-sm btn-block">
                       เพิ่ม
                     </button>
                   </div>
@@ -77,10 +77,11 @@
                 <div class="form-group">
                   <label for="">กองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.,กรอ.)</label>
                   <select id="studentloan" required class="form-control form-control-sm">
+                    <option value="">== เลือก ==</option>
+                    <option value="0">ไม่ได้กู้</option>
                     <option value="1">กู้ยืมค่าธรรมเนียมการศึกษา</option>
                     <option value="2">กู้ยืมค่าครองชีพรายเดือน</option>
                     <option value="3">กู้ยืมธรรมเนียมการศึกษาและค่าครองชีพรายเดือน</option>
-                    <option value="0">ไม่ได้กู้</option>
                   </select>
                 </div>
               </div>
@@ -96,3 +97,18 @@
     </div>
   </form>
 </template>
+
+<script>
+import { mapActions } from 'vuex'
+
+export default {
+  methods: {
+    ...mapActions({
+      nextStep: 'application/nextStep',
+    }),
+    handleSubmit() {
+      this.nextStep(this.$store.state.application.curStep)
+    }
+  }
+}
+</script>
