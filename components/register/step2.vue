@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="card border-secondary">
-                  <div class="card-header bg-secondary text-white">ปีการศึกษาที่ x ภาคเรียนที่ y</div>
+                  <div class="card-header bg-secondary text-white">ภาคเรียนที่ {{ show1stSemester }} / {{ show1stYear }}</div>
                   <div class="card-body">
                     <div class="row">
                       <div class="mb-3 col-md-6">
@@ -31,7 +31,7 @@
               </div>
               <div class="col-12 col-md-6">
                 <div class="card border-secondary mt-2 mt-md-0">
-                  <div class="card-header bg-secondary text-white">ปีการศึกษาที่ x ภาคเรียนที่ y</div>
+                  <div class="card-header bg-secondary text-white">ภาคเรียนที่ {{ show2ndSemester }} / {{ show2ndYear }}</div>
                   <div class="card-body">
                     <div class="row">
                       <div class="mb-3 col-md-6">
@@ -58,50 +58,60 @@
         <div class="card border-eng mt-2">
           <div class="card-header bg-eng text-white">ข้อมูลด้านครอบครัว <small>(ระบุทุกคน บิดา/มารดา/พี่/น้อง รวมตัวนักศึกษาด้วย)</small></div>
           <div class="card-body">
-            <div class="row">
-              <div class="mb-3 col-md-6">
-                <div>
-                  <label class="form-label" for="name">ชื่อ-สกุล</label>
-                  <input class="form-control form-control-sm" name="name" required />
+            <form @submit.stop.prevent="addFamily">
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <div>
+                    <label class="form-label" for="fullName">ชื่อ-สกุล</label>
+                    <input class="form-control form-control-sm" id="fullName" v-model="family.full_name" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="age">อายุ</label>
+                    <input class="form-control form-control-sm" id="age" v-model="family.age" required min="0" type="number" />
+                  </div>
+                </div>
+                <div class="mb-3 col-lg-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="relate">ความเกี่ยวข้อง</label>
+                    <input class="form-control form-control-sm" id="relate" v-model="family.relationship" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-lg-3 col-md-6">
+                  <div>
+                    <label class="form-label" for="education">ระดับการศึกษา</label>
+                    <input class="form-control form-control-sm" id="education" v-model="family.education" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-lg-3 col-md-6">
+                  <div>
+                    <label class="form-label" for="occupation">อาชีพ</label>
+                    <input class="form-control form-control-sm" id="occupation" v-model="family.occupation" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-lg-3 col-md-6">
+                  <div>
+                    <label class="form-label" for="work_place">สถานที่ทำงาน/ศึกษา</label>
+                    <input class="form-control form-control-sm" id="work_place" v-model="family.work_place" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-lg-3 col-md-6">
+                  <div>
+                    <label class="form-label" for="salary">รายได้:เดือน</label>
+                    <input class="form-control form-control-sm" id="salary" v-model="family.salary" required min="0" type="number" />
+                  </div>
                 </div>
               </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="age">อายุ</label>
-                  <input class="form-control form-control-sm" name="age" required min="0" type="number" />
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-sm btn-primary">เพิ่ม</button>
                 </div>
               </div>
-              <div class="mb-3 col-lg-3 col-md-3">
-                <div>
-                  <label class="form-label" for="relate">ความเกี่ยวข้อง</label>
-                  <input class="form-control form-control-sm" name="relate" required />
-                </div>
+              <div class="row">
+                <div class="col"><hr /></div>
               </div>
-              <div class="mb-3 col-lg-3 col-md-6">
-                <div>
-                  <label class="form-label" for="education">ระดับการศึกษา</label>
-                  <input class="form-control form-control-sm" name="education" required />
-                </div>
-              </div>
-              <div class="mb-3 col-lg-3 col-md-6">
-                <div>
-                  <label class="form-label" for="occupation">อาชีพ</label>
-                  <input class="form-control form-control-sm" name="occupation" required />
-                </div>
-              </div>
-              <div class="mb-3 col-lg-3 col-md-6">
-                <div>
-                  <label class="form-label" for="work_place">สถานที่ทำงาน/ศึกษา</label>
-                  <input class="form-control form-control-sm" name="work_place" required />
-                </div>
-              </div>
-              <div class="mb-3 col-lg-3 col-md-6">
-                <div>
-                  <label class="form-label" for="salary">รายได้:เดือน</label>
-                  <input class="form-control form-control-sm" name="salary" required min="0" type="number" />
-                </div>
-              </div>
-            </div>
+            </form>
             <div class="card border-secondary small m-0">
               <div class="card-header bg-secondary text-white">
                 <span class="align-middle">รายชื่อบุคคลในครอบครัว</span>
@@ -111,16 +121,30 @@
                   <thead>
                     <tr>
                       <th>ชื่อ - สกุล</th>
-                      <th class="d-none d-xl-table-cell">ความเกี่ยวข้อง</th>
                       <th class="d-none d-xl-table-cell">ระดับการศึกษา</th>
                       <th class="d-none d-md-table-cell">สถานที่ทำงาน/ศึกษา</th>
-                      <th class="d-none d-md-table-cell">รายได้:เดือน</th>
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody v-if="form.family.length">
+                    <tr v-for="(member, index) in form.family" :key="index">
+                      <td>
+                        <strong>{{ member.full_name }}</strong><br />
+                        <span class="text-muted">{{ member.relationship }}&nbsp;อายุ: {{ member.age }}</span>
+                      </td>
+                      <td>{{ member.education }}</td>
+                      <td>
+                        <strong>{{ member.work_place }}</strong><br />
+                        <span class="text-muted">อาชีพ: {{ member.occupation }}, รายได้: {{ member.salary }}</span>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-xs btn-danger" @click="delFamily(index)">ลบ</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody v-else>
                     <tr>
-                      <td colspan="6" class="text-center">
+                      <td colspan="4" class="text-center">
                         <span class="align-middle">ยังไม่มีข้อมูล</span>
                       </td>
                     </tr>
@@ -133,38 +157,50 @@
         <div class="card border-eng mt-2">
           <div class="card-header bg-eng text-white">การทำงานในปีที่ผ่านมา</div>
           <div class="card-body">
-            <div class="row">
-              <div class="mb-3 col-md-12">
-                <div>
-                  <label class="form-label" for="name">งานที่ทำ</label>
-                  <input class="form-control form-control-sm" name="name" required />
+            <form @submit.stop.prevent="addJob">
+              <div class="row">
+                <div class="mb-3 col-md-12">
+                  <div>
+                    <label class="form-label" for="workName">งานที่ทำ</label>
+                    <input class="form-control form-control-sm" id="workName" v-model="job.name" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="workPlace">สถานที่ทำงาน</label>
+                    <input class="form-control form-control-sm" id="workPlace" v-model="job.place" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="gotSalary">จำนวนเงินที่ได้รับ</label>
+                    <input class="form-control form-control-sm" id="gotSalary" v-model="job.money" required type="number" min="0" />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="beginWorkDate">วันที่เริ่มงาน</label>
+                    <input class="form-control form-control-sm" id="beginWorkDate" v-model="job.job_begin" required min="1" type="date" />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="endWorkDate">วันที่จบงาน</label>
+                    <input class="form-control form-control-sm" id="endWorkDate" v-model="job.leave_job" required min="1" type="date" />
+                  </div>
                 </div>
               </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="place">สถานที่ทำงาน</label>
-                  <input class="form-control form-control-sm" name="place" required />
+              <div class="row">
+                <div class="col">
+                  <button type="submit" class="btn btn-primary btn-sm">เพิ่ม</button>
                 </div>
               </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="wage">จำนวนเงินที่ได้รับ</label>
-                  <input class="form-control form-control-sm" name="wage" required />
+              <div class="row">
+                <div class="col">
+                  <hr />
                 </div>
               </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="s_date">วันที่เริ่มงาน</label>
-                  <input class="form-control form-control-sm" name="s_date" required min="1" type="date" />
-                </div>
-              </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="e_date">วันที่จบงาน</label>
-                  <input class="form-control form-control-sm" name="e_date" required min="1" type="date" />
-                </div>
-              </div>
-            </div>
+            </form>
             <div class="card border-secondary small m-0">
               <div class="card-header bg-secondary text-white">
                 <span class="align-middle">ประวัติการทำงานพิเศษ</span>
@@ -180,7 +216,18 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody v-if="form.jobs.length">
+                    <tr v-for="(job, index) in form.jobs" :key="index">
+                      <td>{{ job.name }}</td>
+                      <td>{{ job.place }}</td>
+                      <td>{{ job.job_begin }} - {{ job.leave_job }}</td>
+                      <td>{{ job.money }}</td>
+                      <td>
+                        <button @click="delJob(index)" class="btn btn-xs btn-danger">ลบ</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody v-else>
                     <tr>
                       <td colspan="5" class="text-center">
                         <span class="align-middle">ยังไม่มีข้อมูล</span>
@@ -206,6 +253,7 @@
 import { mapActions } from 'vuex'
 
 export default {
+  props: ['semester', 'year'],
   data() {
     return {
       form: {
@@ -215,18 +263,75 @@ export default {
         gpax_two: '',
         family: [],
         jobs: [],
-        incomes: {},
-        expenses: {},
-        parent: {},
-        landOwnership: {},
-        activities: [],
-      }
+      },
+      family: {
+        full_name: '',
+        age: '',
+        relationship: '',
+        education: '',
+        occupation: '',
+        work_place: '',
+        salary: '',
+      },
+      job: {
+        name: '',
+        place: '',
+        money: '',
+        job_begin: '',
+        leave_job: '',
+      },
     }
+  },
+  computed: {
+    show1stSemester() {
+      return this.semester == 1 ? 1 : 2
+    },
+    show2ndSemester() {
+      return this.semester == 2 ? 1 : 2
+    },
+    show1stYear() {
+      return this.year - 1
+    },
+    show2ndYear() {
+      return this.semester == 1 ? this.year - 1 : this.year
+    },
   },
   methods: {
     ...mapActions({
       nextStep: 'application/nextStep',
     }),
+    delJob(index) {
+      const newArray = [...this.form.jobs]
+      newArray.splice(index, 1)
+      this.form.jobs = newArray
+    },
+    addJob() {
+      this.form.jobs.push({
+        name:     this.job.name,
+        place:    this.job.place,
+        money:    this.job.money,
+        job_begin:this.job.job_begin,
+        leave_job:this.job.leave_job,
+      })
+      Object.keys(this.job).forEach(i => this.job[i] = '')
+    },
+    delFamily(index) {
+      const newArray = [...this.form.family]
+      newArray.splice(index, 1)
+      this.form.family = newArray
+    },
+    addFamily() {
+      this.form.family.push({
+        full_name   : this.family.full_name,
+        age         : this.family.age,
+        relationship: this.family.relationship,
+        education   : this.family.education,
+        occupation  : this.family.occupation,
+        work_place  : this.family.work_place,
+        salary      : this.family.salary,
+      })
+      Object.keys(this.family).forEach(i => this.family[i] = '')
+    },
     handleSubmit() {
       this.nextStep(this.$store.state.application.curStep)
     }

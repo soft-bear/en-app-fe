@@ -1,5 +1,5 @@
 <template>
-  <form @submit.stop.prevent="handleSubmit" class="small">
+  <div class="small">
     <div class="row">
       <div class="col-12">
         <div class="card outline-eng">
@@ -9,31 +9,31 @@
               <div class="col-12 col-md-3">
                 <div class="form-group">
                   <label class="form-label" for="year_class">ชั้นปี</label>
-                  <input type="number" class="form-control form-control-sm" id="year_class" name="year_class" required>
+                  <input type="number" class="form-control form-control-sm" id="year_class" v-model="form.year_class" required>
                 </div>
               </div>
               <div class="col-12 col-md-3">
                 <div class="form-group">
                   <label class="form-label" for="gpax">เกรดเฉลี่ยสะสม</label>
-                  <input type="number" class="form-control form-control-sm" id="gpax" name="gpax" min="0" max="4" step="any" required>
+                  <input type="number" class="form-control form-control-sm" id="gpax" v-model="form.gpax" min="0" max="4" step="any" required>
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label class="form-label" for="mobile_no">หมายเลขโทรศัพท์</label>
-                  <input type="tel" class="form-control form-control-sm" id="mobile_no" name="mobile_no" required>
+                  <input type="tel" class="form-control form-control-sm" id="mobile_no" v-model="form.mobile_no" required>
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label class="form-label" for="line_id">Line ID <small class="text-danger">(ไม่จำเป็น)</small></label>
-                  <input type="text" class="form-control form-control-sm" id="line_id" name="line_id">
+                  <input type="text" class="form-control form-control-sm" id="line_id" v-model="form.line_id">
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="form-group">
                   <label class="form-label" for="facebook_url">Facebook URL <small class="text-danger">(ไม่จำเป็น)</small></label>
-                  <input type="url" class="form-control form-control-sm" id="facebook_url" name="facebook_url">
+                  <input type="url" class="form-control form-control-sm" id="facebook_url" v-model="form.facebook_url">
                 </div>
               </div>
             </div>
@@ -52,22 +52,26 @@
                   <div class="col">
                     <div class="form-group">
                       <label class="form-label" for="current_address_line_cur">ที่อยู่ปัจจุบัน/หอพัก</label>
-                      <input type="text" class="form-control form-control-sm" id="current_address_line_cur" v-model="curAddr.line" required>
+                      <input type="text" class="form-control form-control-sm" id="current_address_line_cur" v-model="form.curAddr.line" required>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="curAddr.subDistrict" type="district" @select="setCurAddr" size="default" placeholder="ตำบล" required />
+                    <label>ตำบล</label>
+                    <ThailandAutoComplete v-model="form.curAddr.subDistrict" type="district" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="curAddr.district" type="amphoe" @select="setCurAddr" size="default" placeholder="อำเภอ" required />
+                    <label>อำเภอ</label>
+                    <ThailandAutoComplete v-model="form.curAddr.district" type="amphoe" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="curAddr.province" type="province" @select="setCurAddr" size="default" placeholder="จังหวัด" required />
+                    <label>จังหวัด</label>
+                    <ThailandAutoComplete v-model="form.curAddr.province" type="province" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="curAddr.zipcode" type="zipcode" size="default" @select="setCurAddr" placeholder="รหัสไปรษณีย์" required />
+                    <label>รหัสไปรษณีย์</label>
+                    <ThailandAutoComplete v-model="form.curAddr.zipcode" type="zipcode" size="default" @select="setCurAddr" required />
                   </div>
                 </div>
               </div>
@@ -78,22 +82,26 @@
                   <div class="col">
                     <div class="form-group">
                       <label class="form-label" for="current_address_line_ori">ที่อยู่ตามภูมิลำเนา</label>
-                      <input type="text" class="form-control form-control-sm" id="current_address_line_ori" v-model="oriAddr.line">
+                      <input type="text" class="form-control form-control-sm" id="current_address_line_ori" v-model="form.oriAddr.line">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="oriAddr.subDistrict" type="district" @select="setOriAddr" size="default" required placeholder="ตำบล" />
+                    <label>ตำบล</label>
+                    <ThailandAutoComplete v-model="form.oriAddr.subDistrict" type="district" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="oriAddr.district" type="amphoe" @select="setOriAddr" size="default" required placeholder="อำเภอ" />
+                    <label>อำเภอ</label>
+                    <ThailandAutoComplete v-model="form.oriAddr.district" type="amphoe" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="oriAddr.province" type="province" @select="setOriAddr" size="default" required placeholder="จังหวัด" />
+                    <label>จังหวัด</label>
+                    <ThailandAutoComplete v-model="form.oriAddr.province" type="province" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
-                    <ThailandAutoComplete v-model="oriAddr.zipcode" type="zipcode" @select="setOriAddr" size="default" required placeholder="รหัสไปรษณีย์" />
+                    <label>รหัสไปรษณีย์</label>
+                    <ThailandAutoComplete v-model="form.oriAddr.zipcode" type="zipcode" @select="setOriAddr" size="default" required />
                   </div>
                 </div>
               </div>
@@ -109,40 +117,42 @@
             <span class="align-middle">ทุนการศึกษาที่เคยได้รับในปีการศึกษาที่ผ่านมา</span>
           </div>
           <div class="card-body">
-            <div class="mb-3 row">
-              <div class="mb-3 col-md-4">
-                <div>
-                  <label class="form-label" for="name">ชื่อทุนการศึกษา</label>
-                  <input class="form-control form-control-sm" name="name" />
+            <form @submit.stop.prevent="addScholarship">
+              <div class="mb-3 row">
+                <div class="mb-3 col-md-4">
+                  <div>
+                    <label class="form-label" for="scholarship_name">ชื่อทุนการศึกษา</label>
+                    <input class="form-control form-control-sm" id="scholarship_name" required v-model="scholarship.name" />
+                  </div>
                 </div>
-              </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="fund">จำนวนเงิน</label>
-                  <input class="form-control form-control-sm" name="money" type="number" />
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="money">จำนวนเงิน</label>
+                    <input class="form-control form-control-sm" id="money" type="number" required v-model="scholarship.money" />
+                  </div>
                 </div>
-              </div>
-              <div class="mb-3 col-md-3">
-                <div>
-                  <label class="form-label" for="scholarship_type">ประเภททุน</label>
-                  <select name="scholarship_type" required class="form-control form-control-sm" id="scholarship_type">
-                    <option value="">== เลือก ==</option>
-                    <option value="y">รายปี</option>
-                    <option value="c">ต่อเนื่อง</option>
-                  </select>
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="scholarship_type">ประเภททุน</label>
+                    <select required class="form-control form-control-sm" id="scholarship_type" v-model="scholarship.is_ongoing">
+                      <option value="">== เลือก ==</option>
+                      <option value="0">รายปี</option>
+                      <option value="1">ต่อเนื่อง</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="mb-3 col-md-2">
-                <div>
-                  <label class="form-label" for="addItem">&nbsp;</label><br />
-                  <div class="d-grid">
-                    <button class="btn btn-primary btn-sm btn-block">
-                      เพิ่ม
-                    </button>
+                <div class="mb-3 col-md-2">
+                  <div>
+                    <label class="form-label">&nbsp;</label><br />
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-sm btn-block" type="submit">
+                        เพิ่ม
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
             <div class="card border-secondary small m-0">
               <div class="card-header bg-secondary text-white">
                 <span class="align-middle">ประวัติการรับทุนการศึกษา</span>
@@ -157,7 +167,17 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody v-if="form.scholarships.length">
+                    <tr v-for="(scholarship, index) in form.scholarships" :key="index">
+                      <td>{{ scholarship.name }}</td>
+                      <td>{{ scholarship.money }}</td>
+                      <td>{{ scholarship.is_ongoing == '1' ? 'ต่อเนื่อง' : 'รายปี' }}</td>
+                      <td>
+                        <button class="btn btn-xs btn-danger" @click="delScholarship(index)">ลบ</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody v-else>
                     <tr>
                       <td colspan="4" class="text-center">
                         <span class="align-middle">ยังไม่มีข้อมูล</span>
@@ -177,8 +197,8 @@
             <div class="row">
               <div class="col">
                 <div class="form-group">
-                  <label for="">กองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.,กรอ.)</label>
-                  <select id="studentloan" required class="form-control form-control-sm">
+                  <label for="studentloan">กองทุนให้กู้ยืมเพื่อการศึกษา (กยศ.,กรอ.)</label>
+                  <select id="studentloan" required class="form-control form-control-sm" v-model="form.studentloan">
                     <option value="">== เลือก ==</option>
                     <option value="0">ไม่ได้กู้</option>
                     <option value="1">กู้ยืมค่าธรรมเนียมการศึกษา</option>
@@ -194,10 +214,10 @@
     </div>
     <div class="row mt-4">
       <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit">ดำเนินการต่อไป &gt;&gt;</button>
+        <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
       </div>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
@@ -211,19 +231,33 @@ export default {
   data() {
     return {
       loading: false,
-      curAddr: {
-        line: '',
-        subDistrict: '',
-        district: '',
-        province: '',
-        zipcode: '',
+      form: {
+        year_class: '',
+        gpax: '',
+        mobile_no: '',
+        line_id: '',
+        facebook_url: '',
+        curAddr: {
+          line: '',
+          subDistrict: '',
+          district: '',
+          province: '',
+          zipcode: '',
+        },
+        oriAddr: {
+          line: '',
+          subDistrict: '',
+          district: '',
+          province: '',
+          zipcode: '',
+        },
+        scholarships: [],
+        studentloan: ''
       },
-      oriAddr: {
-        line: '',
-        subDistrict: '',
-        district: '',
-        province: '',
-        zipcode: '',
+      scholarship: {
+        name: '',
+        money: '',
+        is_ongoing: '',
       },
     }
   },
@@ -232,16 +266,16 @@ export default {
       nextStep: 'application/nextStep',
     }),
     setCurAddr(address) {
-      this.curAddr.subDistrict = address.district
-      this.curAddr.district = address.amphoe
-      this.curAddr.province = address.province
-      this.curAddr.zipcode = address.zipcode
+      this.form.curAddr.subDistrict = address.district
+      this.form.curAddr.district = address.amphoe
+      this.form.curAddr.province = address.province
+      this.form.curAddr.zipcode = address.zipcode
     },
     setOriAddr(address) {
-      this.oriAddr.subDistrict = address.district
-      this.oriAddr.district = address.amphoe
-      this.oriAddr.province = address.province
-      this.oriAddr.zipcode = address.zipcode
+      this.form.oriAddr.subDistrict = address.district
+      this.form.oriAddr.district = address.amphoe
+      this.form.oriAddr.province = address.province
+      this.form.oriAddr.zipcode = address.zipcode
     },
     messageBox(data, error = false) {
       return this.$bvModal.msgBoxOk(data, {
@@ -254,15 +288,30 @@ export default {
         centered: true
       })
     },
-    handleSubmit() {
-      if (Object.values(this.curAddr).some(value => value === null || value === undefined || value === '')) {
+    delScholarship(index) {
+      const newArray = [...this.form.scholarships]
+      newArray.splice(index, 1)
+      this.form.scholarships = newArray
+    },
+    addScholarship() {
+      this.form.scholarships.push({
+        name: this.scholarship.name,
+        money: this.scholarship.money,
+        is_ongoing: this.scholarship.is_ongoing
+      })
+      Object.keys(this.scholarship).forEach(i => this.scholarship[i] = '')
+    },
+    async handleSubmit() {
+      this.loading = true
+      if (Object.values(this.form.curAddr).some(value => value === null || value === undefined || value === '')) {
         return this.messageBox('กรุณาระบบข้อมูลที่อยู่ปัจจุบันให้ครบถ้วน', true)
       }
-      if (Object.values(this.oriAddr).some(value => value === null || value === undefined || value === '')) {
+      if (Object.values(this.form.oriAddr).some(value => value === null || value === undefined || value === '')) {
         return this.messageBox('กรุณาระบบข้อมูลที่อยู่ตามภูมิลำเนาให้ครบถ้วน', true)
       }
 
       this.nextStep(this.$store.state.application.curStep)
+      this.loading = false
     }
   }
 }
