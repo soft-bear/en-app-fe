@@ -9,9 +9,13 @@
 					<nuxt-link class="nav-link" to="/scholarship">ทุนการศึกษา</nuxt-link>
 				</b-navbar-nav>
 				<b-navbar-nav class="ml-auto">
-					<nuxt-link class="nav-link" to="/account" v-if="loggedIn">บัญชีผู้ใช้</nuxt-link>
+          <b-nav-item-dropdown :text="$auth.user.data.name" v-if="loggedIn">
+            <nuxt-link class="dropdown-item" to="/account">บัญชีผู้ใช้</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/follow">ติดตามผล</nuxt-link>
+            <b-dropdown-divider></b-dropdown-divider>
+            <a class="dropdown-item" style="cursor: pointer;" @click="handleLogOut">ออกจากระบบ</a>
+          </b-nav-item-dropdown>
 					<nuxt-link class="nav-link" to="/login" v-if="!loggedIn">เข้าสู่ระบบ</nuxt-link>
-					<a class="nav-link" style="cursor: pointer;" @click="handleLogOut" v-else>ออกจากระบบ</a>
 				</b-navbar-nav>
 			</b-collapse>
 		</b-container>
