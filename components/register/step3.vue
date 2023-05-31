@@ -293,10 +293,21 @@ export default {
       nextStep: 'application/nextStep',
       pushStep: 'application/pushStep',
     }),
+    messageBox(data, error = false) {
+      return this.$bvModal.msgBoxOk(data, {
+        title: !error ? 'สำเร็จ' : 'ผิดพลาด',
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: !error ? 'success' : 'danger',
+        headerClass: 'p-2 border-bottom-0',
+        footerClass: 'p-2 border-top-0',
+        centered: true
+      })
+    },
     async handleSubmit() {
       this.loading = true
       try {
-        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step3', {submission_id: submissionId, ...this.form})
+        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step3', {submission_id: this.$store.state.application.submissionId, ...this.form})
         this.pushStep(submission_id)
         this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
         .then(() => {
