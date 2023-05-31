@@ -216,8 +216,8 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody v-if="form.jobs.length">
-                    <tr v-for="(job, index) in form.jobs" :key="index">
+                  <tbody v-if="form.job_histories.length">
+                    <tr v-for="(job, index) in form.job_histories" :key="index">
                       <td>{{ job.name }}</td>
                       <td>{{ job.place }}</td>
                       <td>{{ job.job_begin }} - {{ job.leave_job }}</td>
@@ -318,7 +318,7 @@ export default {
       this.form.jobs = newArray
     },
     addJob() {
-      this.form.jobs.push({
+      this.form.job_histories.push({
         name:     this.job.name,
         place:    this.job.place,
         money:    this.job.money,
