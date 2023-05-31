@@ -137,7 +137,7 @@
                     <input name="home_is_rent" type="checkbox" id="checkbox-home-3" class="form-check-input" v-model="form.home_ownership.is_rent" />
                     <label for="checkbox-home-3" class="form-check-label" >บ้านเช่า (บาท:เดือน)</label>
                   </div>
-                  <input name="home_rent_fee" :disabled="!form.home_ownership.is_rent" class="form-control form-control-sm" value="0" v-model="form.home_ownership.rent_val" />
+                  <input name="home_rent_fee" type="number" :disabled="!form.home_ownership.is_rent" class="form-control form-control-sm" value="0" v-model="form.home_ownership.rent_val" />
                 </div>
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
@@ -245,6 +245,34 @@ export default {
       }
     }
   },
+  watch: {
+    homeIsRent: function (next) {
+      if (!next) {
+        this.form.home_ownership.rent_val = 0
+      }
+    },
+    homeIsStay: function (next) {
+      if (!next) {
+        this.form.home_ownership.stay_name = '-'
+      }
+    },
+    landIsRent: function (next) {
+      if (!next) {
+        this.form.land_ownership.rent_val = 0
+        this.form.land_ownership.rent_rate = 0
+      }
+    },
+    landIsStay: function (next) {
+      if (!next) {
+        this.form.land_ownership.stay_name = '-'
+      }
+    },
+    landIsOwner: function (next) {
+      if (!next) {
+        this.form.land_ownership.own_val = 0
+      }
+    },
+  },
   computed: {
     sumIncome() {
       let sum = Object.values(this.form.incomes).reduce((a, b) => parseInt(a) + parseInt(b))
@@ -253,7 +281,12 @@ export default {
     sumExpense() {
       let sum = Object.values(this.form.expenses).reduce((a, b) => parseInt(a) + parseInt(b))
       return isNaN(sum) ? 0 : sum.toLocaleString()
-    }
+    },
+    homeIsRent() {return this.form.home_ownership.is_rent},
+    homeIsStay() {return this.form.home_ownership.is_stay},
+    landIsRent() {return this.form.land_ownership.is_rent},
+    landIsStay() {return this.form.land_ownership.is_stay},
+    landIsOwner() {return this.form.land_ownership.is_owner},
   },
   methods: {
     ...mapActions({
