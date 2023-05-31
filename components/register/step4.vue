@@ -94,6 +94,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -110,7 +112,10 @@ export default {
     }
   },
   methods: {
-    handleSubmit() { },
+    ...mapActions({
+      nextStep: 'application/nextStep',
+      pushStep: 'application/pushStep',
+    }),
     delActivity(index) {
       const newArray = [...this.form.jobs]
             newArray.splice(index, 1)
@@ -125,6 +130,21 @@ export default {
       })
       Object.keys(this.jobs).forEach(i => this.jobs[i] = '')
     },
+    async handleSubmit() {
+      this.loading = true
+      try {
+        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/store', {submission_id: submissionId, ...this.form})
+        this.pushStep(submission_id)
+        this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
+        .then(() => {
+          this.nextStep(this.$store.state.application.curStep)
+        })
+      } catch (error) {
+        console.log(error)
+        this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
+      }
+      this.loading = false
+    }
   }
 }
 </script>

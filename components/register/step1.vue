@@ -59,7 +59,7 @@
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.curAddr.subDistrict" type="district" @select="setCurAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.curAddr.sub_district" type="district" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
@@ -89,7 +89,7 @@
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.oriAddr.subDistrict" type="district" @select="setOriAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.oriAddr.sub_district" type="district" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
@@ -239,14 +239,14 @@ export default {
         facebook_url: '',
         curAddr: {
           line: '',
-          subDistrict: '',
+          sub_district: '',
           district: '',
           province: '',
           zipcode: '',
         },
         oriAddr: {
           line: '',
-          subDistrict: '',
+          sub_district: '',
           district: '',
           province: '',
           zipcode: '',
@@ -264,15 +264,16 @@ export default {
   methods: {
     ...mapActions({
       nextStep: 'application/nextStep',
+      pushStep: 'application/pushStep',
     }),
     setCurAddr(address) {
-      this.form.curAddr.subDistrict = address.district
+      this.form.curAddr.sub_district = address.district
       this.form.curAddr.district = address.amphoe
       this.form.curAddr.province = address.province
       this.form.curAddr.zipcode = address.zipcode
     },
     setOriAddr(address) {
-      this.form.oriAddr.subDistrict = address.district
+      this.form.oriAddr.sub_district = address.district
       this.form.oriAddr.district = address.amphoe
       this.form.oriAddr.province = address.province
       this.form.oriAddr.zipcode = address.zipcode
@@ -310,7 +311,18 @@ export default {
         return this.messageBox('กรุณาระบบข้อมูลที่อยู่ตามภูมิลำเนาให้ครบถ้วน', true)
       }
 
-      this.nextStep(this.$store.state.application.curStep)
+      try {
+        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step1', this.form)
+        this.pushStep(submission_id)
+        this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
+        .then(() => {
+          this.nextStep(this.$store.state.application.curStep)
+        })
+      } catch (error) {
+        console.log(error)
+        this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
+      }
+
       this.loading = false
     }
   }

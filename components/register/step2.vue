@@ -299,6 +299,7 @@ export default {
   methods: {
     ...mapActions({
       nextStep: 'application/nextStep',
+      pushStep: 'application/pushStep',
     }),
     delJob(index) {
       const newArray = [...this.form.jobs]
@@ -332,8 +333,20 @@ export default {
       })
       Object.keys(this.family).forEach(i => this.family[i] = '')
     },
-    handleSubmit() {
-      this.nextStep(this.$store.state.application.curStep)
+    async handleSubmit() {
+      this.loading = true
+      try {
+        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step2', {submission_id: submissionId, ...this.form})
+        this.pushStep(submission_id)
+        this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
+        .then(() => {
+          this.nextStep(this.$store.state.application.curStep)
+        })
+      } catch (error) {
+        console.log(error)
+        this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
+      }
+      this.loading = false
     }
   }
 }
