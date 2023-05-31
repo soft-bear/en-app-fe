@@ -126,7 +126,7 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-primary" v-if="!showForm">
+            <div class="card border-primary" v-if="showForm">
               <div class="card-header bg-primary text-white text-center">
                 แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
