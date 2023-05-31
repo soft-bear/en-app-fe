@@ -10,13 +10,13 @@
                 <div class="mb-3 col-md-12">
                   <div>
                     <label class="form-label" for="job">งานที่ทำ</label>
-                    <input class="form-control form-control-sm" id="job" v-model="jobs.name" required />
+                    <input class="form-control form-control-sm" id="job" v-model="volunteer_activitie.name" required />
                   </div>
                 </div>
                 <div class="mb-3 col-md-4">
                   <div>
                     <label class="form-label" for="semester">ภาคเรียน</label>
-                      <select name="semester" required id="semester" v-model="jobs.semester" class="form-control form-control-sm">
+                      <select name="semester" required id="semester" v-model="volunteer_activitie.semester" class="form-control form-control-sm">
                         <option value="">== เลือก ==</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -26,13 +26,13 @@
                 <div class="mb-3 col-md-4">
                   <div>
                     <label class="form-label" for="year">ปีการศึกษา</label>
-                    <input class="form-control form-control-sm" id="year" v-model="jobs.year" required type="number" min="0" />
+                    <input class="form-control form-control-sm" id="year" v-model="volunteer_activitie.year" required type="number" min="0" />
                   </div>
                 </div>
                 <div class="mb-3 col-md-4">
                   <div>
                     <label class="form-label" for="activity_hours">ชั่วโมงกิจกรรม</label>
-                    <input class="form-control form-control-sm" id="activity_hours" v-model="jobs.activity_hours" required step="any" type="number" min="0" />
+                    <input class="form-control form-control-sm" id="activity_hours" v-model="volunteer_activitie.activity_hours" required step="any" type="number" min="0" />
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -60,12 +60,12 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody v-if="form.jobs.length" >
-                    <tr v-for="(job, index) in form.jobs" :key="index" class="align-middle">
-                      <td>{{ job.name }}</td>
-                      <td>{{ job.semester }}</td>
-                      <td>{{ job.year }}</td>
-                      <td>{{ job.activity_hours }}</td>
+                  <tbody v-if="form.volunteer_activities.length" >
+                    <tr v-for="(activity, index) in form.volunteer_activities" :key="index" class="align-middle">
+                      <td>{{ activity.name }}</td>
+                      <td>{{ activity.semester }}</td>
+                      <td>{{ activity.year }}</td>
+                      <td>{{ activity.activity_hours }}</td>
                       <td>
                         <button type="button" class="btn btn-xs btn-danger small" @click="delActivity(index)">ลบ</button>
                       </td>
@@ -100,9 +100,9 @@ export default {
   data() {
     return {
       form: {
-        jobs: []
+        volunteer_activities: []
       },
-      jobs: {
+      volunteer_activitie: {
         name: '',
         semester: '',
         year: '',
@@ -128,25 +128,24 @@ export default {
       })
     },
     delActivity(index) {
-      const newArray = [...this.form.jobs]
+      const newArray = [...this.form.volunteer_activities]
             newArray.splice(index, 1)
-      this.form.jobs = newArray
+      this.form.volunteer_activities = newArray
     },
     addActivity() {
-      this.form.jobs.push({
-        name: this.jobs.name,
-        semester: this.jobs.semester,
-        year: this.jobs.year,
-        activity_hours: this.jobs.activity_hours
+      this.form.volunteer_activities.push({
+        name: this.volunteer_activitie.name,
+        semester: this.volunteer_activitie.semester,
+        year: this.volunteer_activitie.year,
+        activity_hours: this.volunteer_activitie.activity_hours
       })
-      Object.keys(this.jobs).forEach(i => this.jobs[i] = '')
+      Object.keys(this.volunteer_activitie).forEach(i => this.volunteer_activitie[i] = '')
     },
     async handleSubmit() {
       this.loading = true
       try {
-        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/store', {submission_id: this.$store.state.application.submissionId, ...this.form})
-        this.pushStep(submission_id)
-        this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
+        await this.$axios.post('/scholarships/register/store', {submission_id: this.$store.state.application.submissionId, ...this.form})
+        this.messageBox('ลงทะเบียนสำเร็จแล้ว')
         .then(() => {
           this.nextStep(this.$store.state.application.curStep)
         })

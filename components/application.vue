@@ -18,7 +18,7 @@ export default {
         line_id: '',
         current_address: [],
         original_address: [],
-        previous_semester_scholarship: {},
+        previous_semester_scholarships: {},
         studentloan: '',
         family_members: [],
         job_histories: [],

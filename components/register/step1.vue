@@ -167,8 +167,8 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody v-if="form.previous_semester_scholarship.length">
-                    <tr v-for="(scholarship, index) in form.previous_semester_scholarship" :key="index">
+                  <tbody v-if="form.previous_semester_scholarships.length">
+                    <tr v-for="(scholarship, index) in form.previous_semester_scholarships" :key="index">
                       <td>{{ scholarship.name }}</td>
                       <td>{{ scholarship.money }}</td>
                       <td>{{ scholarship.is_ongoing == '1' ? 'ต่อเนื่อง' : 'รายปี' }}</td>
@@ -228,10 +228,12 @@ export default {
   components: {
     ThailandAutoComplete
   },
+  props: ['scholarship_id'],
   data() {
     return {
       loading: false,
       form: {
+        scholarship_id: this.scholarship_id,
         year_class: '',
         gpax: '',
         mobile_no: '',
@@ -251,7 +253,7 @@ export default {
           province: '',
           zipcode: '',
         },
-        previous_semester_scholarship: [],
+        previous_semester_scholarships: [],
         studentloan: ''
       },
       scholarship: {
@@ -290,12 +292,12 @@ export default {
       })
     },
     delScholarship(index) {
-      const newArray = [...this.form.previous_semester_scholarship]
+      const newArray = [...this.form.previous_semester_scholarships]
       newArray.splice(index, 1)
-      this.form.previous_semester_scholarship = newArray
+      this.form.previous_semester_scholarships = newArray
     },
     addScholarship() {
-      this.form.previous_semester_scholarship.push({
+      this.form.previous_semester_scholarships.push({
         name: this.scholarship.name,
         money: this.scholarship.money,
         is_ongoing: this.scholarship.is_ongoing

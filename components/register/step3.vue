@@ -9,37 +9,37 @@
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_father">บิดา</label>
-                  <input class="form-control form-control-sm" name="income_father" id="income_father" v-model="form.incomes.father" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_father" id="income_father" v-model="form.student_incomes.father" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_mother">มารดา</label>
-                  <input class="form-control form-control-sm" name="income_mother" id="income_mother" v-model="form.incomes.mother" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_mother" id="income_mother" v-model="form.student_incomes.mother" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_parent">ผู้ปกครอง</label>
-                  <input class="form-control form-control-sm" name="income_parent" id="income_parent" v-model="form.incomes.parent" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_parent" id="income_parent" v-model="form.student_incomes.parent" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_scholarship">ทุนการศึกษา</label>
-                  <input class="form-control form-control-sm" name="income_scholarship" id="income_scholarship" v-model="form.incomes.scholarship" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_scholarship" id="income_scholarship" v-model="form.student_incomes.scholarship" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_student_loan">กู้ยืม กยศ.,กรอ.</label>
-                  <input class="form-control form-control-sm" name="income_student_loan" id="income_student_loan" v-model="form.incomes.studentloan" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_student_loan" id="income_student_loan" v-model="form.student_incomes.studentloan" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="income_work">ทำงานพิเศษ/ออนไลน์</label>
-                  <input class="form-control form-control-sm" name="income_work" id="income_work" v-model="form.incomes.parttimejob" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="income_work" id="income_work" v-model="form.student_incomes.parttimejob" required min="0" type="number" value="0" />
                 </div>
               </div>
             </div>
@@ -55,32 +55,32 @@
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="expense_monthly">ค่าใช้จ่ายประจำเดือน</label>
-                  <input class="form-control form-control-sm" name="expense_monthly" id="expense_monthly" v-model="form.expenses.monthly" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="expense_monthly" id="expense_monthly" v-model="form.student_expenses.monthly" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="expense_education">ค่าใช้จ่ายในการศึกษา</label>
-                  <input class="form-control form-control-sm" name="expense_education" id="expense_education" v-model="form.expenses.education" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="expense_education" id="expense_education" v-model="form.student_expenses.education" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="expense_dorm">ค่าหอพัก</label>
-                  <input class="form-control form-control-sm" name="expense_dorm" id="expense_dorm" v-model="form.expenses.dorm_rent" required min="0" type="number" value="0"
+                  <input class="form-control form-control-sm" name="expense_dorm" id="expense_dorm" v-model="form.student_expenses.dorm_rent" required min="0" type="number" value="0"
                   />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="expense_travel">ค่าพาหนะ/เดินทาง</label>
-                  <input class="form-control form-control-sm" name="expense_travel" id="expense_travel" v-model="form.expenses.transport" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="expense_travel" id="expense_travel" v-model="form.student_expenses.transport" required min="0" type="number" value="0" />
                 </div>
               </div>
               <div class="mb-3 col-md-4">
                 <div>
                   <label class="form-label" for="expense_etc">ค่าใช้จ่ายอื่น ๆ </label>
-                  <input class="form-control form-control-sm" name="expense_etc" id="expense_etc" v-model="form.expenses.etc" required min="0" type="number" value="0" />
+                  <input class="form-control form-control-sm" name="expense_etc" id="expense_etc" v-model="form.student_expenses.etc" required min="0" type="number" value="0" />
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 mb-3">
-                <select id="status-select" name="status" class="form-control form-control-sm" required v-model="form.parents.status">
+                <select id="status-select" name="status" class="form-control form-control-sm" required v-model="form.parent_relation_status">
                   <option value="">== เลือก ==</option>
                   <option value="2">อยู่ด้วยกัน</option>
                   <option value="3">หย่าขาดกัน</option>
@@ -111,10 +111,10 @@
                 </select>
               </div>
             </div>
-            <div class="row" v-if="form.parents.status == 1">
+            <div class="row" v-if="form.parent_relation_status == 1">
               <div class="col-12 mb-3">
                 <label for="parent_status_etc" class="form-check-label">ระบุสถานะภาพของบิดา-มารดา</label>
-                <input type="text" class="form-control form-control-sm" id="parent_status_etc" v-model="form.parents.etc" />
+                <input type="text" class="form-control form-control-sm" id="parent_status_etc" v-model="form.parent_relation_ect" />
               </div>
             </div>
           </div>
@@ -128,23 +128,23 @@
               <div class="card-body">
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_owner" type="checkbox" id="checkbox-home-1" class="form-check-input"  v-model="form.home_ownership.is_owner" />
+                    <input name="home_is_owner" type="checkbox" id="checkbox-home-1" class="form-check-input"  v-model="form.residential.is_owner" />
                     <label for="checkbox-home-1" class="form-check-label">เป็นของตนเอง</label>
                   </div>
                 </div>
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_rent" type="checkbox" id="checkbox-home-3" class="form-check-input" v-model="form.home_ownership.is_rent" />
+                    <input name="home_is_rent" type="checkbox" id="checkbox-home-3" class="form-check-input" v-model="form.residential.is_rent" />
                     <label for="checkbox-home-3" class="form-check-label" >บ้านเช่า (บาท:เดือน)</label>
                   </div>
-                  <input name="home_rent_fee" type="number" :disabled="!form.home_ownership.is_rent" class="form-control form-control-sm" value="0" v-model="form.home_ownership.rent_val" />
+                  <input name="home_rent_fee" type="number" :disabled="!form.residential.is_rent" class="form-control form-control-sm" value="0" v-model="form.residential.rent_val" />
                 </div>
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_stay" type="checkbox" id="checkbox-home-2" class="form-check-input" v-model="form.home_ownership.is_stay" />
+                    <input name="home_is_stay" type="checkbox" id="checkbox-home-2" class="form-check-input" v-model="form.residential.is_stay" />
                     <label for="checkbox-home-2" class="form-check-label">อาศัยคนอื่น (ระบุ)</label>
                   </div>
-                  <input name="home_stay_name" :disabled="!form.home_ownership.is_stay" class="form-control form-control-sm" v-model="form.home_ownership.stay_name" />
+                  <input name="home_stay_name" :disabled="!form.residential.is_stay" class="form-control form-control-sm" v-model="form.residential.stay_name" />
                 </div>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default {
   data() {
     return {
       form: {
-        incomes: {
+        student_incomes: {
           father: 0,
           mother: 0,
           parent: 0,
@@ -215,18 +215,16 @@ export default {
           studentloan: 0,
           parttimejob: 0,
         },
-        expenses: {
+        student_expenses: {
           monthly: 0,
           education: 0,
           dorm_rent: 0,
           transport: 0,
           etc: 0,
         },
-        parents: {
-          status: '',
-          etc: '',
-        },
-        home_ownership: {
+        parent_relation_status: '',
+        parent_relation_ect: '',
+        residential: {
           is_rent: false,
           is_stay: false,
           is_owner: false,
@@ -248,12 +246,12 @@ export default {
   watch: {
     homeIsRent: function (next) {
       if (!next) {
-        this.form.home_ownership.rent_val = 0
+        this.form.residential.rent_val = 0
       }
     },
     homeIsStay: function (next) {
       if (!next) {
-        this.form.home_ownership.stay_name = '-'
+        this.form.residential.stay_name = '-'
       }
     },
     landIsRent: function (next) {
@@ -275,15 +273,15 @@ export default {
   },
   computed: {
     sumIncome() {
-      let sum = Object.values(this.form.incomes).reduce((a, b) => parseInt(a) + parseInt(b))
+      let sum = Object.values(this.form.student_incomes).reduce((a, b) => parseInt(a) + parseInt(b))
       return isNaN(sum) ? 0 : sum.toLocaleString()
     },
     sumExpense() {
-      let sum = Object.values(this.form.expenses).reduce((a, b) => parseInt(a) + parseInt(b))
+      let sum = Object.values(this.form.student_expenses).reduce((a, b) => parseInt(a) + parseInt(b))
       return isNaN(sum) ? 0 : sum.toLocaleString()
     },
-    homeIsRent() {return this.form.home_ownership.is_rent},
-    homeIsStay() {return this.form.home_ownership.is_stay},
+    homeIsRent() {return this.form.residential.is_rent},
+    homeIsStay() {return this.form.residential.is_stay},
     landIsRent() {return this.form.land_ownership.is_rent},
     landIsStay() {return this.form.land_ownership.is_stay},
     landIsOwner() {return this.form.land_ownership.is_owner},
@@ -307,8 +305,7 @@ export default {
     async handleSubmit() {
       this.loading = true
       try {
-        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step3', {submission_id: this.$store.state.application.submissionId, ...this.form})
-        this.pushStep(submission_id)
+        await this.$axios.post('/scholarships/register/step3', {submission_id: this.$store.state.application.submissionId, ...this.form})
         this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
         .then(() => {
           this.nextStep(this.$store.state.application.curStep)

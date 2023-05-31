@@ -1,6 +1,6 @@
 export const state = () => ({
   curStep: 1,
-  allStep: 3,
+  allStep: 4,
   submissionId: ''
 })
 
