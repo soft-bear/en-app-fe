@@ -113,7 +113,7 @@
             </div>
             <div class="row" v-if="form.parents.status == 1">
               <div class="col-12 mb-3">
-                <label for="parent_status_etc" class="form-check-label">ระบุสถานะภาพของบิดร-มารดา</label>
+                <label for="parent_status_etc" class="form-check-label">ระบุสถานะภาพของบิดา-มารดา</label>
                 <input type="text" class="form-control form-control-sm" id="parent_status_etc" v-model="form.parents.etc" />
               </div>
             </div>
