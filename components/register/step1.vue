@@ -52,26 +52,26 @@
                   <div class="col">
                     <div class="form-group">
                       <label class="form-label" for="current_address_line_cur">ที่อยู่ปัจจุบัน/หอพัก</label>
-                      <input type="text" class="form-control form-control-sm" id="current_address_line_cur" v-model="form.curAddr.line" required>
+                      <input type="text" class="form-control form-control-sm" id="current_address_line_cur" v-model="form.current_address.line" required>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.curAddr.sub_district" type="district" @select="setCurAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.current_address.sub_district" type="district" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
-                    <ThailandAutoComplete v-model="form.curAddr.district" type="amphoe" @select="setCurAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.current_address.district" type="amphoe" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>จังหวัด</label>
-                    <ThailandAutoComplete v-model="form.curAddr.province" type="province" @select="setCurAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.current_address.province" type="province" @select="setCurAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>รหัสไปรษณีย์</label>
-                    <ThailandAutoComplete v-model="form.curAddr.zipcode" type="zipcode" size="default" @select="setCurAddr" required />
+                    <ThailandAutoComplete v-model="form.current_address.zipcode" type="zipcode" size="default" @select="setCurAddr" required />
                   </div>
                 </div>
               </div>
@@ -82,26 +82,26 @@
                   <div class="col">
                     <div class="form-group">
                       <label class="form-label" for="current_address_line_ori">ที่อยู่ตามภูมิลำเนา</label>
-                      <input type="text" class="form-control form-control-sm" id="current_address_line_ori" v-model="form.oriAddr.line">
+                      <input type="text" class="form-control form-control-sm" id="current_address_line_ori" v-model="form.original_address.line">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.oriAddr.sub_district" type="district" @select="setOriAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.original_address.sub_district" type="district" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
-                    <ThailandAutoComplete v-model="form.oriAddr.district" type="amphoe" @select="setOriAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.original_address.district" type="amphoe" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>จังหวัด</label>
-                    <ThailandAutoComplete v-model="form.oriAddr.province" type="province" @select="setOriAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.original_address.province" type="province" @select="setOriAddr" size="default" required />
                   </div>
                   <div class="col-12 col-md-3">
                     <label>รหัสไปรษณีย์</label>
-                    <ThailandAutoComplete v-model="form.oriAddr.zipcode" type="zipcode" @select="setOriAddr" size="default" required />
+                    <ThailandAutoComplete v-model="form.original_address.zipcode" type="zipcode" @select="setOriAddr" size="default" required />
                   </div>
                 </div>
               </div>
@@ -167,8 +167,8 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody v-if="form.scholarships.length">
-                    <tr v-for="(scholarship, index) in form.scholarships" :key="index">
+                  <tbody v-if="form.previous_semester_scholarship.length">
+                    <tr v-for="(scholarship, index) in form.previous_semester_scholarship" :key="index">
                       <td>{{ scholarship.name }}</td>
                       <td>{{ scholarship.money }}</td>
                       <td>{{ scholarship.is_ongoing == '1' ? 'ต่อเนื่อง' : 'รายปี' }}</td>
@@ -237,21 +237,21 @@ export default {
         mobile_no: '',
         line_id: '',
         facebook_url: '',
-        curAddr: {
+        current_address: {
           line: '',
           sub_district: '',
           district: '',
           province: '',
           zipcode: '',
         },
-        oriAddr: {
+        original_address: {
           line: '',
           sub_district: '',
           district: '',
           province: '',
           zipcode: '',
         },
-        scholarships: [],
+        previous_semester_scholarship: [],
         studentloan: ''
       },
       scholarship: {
@@ -267,16 +267,16 @@ export default {
       pushStep: 'application/pushStep',
     }),
     setCurAddr(address) {
-      this.form.curAddr.sub_district = address.district
-      this.form.curAddr.district = address.amphoe
-      this.form.curAddr.province = address.province
-      this.form.curAddr.zipcode = address.zipcode
+      this.form.current_address.sub_district = address.district
+      this.form.current_address.district = address.amphoe
+      this.form.current_address.province = address.province
+      this.form.current_address.zipcode = address.zipcode
     },
     setOriAddr(address) {
-      this.form.oriAddr.sub_district = address.district
-      this.form.oriAddr.district = address.amphoe
-      this.form.oriAddr.province = address.province
-      this.form.oriAddr.zipcode = address.zipcode
+      this.form.original_address.sub_district = address.district
+      this.form.original_address.district = address.amphoe
+      this.form.original_address.province = address.province
+      this.form.original_address.zipcode = address.zipcode
     },
     messageBox(data, error = false) {
       return this.$bvModal.msgBoxOk(data, {
@@ -290,12 +290,12 @@ export default {
       })
     },
     delScholarship(index) {
-      const newArray = [...this.form.scholarships]
+      const newArray = [...this.form.previous_semester_scholarship]
       newArray.splice(index, 1)
-      this.form.scholarships = newArray
+      this.form.previous_semester_scholarship = newArray
     },
     addScholarship() {
-      this.form.scholarships.push({
+      this.form.previous_semester_scholarship.push({
         name: this.scholarship.name,
         money: this.scholarship.money,
         is_ongoing: this.scholarship.is_ongoing
@@ -304,10 +304,10 @@ export default {
     },
     async handleSubmit() {
       this.loading = true
-      if (Object.values(this.form.curAddr).some(value => value === null || value === undefined || value === '')) {
+      if (Object.values(this.form.current_address).some(value => value === null || value === undefined || value === '')) {
         return this.messageBox('กรุณาระบบข้อมูลที่อยู่ปัจจุบันให้ครบถ้วน', true)
       }
-      if (Object.values(this.form.oriAddr).some(value => value === null || value === undefined || value === '')) {
+      if (Object.values(this.form.original_address).some(value => value === null || value === undefined || value === '')) {
         return this.messageBox('กรุณาระบบข้อมูลที่อยู่ตามภูมิลำเนาให้ครบถ้วน', true)
       }
 
