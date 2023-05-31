@@ -1,12 +1,6 @@
 <template>
   <div>
-    <div class="container">
-      <div class="row">
-        <div class="col"><application /></div>
-      </div>
-    </div>
     <content-scholarship-detail :data="scholarship" :loading="loading" />
-    <!-- <b-button v-b-modal.modal-application-form>Launch scrolling modal</b-button> -->
   </div>
 </template>
 <script>
