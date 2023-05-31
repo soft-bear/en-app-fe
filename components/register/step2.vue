@@ -126,8 +126,8 @@
                       <th>ดำเนินการ</th>
                     </tr>
                   </thead>
-                  <tbody v-if="form.family.length">
-                    <tr v-for="(member, index) in form.family" :key="index">
+                  <tbody v-if="form.family_members.length">
+                    <tr v-for="(member, index) in form.family_members" :key="index">
                       <td>
                         <strong>{{ member.full_name }}</strong><br />
                         <span class="text-muted">{{ member.relationship }}&nbsp;อายุ: {{ member.age }}</span>
@@ -261,8 +261,8 @@ export default {
         gpa_two: '',
         gpax_one: '',
         gpax_two: '',
-        family: [],
-        jobs: [],
+        family_members: [],
+        job_histories: [],
       },
       family: {
         full_name: '',
@@ -328,12 +328,12 @@ export default {
       Object.keys(this.job).forEach(i => this.job[i] = '')
     },
     delFamily(index) {
-      const newArray = [...this.form.family]
+      const newArray = [...this.form.family_members]
       newArray.splice(index, 1)
-      this.form.family = newArray
+      this.form.family_members = newArray
     },
     addFamily() {
-      this.form.family.push({
+      this.form.family_members.push({
         full_name   : this.family.full_name,
         age         : this.family.age,
         relationship: this.family.relationship,
