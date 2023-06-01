@@ -5,6 +5,6 @@
         <h4><strong>ติดตามผล</strong></h4>
       </div>
     </div>
-    <content-register-follow />
+    <register-follow />
   </b-container>
 </template>
