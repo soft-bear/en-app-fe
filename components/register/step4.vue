@@ -148,6 +148,7 @@ export default {
         this.messageBox('ลงทะเบียนสำเร็จแล้ว')
         .then(() => {
           this.nextStep(this.$store.state.application.curStep)
+          this.$router.push('/follow')
         })
       } catch (error) {
         console.log(error)
