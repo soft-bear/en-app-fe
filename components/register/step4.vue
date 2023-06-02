@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="card border-eng">
-          <div class="card-header bg-eng text-white">ข้อมูลรายได้ของนักศึกษา</div>
+          <div class="card-header bg-eng text-white">กิจกรรม/จิตอาสา</div>
           <div class="card-body">
             <form @submit.stop.prevent="addActivity">
               <div class="row">
