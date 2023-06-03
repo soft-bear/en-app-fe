@@ -83,6 +83,19 @@
             </div>
           </div>
         </div>
+        <div class="card border-eng mt-2">
+          <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                    <label class="form-label" for="attachment">เลือกเอกสารประเภท PDF</label>
+                    <b-form-file id="attachment" @change="handlePhotoUpload" size="sm" required></b-form-file>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row mt-4">
@@ -100,7 +113,8 @@ export default {
   data() {
     return {
       form: {
-        volunteer_activities: []
+        volunteer_activities: [],
+        attachment: '',
       },
       volunteer_activitie: {
         name: '',
@@ -144,7 +158,13 @@ export default {
     async handleSubmit() {
       this.loading = true
       try {
-        await this.$axios.post('/scholarships/register/store', {submission_id: this.$store.state.application.submissionId, ...this.form})
+        const payload = new FormData()
+
+				Object.keys(this.form).forEach(field => {payload.append(field, this.form[field]);})
+        payload.append('submission_id', this.$store.state.application.submissionId)
+
+				await this.$axios.post(`/scholarships/register/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
+
         this.messageBox('ลงทะเบียนสำเร็จแล้ว')
         .then(() => {
           this.nextStep(this.$store.state.application.curStep)
@@ -155,7 +175,10 @@ export default {
         this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
       }
       this.loading = false
-    }
+    },
+		handleDocumentUpload(event) {
+			this.form.attachment = event.target.files[0] ?? ''
+		},
   }
 }
 </script>
