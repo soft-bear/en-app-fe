@@ -9,7 +9,7 @@
               <div class="col-12 col-md-3">
                 <div class="form-group">
                   <label class="form-label" for="year_class">ชั้นปี</label>
-                  <input type="number" class="form-control form-control-sm" id="year_class" v-model="form.year_class" required>
+                  <input type="number" class="form-control form-control-sm" id="year_class" v-model="form.year_class" min="0" max="8" required>
                 </div>
               </div>
               <div class="col-12 col-md-3">
@@ -128,7 +128,7 @@
                 <div class="mb-3 col-md-3">
                   <div>
                     <label class="form-label" for="money">จำนวนเงิน</label>
-                    <input class="form-control form-control-sm" id="money" type="number" required v-model="scholarship.money" />
+                    <input class="form-control form-control-sm" id="money" type="number" required v-model="scholarship.money" min="0" />
                   </div>
                 </div>
                 <div class="mb-3 col-md-3">
