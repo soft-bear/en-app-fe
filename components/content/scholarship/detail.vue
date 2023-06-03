@@ -131,12 +131,10 @@
                 แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
               <div class="card-body">
-                <!-- <register-step1 v-if="currStep == 1" :scholarship_id="data.id" />
+                <register-step1 v-if="currStep == 1" :scholarship_id="data.id" />
                 <register-step2 v-if="currStep == 2" :year="data.year" :semester="data.semester" />
                 <register-step3 v-if="currStep == 3" />
-                <register-step4 v-if="currStep == 4" /> -->
-
-                <register-step4 />
+                <register-step4 v-if="currStep == 4" />
               </div>
             </div>
             <div class="card" v-else>
