@@ -22,11 +22,11 @@
               <strong>{{ item.scholarship.name }}</strong><br /><small class="text-muted">{{ item.scholarship.category?.name }}</small>
             </nuxt-link>
           </td>
-          <td>{{ item.semester }}/{{ item.year }}</td>
+          <td>{{ item.scholarship.semester }}/{{ item.scholarship.year }}</td>
           <td :class="txtColor(item.status)">{{ progress(item.status) }}</td>
           <td>{{ onlyDate(item.created_at) }}</td>
           <td>
-            <button class="btn btn-xs btn-primary">อัปโหลด</button>
+            <!-- <button class="btn btn-xs btn-primary">อัปโหลด</button> -->
           </td>
         </tr>
       </tbody>

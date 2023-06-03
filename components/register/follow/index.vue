@@ -6,10 +6,10 @@
           <div class="card-body">
             <h6><strong>ทุนการศึกษาที่อยู่ระหว่างดำเนินการ</strong></h6>
             <b-overlay :show="loading || loadingActive">
-              <register-follow-table-list class="my-3" :data="[]" />
+              <register-follow-table-list class="my-3" :data="active.registration" />
               <div class="small">
-                <!-- <b-pagination v-model="active.curPage" :total-rows="active.totalRows" :per-page="active.perPage" size="sm" class="m-0"
-                first-text="หน้าแรก" prev-text="ก่อนหน้า" next-text="ถัดไป" last-text="หน้าสุดท้าย" @input="getActive(active.curPage)"></b-pagination> -->
+                <b-pagination v-model="active.curPage" :total-rows="active.totalRows" :per-page="active.perPage" size="sm" class="m-0"
+                first-text="หน้าแรก" prev-text="ก่อนหน้า" next-text="ถัดไป" last-text="หน้าสุดท้าย" @input="getActive(active.curPage)"></b-pagination>
               </div>
             </b-overlay>
           </div>
@@ -22,11 +22,11 @@
           <div class="card-body">
             <h6><strong>ทุนการศึกษาที่ผ่านมา</strong></h6>
             <b-overlay :show="loading || loadingPassed">
-              <register-follow-table-list class="my-3" :data="[]" />
+              <register-follow-table-list class="my-3" :data="passed.registration" />
               <div class="small">
-                <!-- <b-pagination v-model="passed.curPage" :total-rows="passed.totalRows" :per-page="passed.perPage" size="sm" class="m-0"
+                <b-pagination v-model="passed.curPage" :total-rows="passed.totalRows" :per-page="passed.perPage" size="sm" class="m-0"
                 first-text="หน้าแรก" prev-text="ก่อนหน้า" next-text="ถัดไป" last-text="หน้าสุดท้าย"
-  							@input="getPassed(passed.curPage)"></b-pagination> -->
+  							@input="getPassed(passed.curPage)"></b-pagination>
               </div>
             </b-overlay>
           </div>
@@ -43,13 +43,13 @@ export default {
       loadingActive: false,
       loadingPassed: false,
       active: {
-        scholarships: [],
+        registration: [],
         curPage: 1,
         perPage: 1,
         totalRows: 1
       },
       passed: {
-        scholarships: [],
+        registration: [],
         curPage: 1,
         perPage: 1,
         totalRows: 1
@@ -60,8 +60,8 @@ export default {
     async getActive(page = 1) {
       this.loadingActive = true
       try {
-        const { data: { data: active, meta: activeMeta } } = await this.$axios.get('/scholarships/active', {params: {page:page}})
-        this.active.scholarships = active
+        const { data: { data: active, meta: activeMeta } } = await this.$axios.get('/scholarships/registration/active', {params: {page:page}})
+        this.active.registration = active
         this.active.curPage = activeMeta.current_page
         this.active.perPage = activeMeta.per_page
         this.active.totalRows = activeMeta.total
@@ -71,8 +71,8 @@ export default {
     async getPassed(page = 1) {
       this.loadingPassed = true
       try {
-        const { data: { data: passed, meta: passedMeta } } = await this.$axios.get('/scholarships/passed', {params: {page:page}})
-        this.passed.scholarships = passed
+        const { data: { data: passed, meta: passedMeta } } = await this.$axios.get('/scholarships/registration/passed', {params: {page:page}})
+        this.passed.registration = passed
         this.passed.curPage = passedMeta.current_page
         this.passed.perPage = passedMeta.per_page
         this.passed.totalRows = passedMeta.total
@@ -87,9 +87,9 @@ export default {
     }
   },
   async created() {
-    // this.loading = true
-    // await this.getActiveAndPassed()
-    // this.loading = false
+    this.loading = true
+    await this.getActiveAndPassed()
+    this.loading = false
   }
 }
 </script>
