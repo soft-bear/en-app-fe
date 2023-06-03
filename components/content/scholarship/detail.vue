@@ -163,6 +163,11 @@ export default {
       loggedIn: this.$auth.loggedIn
     }
   },
+  watch: {
+    showForm(next) {
+      this.$emit('setIsShowForm', next)
+    }
+  },
   computed: {
     currStep() {
       return this.$store.state.application.curStep

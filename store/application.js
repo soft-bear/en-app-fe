@@ -11,6 +11,9 @@ export const actions = {
 
   nextStep({ commit }, step) {
     commit('nextStep', step)
+  },
+  clearStep({ commit }) {
+    commit('clearStep')
   }
 }
 
@@ -24,5 +27,9 @@ export const mutations = {
     } else {
       state.curStep = 1
     }
+  },
+  clearStep(state) {
+    state.curStep = 1
+    state.submissionId = ''
   }
 }
