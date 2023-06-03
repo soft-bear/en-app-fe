@@ -347,7 +347,7 @@ export default {
     async handleSubmit() {
       this.loading = true
       try {
-        await this.$axios.post('/scholarships/register/step2', {submission_id: this.$store.state.application.submissionId, ...this.form})
+        await this.$axios.post('/scholarships/registration/step2', {submission_id: this.$store.state.application.submissionId, ...this.form})
         this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
         .then(() => {
           this.nextStep(this.$store.state.application.curStep)

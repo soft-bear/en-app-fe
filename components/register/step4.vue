@@ -90,7 +90,7 @@
               <div class="col">
                 <div class="form-group">
                     <label class="form-label" for="attachment">เลือกเอกสารประเภท PDF</label>
-                    <b-form-file id="attachment" @change="handlePhotoUpload" size="sm" required></b-form-file>
+                    <b-form-file id="attachment" @change="handleDocumentUpload" size="sm" required></b-form-file>
                 </div>
               </div>
             </div>
@@ -160,10 +160,11 @@ export default {
       try {
         const payload = new FormData()
 
-				Object.keys(this.form).forEach(field => {payload.append(field, this.form[field]);})
+				payload.append('attachment', this.form.attachment)
+        payload.append('volunteer_activities', JSON.stringify(this.form.volunteer_activities))
         payload.append('submission_id', this.$store.state.application.submissionId)
 
-				await this.$axios.post(`/scholarships/register/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
+				await this.$axios.post(`/scholarships/registration/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
 
         this.messageBox('ลงทะเบียนสำเร็จแล้ว')
         .then(() => {

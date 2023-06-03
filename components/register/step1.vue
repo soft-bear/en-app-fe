@@ -314,7 +314,7 @@ export default {
       }
 
       try {
-        const { data: {submission_id}} = await this.$axios.post('/scholarships/register/step1', this.form)
+        const { data: {submission_id}} = await this.$axios.post('/scholarships/registration/step1', this.form)
         this.pushStep(submission_id)
         this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
         .then(() => {
