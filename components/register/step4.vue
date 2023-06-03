@@ -84,6 +84,19 @@
           </div>
         </div>
         <div class="card border-eng mt-2">
+          <div class="card-header bg-eng text-white">เหตุผลความจำเป็นที่จะขอรับทุน</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                    <label class="form-label" for="reason">ระบุความจำเป็นในการขอรับทุน</label>
+                    <b-form-textarea id="reason" v-model="form.reason" pl rows="3" max-rows="6"></b-form-textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card border-eng mt-2">
           <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง</div>
           <div class="card-body">
             <div class="row">
@@ -115,6 +128,7 @@ export default {
       form: {
         volunteer_activities: [],
         attachment: '',
+        reason: '',
       },
       volunteer_activitie: {
         name: '',
@@ -161,6 +175,7 @@ export default {
         const payload = new FormData()
 
 				payload.append('attachment', this.form.attachment)
+        payload.append('reason', this.form.reason)
         payload.append('volunteer_activities', JSON.stringify(this.form.volunteer_activities))
         payload.append('submission_id', this.$store.state.application.submissionId)
 
