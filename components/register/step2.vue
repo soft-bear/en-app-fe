@@ -155,7 +155,7 @@
           </div>
         </div>
         <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">การทำงานในปีที่ผ่านมา</div>
+          <div class="card-header bg-eng text-white">การทำงานระหว่างเรียนในช่วงปีที่ผ่านมา</div>
           <div class="card-body">
             <form @submit.stop.prevent="addJob">
               <div class="row">
