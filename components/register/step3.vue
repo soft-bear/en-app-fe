@@ -192,6 +192,19 @@
         </div>
       </div>
     </div>
+    <div class="row mt-2" v-if="Object.values(errors).length">
+      <div class="col">
+        <div class="alert alert-danger">
+          <ul class="list-unstyled m-0">
+            <li v-for="(error, index) in Object.values(errors)" :key="index">
+              <ul class="list-unstyled">
+                <li v-for="(sub, index) in error" :key="index">{{ sub }}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="row mt-4">
       <div class="col text-center">
         <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
@@ -206,6 +219,7 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
+      errors: {},
       form: {
         student_incomes: {
           father: 0,
@@ -304,6 +318,7 @@ export default {
     },
     async handleSubmit() {
       this.loading = true
+      this.errors = {}
       try {
         await this.$axios.post('/scholarships/registration/step3', {submission_id: this.$store.state.application.submissionId, ...this.form})
         this.messageBox('ตรวจสอบข้อมูลสำเร็จ, ดำเนินการขั้นตอนต่อไป')
@@ -311,7 +326,8 @@ export default {
           this.nextStep(this.$store.state.application.curStep)
         })
       } catch (error) {
-        console.log(error)
+        const {data:{errors}} = error.response
+        this.errors = errors
         this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
       }
       this.loading = false
