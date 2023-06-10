@@ -51,7 +51,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <label class="form-label" for="current_address_line_cur">ที่อยู่ปัจจุบัน/หอพัก</label>
+                      <label class="form-label" for="current_address_line_cur">ที่อยู่ปัจจุบัน/หอพัก&nbsp;<small class="text-muted">(ชื่อหมู่บ้าน/หอพัก บ้านเลขที่)</small></label>
                       <input type="text" class="form-control form-control-sm" id="current_address_line_cur" v-model="form.current_address.line" required>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <label class="form-label" for="current_address_line_ori">ที่อยู่ตามภูมิลำเนา</label>
+                      <label class="form-label" for="current_address_line_ori">ที่อยู่ตามภูมิลำเนา&nbsp;<small class="text-muted">(ชื่อหมู่บ้าน/หอพัก บ้านเลขที่)</small></label>
                       <input type="text" class="form-control form-control-sm" id="current_address_line_ori" v-model="form.original_address.line">
                     </div>
                   </div>
