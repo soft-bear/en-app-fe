@@ -6,7 +6,7 @@
           <div class="card-body">
             <h6><strong>ทุนการศึกษาที่อยู่ระหว่างดำเนินการ</strong></h6>
             <b-overlay :show="loading || loadingActive">
-              <register-follow-table-list class="my-3" :data="active.registration" />
+              <register-follow-table-list class="my-3" :data="active.registration" @refresh="getActive(active.curPage)" />
               <div class="small">
                 <b-pagination v-model="active.curPage" :total-rows="active.totalRows" :per-page="active.perPage" size="sm" class="m-0"
                 first-text="หน้าแรก" prev-text="ก่อนหน้า" next-text="ถัดไป" last-text="หน้าสุดท้าย" @input="getActive(active.curPage)"></b-pagination>

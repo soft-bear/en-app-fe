@@ -26,7 +26,7 @@
           <td :class="txtColor(item.status)">{{ progress(item.status) }}</td>
           <td>{{ onlyDate(item.created_at) }}</td>
           <td>
-            <!-- <button class="btn btn-xs btn-primary">อัปโหลด</button> -->
+            <button class="btn btn-xs btn-danger" v-if="item.status == 'pending'" @click="destroy(item.id)" :disabled="loading">ลบข้อมูล</button>
           </td>
         </tr>
       </tbody>
@@ -37,6 +37,11 @@
 <script>
 export default {
   props: ['data'],
+  data() {
+    return {
+      loading: true,
+    }
+  },
   methods: {
     progress(status) {
       switch (status) {
@@ -61,7 +66,43 @@ export default {
         case 'rejected': return 'text-danger'; break;
         default: return 'text-muted'; break;
       }
-    }
+    },
+    destroy(registerId) {
+      this.$bvModal.msgBoxConfirm('ต้องการลบข้อมูลการลงทะเบียนทุนการศึกษาใช่หรือไม่?', {
+        title: 'ยืนยันการลบข้อมูล',
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: 'danger',
+        okTitle: 'ใช่, ลบข้อมูล',
+        cancelTitle: 'ไม่ใช่',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(async value => {
+        if (value) {
+          this.loading = true
+          try {
+            await this.$axios.delete(`/scholarships/registration/${registerId}`)
+            this.$emit('refresh')
+            this.messageBox('ลบข้อมูลเรียบร้อยแล้ว')
+          } catch (e) {
+            this.messageBox('ไม่สามารถลบข้อมูลได้', true)
+          }
+          this.loading = false
+        }
+      })
+    },
+    messageBox(data, error = false) {
+      return this.$bvModal.msgBoxOk(data, {
+        title: !error ? 'สำเร็จ' : 'ผิดพลาด',
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: !error ? 'success' : 'danger',
+        headerClass: 'p-2 border-bottom-0',
+        footerClass: 'p-2 border-top-0',
+        centered: true
+      })
+    },
   }
 }
 </script>

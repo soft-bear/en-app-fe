@@ -228,8 +228,12 @@ export default {
       try {
         const { data: { data } } = await this.$axios.get('/user/me')
         if (data.student) {
-          this.showForm = true
-          // this.$bvModal.show('modal-application-form')
+          const {data:{is_registered}} = await this.$axios.get(`/scholarships/registration/check/${this.data.id}`)
+          if (!is_registered) {
+            this.showForm = true
+          } else {
+            this.messageBox('มีการลงทะเบียนทุนนี้แล้ว')
+          }
         } else {
           throw 'ไม่พบข้อมูลนักศึกษา'
         }
