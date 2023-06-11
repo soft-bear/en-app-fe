@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-4">
+  <div class="container my-4 small">
     <div class="row">
       <div class="col">
         <h4><strong>ลงทะเบียน</strong></h4>
@@ -14,30 +14,30 @@
             </div>
             <div class="card-body">
               <div class="mb-3">
-                <label class="form-label">ชื่อ - นามสกุล</label>
-                <b-form-input class="form-control form-control-sm" :state="isInputFullname" v-model="form.fullname"
+                <label class="form-label" for="fullName">ชื่อ - นามสกุล</label>
+                <b-form-input id="fullName" class="form-control form-control-sm" :state="isInputFullname" v-model="form.fullname"
                   required type="text" placeholder="ไม่ต้องใส่คำนำหน้านาม" />
               </div>
               <div class="mb-3">
-                <label class="form-label">อีเมลแอดเดรส</label>
-                <b-form-input class="form-control form-control-sm" :state="emailValidation" v-model="form.username"
+                <label class="form-label" for="username">อีเมลแอดเดรส</label>
+                <b-form-input id="username" class="form-control form-control-sm" :state="emailValidation" v-model="form.username"
                   required type="email" placeholder="example@ubu.ac.th" />
               </div>
               <div class="mb-3">
-                <label class="form-label">ตั้งค่ารหัสผ่าน</label>
-                <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.set_password"
+                <label class="form-label" for="setPassword">ตั้งค่ารหัสผ่าน</label>
+                <b-form-input id="setPassword" class="form-control form-control-sm" :state="isMatchPassword" v-model="form.set_password"
                   required type="password" placeholder="ระบุการตั้งค่ารหัสผ่าน" />
               </div>
               <div class="mb-3">
-                <label class="form-label">ยืนยันรหัสผ่าน</label>
-                <b-form-input class="form-control form-control-sm" :state="isMatchPassword" v-model="form.con_password"
+                <label class="form-label" for="conPassword">ยืนยันรหัสผ่าน</label>
+                <b-form-input id="conPassword" class="form-control form-control-sm" :state="isMatchPassword" v-model="form.con_password"
                   required type="password" placeholder="ระบุการยืนยันรหัสผ่าน" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col">
           <div class="card">
             <div class="card-body">
@@ -64,6 +64,23 @@
           </div>
         </div>
       </div>
+      <div class="card mt-2" v-if="Object.values(errors).length">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="alert alert-danger m-0">
+                <ul class="list-unstyled m-0">
+                  <li v-for="(error, index) in Object.values(errors)" :key="index">
+                    <ul class="list-unstyled">
+                      <li v-for="(sub, index) in error" :key="index">{{ sub }}</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card mt-4">
         <div class="card-body">
           <div class="row">
@@ -83,6 +100,7 @@ export default {
   middleware: ['authenticated'],
   data() {
     return {
+      errors: {},
       form: {
         username: '',
         fullname: '',
@@ -98,11 +116,14 @@ export default {
       return this.form.username === '' ? null : pattern.test(this.form.username)
     },
     isMatchPassword() {
-      if (this.form.set_password === '' || this.form.con_password === '') {
+      const setPassword = this.form.set_password
+      const conPassword = this.form.con_password
+
+      if (setPassword === '' || conPassword === '') {
         return null
       }
 
-      return this.form.set_password === this.form.con_password
+      return (this.form.set_password === this.form.con_password) && (setPassword.length >= 8 || conPassword.length >= 8)
     },
     isInputFullname() {
       return this.form.fullname === '' ? null : true
@@ -127,6 +148,8 @@ export default {
           this.$router.push('/login')
         })
       } catch (e) {
+        const {data:{errors}} = error.response
+        this.errors = Object.keys(errors).length ? errors : {}
         this.$bvModal.msgBoxOk('ไม่สามารถเข้าสู่ระบบ', {
           title: 'ผิดพลาด',
           size: 'sm',
