@@ -128,20 +128,20 @@
               <div class="card-body">
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_owner" type="checkbox" id="checkbox-home-1" class="form-check-input"  v-model="form.residential.is_owner" />
+                    <b-form-checkbox name="home_is_owner" type="checkbox" id="checkbox-home-1" class="form-check-input" :value="true" unchecked-value="" v-model="form.residential.is_owner" />
                     <label for="checkbox-home-1" class="form-check-label">เป็นของตนเอง</label>
                   </div>
                 </div>
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_rent" type="checkbox" id="checkbox-home-3" class="form-check-input" v-model="form.residential.is_rent" />
+                    <b-form-checkbox name="home_is_rent" type="checkbox" id="checkbox-home-3" class="form-check-input" :value="true" unchecked-value="" v-model="form.residential.is_rent" />
                     <label for="checkbox-home-3" class="form-check-label" >บ้านเช่า (บาท:เดือน)</label>
                   </div>
                   <input name="home_rent_fee" type="number" :disabled="!form.residential.is_rent" class="form-control form-control-sm" value="0" v-model="form.residential.rent_val" />
                 </div>
                 <div class="mb-2">
                   <div class="form-check form-check-inline">
-                    <input name="home_is_stay" type="checkbox" id="checkbox-home-2" class="form-check-input" v-model="form.residential.is_stay" />
+                    <b-form-checkbox name="home_is_stay" type="checkbox" id="checkbox-home-2" class="form-check-input" :value="true" unchecked-value="" v-model="form.residential.is_stay" />
                     <label for="checkbox-home-2" class="form-check-label">อาศัยคนอื่น (ระบุ)</label>
                   </div>
                   <input name="home_stay_name" :disabled="!form.residential.is_stay" class="form-control form-control-sm" v-model="form.residential.stay_name" />
@@ -154,7 +154,7 @@
                 <div class="row">
                   <div class="mb-2 col-md-12">
                     <div class="form-check form-check-inline">
-                      <input name="land_is_owner" type="checkbox" id="checkbox-land-1" class="form-check-input" v-model="form.land_ownership.is_owner" />
+                      <b-form-checkbox name="land_is_owner" type="checkbox" id="checkbox-land-1" class="form-check-input" :value="true" unchecked-value="" v-model="form.land_ownership.is_owner" />
                       <label for="checkbox-land-1" class="form-check-label">เป็นของตนเอง (ไร่)</label>
                     </div>
                     <div>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="mb-2 col-md-12">
                     <div class="form-check form-check-inline">
-                      <input name="land_is_stay" type="checkbox" id="checkbox-land-2" class="form-check-input" v-model="form.land_ownership.is_stay" />
+                      <b-form-checkbox name="land_is_stay" type="checkbox" id="checkbox-land-2" class="form-check-input" :value="true" unchecked-value="" v-model="form.land_ownership.is_stay" />
                       <label for="checkbox-land-2" class="form-check-label">อาศัยคนอื่น (ระบุ)</label>
                     </div>
                     <div>
@@ -172,7 +172,7 @@
                   </div>
                   <div class="mb-2 col-md-6">
                     <div class="form-check form-check-inline">
-                      <input name="land_is_rent" type="checkbox" id="checkbox-land-3" class="form-check-input" v-model="form.land_ownership.is_rent" />
+                      <b-form-checkbox name="land_is_rent" type="checkbox" id="checkbox-land-3" class="form-check-input" :value="true" unchecked-value="" v-model="form.land_ownership.is_rent" />
                       <label for="checkbox-land-3" class="form-check-label">เช่าคนอื่น (ไร่)</label>
                     </div>
                     <div>
@@ -239,18 +239,18 @@ export default {
         parent_relation_status: '',
         parent_relation_ect: '',
         residential: {
-          is_rent: false,
-          is_stay: false,
-          is_owner: false,
+          is_rent: '',
+          is_stay: '',
+          is_owner: '',
           rent_val: 0,
           stay_name: '-',
         },
         land_ownership: {
-          is_owner: false,
+          is_owner: '',
           own_val: 0,
-          is_stay: false,
+          is_stay: '',
           stay_name: '-',
-          is_rent: false,
+          is_rent: '',
           rent_val: 0,
           rent_rate: 0
         }

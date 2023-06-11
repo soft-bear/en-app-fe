@@ -321,13 +321,6 @@ export default {
     async handleSubmit() {
       this.loading = true
       this.errors = {}
-      if (Object.values(this.form.current_address).some(value => value === null || value === undefined || value === '')) {
-        return this.messageBox('กรุณาระบบข้อมูลที่อยู่ปัจจุบันให้ครบถ้วน', true)
-      }
-      if (Object.values(this.form.original_address).some(value => value === null || value === undefined || value === '')) {
-        return this.messageBox('กรุณาระบบข้อมูลที่อยู่ตามภูมิลำเนาให้ครบถ้วน', true)
-      }
-
       try {
         const { data: {submission_id}} = await this.$axios.post('/scholarships/registration/step1', this.form)
         this.pushStep(submission_id)
