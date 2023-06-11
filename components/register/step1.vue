@@ -330,7 +330,7 @@ export default {
         })
       } catch (error) {
         const {data:{errors}} = error.response
-        this.errors = errors
+        this.errors = Object.keys(errors).length ? errors : {}
         this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
       }
 
