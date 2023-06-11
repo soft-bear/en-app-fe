@@ -24,12 +24,12 @@
                   required type="email" placeholder="example@ubu.ac.th" />
               </div>
               <div class="mb-3">
-                <label class="form-label" for="setPassword">ตั้งค่ารหัสผ่าน</label>
+                <label class="form-label" for="setPassword">ตั้งค่ารหัสผ่าน <small class="text-muted">(อย่างน้อย 8 ตัวอักษร)</small></label>
                 <b-form-input id="setPassword" class="form-control form-control-sm" :state="isMatchPassword" v-model="form.set_password"
                   required type="password" placeholder="ระบุการตั้งค่ารหัสผ่าน" />
               </div>
               <div class="mb-3">
-                <label class="form-label" for="conPassword">ยืนยันรหัสผ่าน</label>
+                <label class="form-label" for="conPassword">ยืนยันรหัสผ่าน <small class="text-muted">(อย่างน้อย 8 ตัวอักษร)</small></label>
                 <b-form-input id="conPassword" class="form-control form-control-sm" :state="isMatchPassword" v-model="form.con_password"
                   required type="password" placeholder="ระบุการยืนยันรหัสผ่าน" />
               </div>
@@ -147,7 +147,7 @@ export default {
         }).then(() => {
           this.$router.push('/login')
         })
-      } catch (e) {
+      } catch (error) {
         const {data:{errors}} = error.response
         this.errors = Object.keys(errors).length ? errors : {}
         this.$bvModal.msgBoxOk('ไม่สามารถเข้าสู่ระบบ', {
