@@ -128,7 +128,8 @@
           <div class="col">
             <div class="card border-primary" v-if="showForm">
               <div class="card-header bg-primary text-white text-center">
-                แบบฟอร์มลงทะเบียนทุนการศึกษา
+                แบบฟอร์มลงทะเบียนทุนการศึกษา<br />
+                <small class="text-sm">ขั้นตอนที่ {{ currStep }}/{{ allStep }}</small>
               </div>
               <div class="card-body">
                 <register-step1 v-if="currStep == 1" :scholarship_id="data.id" />
@@ -169,6 +170,9 @@ export default {
     }
   },
   computed: {
+    allStep() {
+      return this.$store.state.application.allStep
+    },
     currStep() {
       return this.$store.state.application.curStep
     },

@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  props: ['data'],
+  props: ['data', 'loadingActive'],
   data() {
     return {
       loading: true,
@@ -103,6 +103,11 @@ export default {
         centered: true
       })
     },
+  },
+  watch: {
+    loadingActive(next) {
+      this.loading = next
+    }
   }
 }
 </script>
