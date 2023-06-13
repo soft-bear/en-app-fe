@@ -132,10 +132,10 @@
                 <small class="text-sm">ขั้นตอนที่ {{ currStep }}/{{ allStep }}</small>
               </div>
               <div class="card-body">
-                <register-step1 v-if="currStep == 1" :scholarship_id="data.id" />
-                <register-step2 v-if="currStep == 2" :year="data.year" :semester="data.semester" />
-                <register-step3 v-if="currStep == 3" />
-                <register-step4 v-if="currStep == 4" @close="closeForm" />
+                <register-step1 v-if="currStep == 1" :prevData="prevData" :scholarship_id="data.id" />
+                <register-step2 v-if="currStep == 2" :prevData="prevData" :year="data.year" :semester="data.semester" />
+                <register-step3 v-if="currStep == 3" :prevData="prevData" />
+                <register-step4 v-if="currStep == 4" :prevData="prevData" @close="closeForm" />
               </div>
             </div>
             <div class="card" v-else>
@@ -161,7 +161,8 @@ export default {
     return {
       checking: false,
       showForm: false,
-      loggedIn: this.$auth.loggedIn
+      loggedIn: this.$auth.loggedIn,
+      prevData: [],
     }
   },
   watch: {
@@ -232,9 +233,10 @@ export default {
       try {
         const { data: { data } } = await this.$axios.get('/user/me')
         if (data.student) {
-          const {data:{is_registered}} = await this.$axios.get(`/scholarships/registration/check/${this.data.id}`)
+          const {data:{is_registered, previous_data}} = await this.$axios.get(`/scholarships/registration/check/${this.data.id}`)
           if (!is_registered) {
             this.showForm = true
+            this.prevData = previous_data
           } else {
             this.messageBox('มีการลงทะเบียนทุนนี้แล้ว')
           }

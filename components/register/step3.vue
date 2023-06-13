@@ -217,6 +217,7 @@
 import { mapActions } from 'vuex'
 
 export default {
+  props: ['prevData'],
   data() {
     return {
       errors: {},
@@ -332,6 +333,13 @@ export default {
       }
       this.loading = false
     }
+  },
+  mounted() {
+    Object.keys(this.form).forEach(key => {
+      if (key != 'scholarship_id' && this.prevData[key] != null) {
+        this.form[key] = this.prevData[key]
+      }
+    })
   }
 }
 </script>

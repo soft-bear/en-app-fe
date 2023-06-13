@@ -241,7 +241,7 @@ export default {
   components: {
     ThailandAutoComplete
   },
-  props: ['scholarship_id'],
+  props: ['prevData','scholarship_id'],
   data() {
     return {
       loading: false,
@@ -335,7 +335,14 @@ export default {
       }
 
       this.loading = false
-    }
+    },
+  },
+  mounted() {
+    Object.keys(this.form).forEach(key => {
+      if (key != 'scholarship_id' && this.prevData[key] != null) {
+        this.form[key] = this.prevData[key]
+      }
+    })
   }
 }
 </script>
