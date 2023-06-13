@@ -20,8 +20,8 @@
               <div class="row">
                 <div class="col-12 col-md-6 text-center">
                   <div class="image-container" v-if="!loading">
-                    <img v-if="data?.photo != null" :src="data.photo.path" :alt="data?.photo.name" />
-                    <img v-else src="/images/en-ubu-logo-min.jpg" alt="EN UBU LOGO" />
+                    <img v-if="data?.photo != null" :src="data.photo.path" loading="lazy" :alt="data?.photo.name" />
+                    <img v-else src="/images/en-ubu-logo-min.jpg" loading="lazy" alt="EN UBU LOGO" />
                   </div>
                 </div>
                 <div class="col-lg-6">
