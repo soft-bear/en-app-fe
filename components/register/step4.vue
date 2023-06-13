@@ -126,7 +126,7 @@
     </div>
     <div class="row mt-4">
       <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit">สมัครทุนการศึกษา</button>
+        <button class="btn btn-sm btn-success" type="submit" :disabled="loading" @click="handleSubmit">สมัครทุนการศึกษา</button>
       </div>
     </div>
   </div>
@@ -198,6 +198,7 @@ export default {
 
         this.messageBox('ลงทะเบียนสำเร็จแล้ว')
         .then(() => {
+          this.$emit('closeForm')
           this.nextStep(this.$store.state.application.curStep)
           this.$router.push('/follow')
         })

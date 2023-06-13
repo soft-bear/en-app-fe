@@ -227,7 +227,7 @@
     </div>
     <div class="row mt-4">
       <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
+        <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit" :disabled="loading">ดำเนินการต่อไป &gt;&gt;</button>
       </div>
     </div>
   </div>

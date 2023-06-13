@@ -180,13 +180,13 @@
                 <div class="mb-3 col-md-3">
                   <div>
                     <label class="form-label" for="beginWorkDate">วันที่เริ่มงาน</label>
-                    <input class="form-control form-control-sm" id="beginWorkDate" v-model="job.job_begin" required min="1" type="date" />
+                    <b-form-datepicker id="beginWorkDate" v-model="job.job_begin" locale="th" size="sm" required />
                   </div>
                 </div>
                 <div class="mb-3 col-md-3">
                   <div>
                     <label class="form-label" for="endWorkDate">วันที่จบงาน</label>
-                    <input class="form-control form-control-sm" id="endWorkDate" v-model="job.leave_job" required min="1" type="date" />
+                    <b-form-datepicker id="endWorkDate" v-model="job.leave_job" locale="th" size="sm" required />
                   </div>
                 </div>
               </div>
@@ -256,7 +256,7 @@
     </div>
     <div class="row mt-4">
       <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
+        <button class="btn btn-sm btn-success" type="submit" :disabled="loading" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
       </div>
     </div>
   </div>
