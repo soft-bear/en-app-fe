@@ -215,13 +215,11 @@ export default {
 		},
   },
   mounted() {
-    if (this.prevData.length) {
-      Object.keys(this.form).forEach(key => {
-        if (key != 'scholarship_id' && this.prevData[key] != null) {
-          this.form[key] = this.prevData[key]
-        }
-      })
-    }
+    Object.keys(this.form).forEach(key => {
+      if (key != 'scholarship_id' && this.prevData[key] && this.prevData[key].length) {
+        this.form[key] = this.prevData[key]
+      }
+    })
   }
 }
 </script>
