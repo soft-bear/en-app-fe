@@ -269,6 +269,7 @@ export default {
   props: ['prevData', 'semester', 'year'],
   data() {
     return {
+      loading: false,
       errors: {},
       form: {
         gpa_one: '',

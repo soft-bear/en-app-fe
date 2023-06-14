@@ -220,6 +220,7 @@ export default {
   props: ['prevData'],
   data() {
     return {
+      loading: false,
       errors: {},
       form: {
         student_incomes: {
