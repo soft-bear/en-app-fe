@@ -377,7 +377,7 @@ export default {
   },
   mounted() {
     Object.keys(this.form).forEach(key => {
-      if (key != 'scholarship_id' && this.prevData[key]s) {
+      if (key != 'scholarship_id' && this.prevData[key]) {
         this.form[key] = this.prevData[key]
       }
     })
