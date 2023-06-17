@@ -177,6 +177,7 @@ export default {
       this.form.volunteer_activities = newArray
     },
     addActivity() {
+      if (this.form.volunteer_activities.length) {}
       this.form.volunteer_activities.push({
         name: this.volunteer_activitie.name,
         semester: this.volunteer_activitie.semester,
