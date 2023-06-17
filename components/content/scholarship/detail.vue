@@ -31,7 +31,7 @@
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>ประเภททุนการศึกษา</strong></div>
-                    <div class="col-12 col-md-8">{{ data.is_goingon ? 'ทุนต่อเนื่อง' : 'ทุนไม่ต่อเนื่อง' }}</div>
+                    <div class="col-12 col-md-8">{{ data.is_goingon ? 'ทุนต่อเนื่อง' : 'ทุนรายปี' }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>จำนวนเงิน</strong></div>
