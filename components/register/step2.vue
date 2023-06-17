@@ -333,14 +333,18 @@ export default {
       this.form.jobs = newArray
     },
     addJob() {
-      this.form.job_histories.push({
-        name:     this.job.name,
-        place:    this.job.place,
-        money:    this.job.money,
-        job_begin:this.job.job_begin,
-        leave_job:this.job.leave_job,
-      })
-      Object.keys(this.job).forEach(i => this.job[i] = '')
+      if (this.form.job_histories.length < 3) {
+        this.form.job_histories.push({
+          name:     this.job.name,
+          place:    this.job.place,
+          money:    this.job.money,
+          job_begin:this.job.job_begin,
+          leave_job:this.job.leave_job,
+        })
+        Object.keys(this.job).forEach(i => this.job[i] = '')
+      } else {
+        this.messageBox('ไม่สามารถดำเนินการขั้นต่อไปได้', true)
+      }
     },
     delFamily(index) {
       const newArray = [...this.form.family_members]
@@ -348,16 +352,20 @@ export default {
       this.form.family_members = newArray
     },
     addFamily() {
-      this.form.family_members.push({
-        full_name   : this.family.full_name,
-        age         : this.family.age,
-        relationship: this.family.relationship,
-        education   : this.family.education,
-        occupation  : this.family.occupation,
-        work_place  : this.family.work_place,
-        salary      : this.family.salary,
-      })
-      Object.keys(this.family).forEach(i => this.family[i] = '')
+      if (this.form.family_members.length < 5) {
+        this.form.family_members.push({
+          full_name   : this.family.full_name,
+          age         : this.family.age,
+          relationship: this.family.relationship,
+          education   : this.family.education,
+          occupation  : this.family.occupation,
+          work_place  : this.family.work_place,
+          salary      : this.family.salary,
+        })
+        Object.keys(this.family).forEach(i => this.family[i] = '')
+      } else {
+        this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
+      }
     },
     async handleSubmit() {
       this.loading = true

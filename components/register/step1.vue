@@ -311,12 +311,16 @@ export default {
       this.form.previous_semester_scholarships = newArray
     },
     addScholarship() {
-      this.form.previous_semester_scholarships.push({
-        name: this.scholarship.name,
-        money: this.scholarship.money,
-        is_ongoing: this.scholarship.is_ongoing
-      })
-      Object.keys(this.scholarship).forEach(i => this.scholarship[i] = '')
+      if (this.form.previous_semester_scholarships < 2) {
+        this.form.previous_semester_scholarships.push({
+          name: this.scholarship.name,
+          money: this.scholarship.money,
+          is_ongoing: this.scholarship.is_ongoing
+        })
+        Object.keys(this.scholarship).forEach(i => this.scholarship[i] = '')
+      } else {
+        this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
+      }
     },
     async handleSubmit() {
       this.loading = true
