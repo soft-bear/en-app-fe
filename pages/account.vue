@@ -50,6 +50,12 @@
                       </div>
                       <div class="col-12">
                         <div class="form-group">
+                            <label class="form-label" for="student-photo">ภาพนักศึกษา<span v-if="this.$auth.user.data.student?.student_photo" class="text-success">&nbsp;(อัปโหลดแล้ว)&nbsp;</span><small class="text-danger">ประเภท jpg, jpeg, png และไม่เกิน 10MB</small></label>
+                            <b-form-file id="student-photo" @change="handleStudentPhotoUpload" size="sm" :required="this.$auth.user.data.student ? false : true"></b-form-file>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
                           <label class="form-label">สิทธิ์การใช้งาน</label>
                           <input type="text" class="form-control form-control-sm" disabled :value="$auth.user.data.level" />
                         </div>
@@ -122,6 +128,7 @@ export default {
         name: '',
         faculty_id: '',
         department_id: '',
+        student_photo: '',
       },
       password: {
         old_password: '',
@@ -191,12 +198,22 @@ export default {
       this.loading = false
     },
     async setStudentData() {
+      this.loading = true
       try {
-        await this.$axios.put('/user/me/student', this.student)
+        const payload = new FormData()
+        payload.append('_method', 'PUT')
+
+        Object.keys(this.student).forEach(item => {
+          payload.append(item, this.student[item])
+        })
+
+        await this.$axios.post('/user/me/student', payload, { headers: { 'Content-Type': 'multipart/form-data' } })
+        this.student.student_photo = ''
         this.messageBox('บันทึกการเปลี่ยนแปลงสำเร็จแล้ว')
       } catch (e) {
         this.messageBox('ไม่สามารถบันทึกการเปลี่ยนแปลง', true)
       }
+      this.loading = false
     },
     async getFacultiesData() {
       try {
@@ -204,6 +221,9 @@ export default {
         this.faculties = data
       } catch (e) { }
     },
+    handleStudentPhotoUpload(event) {
+			this.student.student_photo = event.target.files[0] ?? ''
+		}
   },
   async created() {
     this.loading = true
