@@ -26,14 +26,14 @@
               </div>
               <div class="col-12 col-md-6">
                 <div class="form-group">
-                  <label class="form-label" for="line_id">Line ID <small class="text-danger">(ไม่จำเป็น)</small></label>
-                  <input type="text" class="form-control form-control-sm" id="line_id" v-model="form.line_id">
+                  <label class="form-label" for="line_id">Line ID</label>
+                  <input type="text" class="form-control form-control-sm" id="line_id" v-model="form.line_id" required>
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="form-group">
-                  <label class="form-label" for="facebook_url">Facebook URL <small class="text-danger">(ไม่จำเป็น)</small></label>
-                  <input type="url" class="form-control form-control-sm" id="facebook_url" v-model="form.facebook_url">
+                  <label class="form-label" for="facebook_url">Facebook URL</label>
+                  <input type="url" class="form-control form-control-sm" id="facebook_url" v-model="form.facebook_url" required>
                 </div>
               </div>
             </div>
