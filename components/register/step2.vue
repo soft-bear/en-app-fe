@@ -60,7 +60,13 @@
           <div class="card-body">
             <form @submit.stop.prevent="addFamily">
               <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3 col-md-3">
+                  <div>
+                    <label class="form-label" for="title">คำนำหน้านาม</label>
+                    <input class="form-control form-control-sm" id="title" v-model="family.title" required />
+                  </div>
+                </div>
+                <div class="mb-3 col-md-3">
                   <div>
                     <label class="form-label" for="fullName">ชื่อ-สกุล</label>
                     <input class="form-control form-control-sm" id="fullName" v-model="family.full_name" required />
@@ -280,6 +286,7 @@ export default {
         job_histories: [],
       },
       family: {
+        title: '',
         full_name: '',
         age: '',
         relationship: '',
@@ -354,7 +361,7 @@ export default {
     addFamily() {
       if (this.form.family_members.length < 5) {
         this.form.family_members.push({
-          full_name   : this.family.full_name,
+          full_name   : `${this.family.title}${this.family.full_name}`,
           age         : this.family.age,
           relationship: this.family.relationship,
           education   : this.family.education,

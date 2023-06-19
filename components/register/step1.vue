@@ -311,7 +311,7 @@ export default {
       this.form.previous_semester_scholarships = newArray
     },
     addScholarship() {
-      if (this.form.previous_semester_scholarships < 2) {
+      if (this.form.previous_semester_scholarships.length < 2) {
         this.form.previous_semester_scholarships.push({
           name: this.scholarship.name,
           money: this.scholarship.money,
