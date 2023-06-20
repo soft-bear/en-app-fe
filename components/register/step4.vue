@@ -202,11 +202,12 @@ export default {
 
 				await this.$axios.post(`/scholarships/registration/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
 
-        this.messageBox('ลงทะเบียนสำเร็จแล้ว')
+        this.messageBox('ลงทะเบียนสำเร็จแล้ว, กำลังเปลี่ยนหน้าไปยังกลุ่มปิด')
         .then(() => {
           this.$emit('closeForm')
           this.nextStep(this.$store.state.application.curStep)
-          this.$router.push('/follow')
+          window.location.href = 'https://www.facebook.com/groups/2010597925947541'
+          // this.$router.push('/follow')
         })
       } catch (error) {
         const {data:{errors}} = error.response
