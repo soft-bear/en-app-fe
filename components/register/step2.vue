@@ -342,8 +342,8 @@ export default {
     addJob() {
       if (this.form.job_histories.length < 3) {
         this.form.job_histories.push({
-          name:     this.job.name,
-          place:    this.job.place,
+          name:     this.job.name.replace('/','-'),
+          place:    this.job.place.replace('/','-'),
           money:    this.job.money,
           job_begin:this.job.job_begin,
           leave_job:this.job.leave_job,
@@ -361,12 +361,12 @@ export default {
     addFamily() {
       if (this.form.family_members.length < 5) {
         this.form.family_members.push({
-          full_name   : `${this.family.title}${this.family.full_name}`,
+          full_name   : `${this.family.title.replace('/','-')}${this.family.full_name.replace('/','-')}`,
           age         : this.family.age,
-          relationship: this.family.relationship,
-          education   : this.family.education,
-          occupation  : this.family.occupation,
-          work_place  : this.family.work_place,
+          relationship: this.family.relationship.replace('/','-'),
+          education   : this.family.education.replace('/','-'),
+          occupation  : this.family.occupation.replace('/','-'),
+          work_place  : this.family.work_place.replace('/','-'),
           salary      : this.family.salary,
         })
         Object.keys(this.family).forEach(i => this.family[i] = '')
