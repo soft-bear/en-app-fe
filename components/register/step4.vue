@@ -179,7 +179,7 @@ export default {
     addActivity() {
       if (this.form.volunteer_activities.length < 10) {
         this.form.volunteer_activities.push({
-          name: this.volunteer_activitie.name,
+          name: this.volunteer_activitie.name.replace(/\//g, "\u2044"),
           semester: this.volunteer_activitie.semester,
           year: this.volunteer_activitie.year,
           activity_hours: this.volunteer_activitie.activity_hours
