@@ -313,7 +313,7 @@ export default {
     addScholarship() {
       if (this.form.previous_semester_scholarships.length < 2) {
         this.form.previous_semester_scholarships.push({
-          name: this.scholarship.name.replace(/\//g, "\u2044"),
+          name: this.scholarship.name,
           money: this.scholarship.money,
           is_ongoing: this.scholarship.is_ongoing
         })
