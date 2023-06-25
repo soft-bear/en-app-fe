@@ -32,7 +32,7 @@
                       </div>
                       <div class="col-12 col-md-4">
                         <div class="form-group">
-                          <label class="form-label" for="student_id">เลขประจำตัวนักศึกษา</label>
+                          <label class="form-label" for="student_id">รหัสนักศึกษา</label>
                           <input type="number" class="form-control form-control-sm" id="student_id" v-model="student.student_id" min="0" />
                         </div>
                       </div>

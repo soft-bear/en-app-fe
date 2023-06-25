@@ -202,7 +202,7 @@ export default {
 
 				await this.$axios.post(`/scholarships/registration/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
 
-        this.messageBox('ลงทะเบียนสำเร็จแล้ว, กำลังเปลี่ยนหน้าไปยังกลุ่มปิด')
+        this.messageBox('ลงทะเบียนสำเร็จแล้ว, กำลังเปลี่ยนหน้าไปยังกลุ่มเฟสบุ๊คนักศึกษาทุนคณะวิศวกรรมศาสตร์ ปีการศึกษา 2566 (ขอให้นักศึกษาที่สมัครทุนเข้ากลุ่มทุกคน)')
         .then(() => {
           this.$emit('closeForm')
           this.nextStep(this.$store.state.application.curStep)
