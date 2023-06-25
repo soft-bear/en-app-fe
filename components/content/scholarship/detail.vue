@@ -150,9 +150,9 @@
       </div>
       <b-modal ref="announce-modal" id="announce-modal" centered hide-footer hide-header size="xl">
         <p class="my-2 text-center">
-          <strong class="text-danger mb-2">โปรดอ่าน</strong>
+          <strong class="text-danger mb-2 d-block">โปรดอ่าน</strong>
           ให้นักศึกษาทุกคนที่จะสมัครเข้ารับทุนการศึกษา จัดเตรียมเอกสารให้พร้อมก่อนการสมัครทุน<br />
-          เช่น เหตุผลในการรับทุน รูปถ่ายบ้าน รูปถ่ายครอบครัว ใบแสดงผลการศึกษา และอื่น ๆ <br />
+          เช่น เหตุผลในการรับทุน รูปถ่ายบ้าน รูปถ่ายครอบครัว ใบแสดงผลการศึกษา ทะเบียนกิจกรรม และอื่น ๆ <br />
           <strong class="text-danger">ศึกษาข้อมูลเพิ่มเติมตามเอกสารประกอบการสมัคร</strong><br />
           รวมทุกอย่างให้อยู่ในไฟล์เอกสารประเภท PDF ขนาดไม่เกิน 10MB
         </p>
