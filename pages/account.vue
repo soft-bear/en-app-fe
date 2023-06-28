@@ -204,6 +204,7 @@ export default {
         payload.append('_method', 'PUT')
 
         Object.keys(this.student).forEach(item => {
+          if (item == 'student_photo' && !this.student['student_photo']) return
           payload.append(item, this.student[item])
         })
 
