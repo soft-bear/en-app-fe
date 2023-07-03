@@ -177,17 +177,17 @@ export default {
       this.form.volunteer_activities = newArray
     },
     addActivity() {
-      if (this.form.volunteer_activities.length < 10) {
-        this.form.volunteer_activities.push({
-          name: this.volunteer_activitie.name,
-          semester: this.volunteer_activitie.semester,
-          year: this.volunteer_activitie.year,
-          activity_hours: this.volunteer_activitie.activity_hours
-        })
-        Object.keys(this.volunteer_activitie).forEach(i => this.volunteer_activitie[i] = '')
-      } else {
-        this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
-      }
+      this.form.volunteer_activities.push({
+        name: this.volunteer_activitie.name,
+        semester: this.volunteer_activitie.semester,
+        year: this.volunteer_activitie.year,
+        activity_hours: this.volunteer_activitie.activity_hours
+      })
+      Object.keys(this.volunteer_activitie).forEach(i => this.volunteer_activitie[i] = '')
+      // if (this.form.volunteer_activities.length < 10) {
+      // } else {
+      //   this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
+      // }
     },
     async handleSubmit() {
       this.loading = true
