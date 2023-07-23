@@ -63,7 +63,10 @@
                 <div class="mb-3 col-md-3">
                   <div>
                     <label class="form-label" for="title">คำนำหน้านาม</label>
-                    <input class="form-control form-control-sm" id="title" v-model="family.title" required />
+                    <select class="form-control form-control-sm" id="title" v-model="family.title" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.value" v-for="(data, index) in title" :key="index">{{ data.value }}</option>
+                    </select>
                   </div>
                 </div>
                 <div class="mb-3 col-md-3">
@@ -141,7 +144,7 @@
                       <td>{{ member.education }}</td>
                       <td>
                         <strong>{{ member.work_place }}</strong><br />
-                        <span class="text-muted">อาชีพ: {{ member.occupation }}, รายได้: {{ member.salary }}</span>
+                        <span class="text-muted">อาชีพ: {{ member.occupation }}, รายได้: {{ numberFormat(parseInt(member.salary)) }}</span>
                       </td>
                       <td>
                         <button type="button" class="btn btn-xs btn-danger" @click="delFamily(index)">ลบ</button>
@@ -226,8 +229,8 @@
                     <tr v-for="(job, index) in form.job_histories" :key="index">
                       <td>{{ job.name }}</td>
                       <td>{{ job.place }}</td>
-                      <td>{{ job.job_begin }} - {{ job.leave_job }}</td>
-                      <td>{{ job.money }}</td>
+                      <td>{{ dateFormat(job.job_begin) }} - {{ dateFormat(job.leave_job) }}</td>
+                      <td>{{ numberFormat(parseFloat(job.money)) }}</td>
                       <td>
                         <button @click="delJob(index)" class="btn btn-xs btn-danger">ลบ</button>
                       </td>
@@ -302,6 +305,13 @@ export default {
         job_begin: '',
         leave_job: '',
       },
+      title: [
+        { value: 'เด็กหญิง' },
+        { value: 'เด็กชาย' },
+        { value: 'นาย' },
+        { value: 'นาง' },
+        { value: 'นางสาว' },
+      ],
     }
   },
   computed: {
@@ -373,6 +383,13 @@ export default {
       // } else {
       //   this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
       // }
+    },
+    dateFormat(data) {
+      const date = new Date(data)
+      return data || date ? date.toLocaleDateString('th-TH', { dateStyle: 'medium' }) : data
+    },
+    numberFormat(number) {
+      return typeof(number) == 'number' ? number.toLocaleString('th-TH') : number
     },
     async handleSubmit() {
       this.loading = true

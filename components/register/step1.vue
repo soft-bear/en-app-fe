@@ -170,7 +170,7 @@
                   <tbody v-if="form.previous_semester_scholarships.length">
                     <tr v-for="(scholarship, index) in form.previous_semester_scholarships" :key="index">
                       <td>{{ scholarship.name }}</td>
-                      <td>{{ scholarship.money }}</td>
+                      <td>{{ numberFormat(parseInt(scholarship.money)) }}</td>
                       <td>{{ scholarship.is_ongoing == '1' ? 'ต่อเนื่อง' : 'รายปี' }}</td>
                       <td>
                         <button class="btn btn-xs btn-danger" @click="delScholarship(index)">ลบ</button>
@@ -321,6 +321,9 @@ export default {
       // } else {
       //   this.messageBox('ข้อมูลครบจำนวนที่กำหนดแล้ว', true)
       // }
+    },
+    numberFormat(number) {
+      return typeof(number) == 'number' ? number.toLocaleString('th-TH') : number
     },
     async handleSubmit() {
       this.loading = true
