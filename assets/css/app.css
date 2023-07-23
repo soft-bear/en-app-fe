@@ -57,6 +57,16 @@ input[type=number] {
   border-color: var(---primary) !important;
 }
 
+.btn-outline-eng {
+  color: var(---primary) !important;
+  border-color: var(---primary) !important;
+}
+
+.btn-outline-eng:hover {
+  color: var(--white) !important;
+  background-color: var(---primary) !important;
+}
+
 .google-sans {
   font-family: 'Google Sans', sans-serif !important;
 }

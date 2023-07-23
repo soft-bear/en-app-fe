@@ -3,16 +3,11 @@
     <b-overlay :show="loading">
       <div class="row my-4">
         <b-col>
-          <div class="card">
-            <div class="card-header">
+          <div class="card border-eng">
+            <div class="card-header bg-eng text-white">
               <div class="row">
                 <div class="col">
-                  <div :style="loggedIn && data.is_active ? 'line-height: 34.6px;' : ''">
-                    ข้อมูลทุนการศึกษา - {{ data.name }} (ภาคเรียนที่ {{ data.semester }}/{{ data.year }})
-                  </div>
-                </div>
-                <div class="col text-right" v-if="loggedIn && data.is_active">
-                  <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
+                  ข้อมูลทุนการศึกษา - {{ data.name }} (ภาคเรียนที่ {{ data.semester }}/{{ data.year }})
                 </div>
               </div>
             </div>
@@ -126,16 +121,12 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-primary" v-if="showForm">
-              <div class="card-header bg-primary text-white text-center">
-                แบบฟอร์มลงทะเบียนทุนการศึกษา<br />
-                <small class="text-sm">ขั้นตอนที่ {{ currStep }}/{{ allStep }}</small>
+            <div class="card border-eng" v-if="showForm">
+              <div class="card-header bg-eng text-white text-center">
+                แบบฟอร์มลงทะเบียนทุนการศึกษา
               </div>
               <div class="card-body">
-                <register-step1 v-if="currStep == 1" :prevData="prevData" :scholarship_id="data.id" />
-                <register-step2 v-if="currStep == 2" :prevData="prevData" :year="data.year" :semester="data.semester" />
-                <register-step3 v-if="currStep == 3" :prevData="prevData" />
-                <register-step4 v-if="currStep == 4" :prevData="prevData" @close="closeForm" />
+                <register-form />
               </div>
             </div>
             <div class="card" v-else>
@@ -148,9 +139,9 @@
           </div>
         </div>
       </div>
-      <b-modal ref="announce-modal" id="announce-modal" centered hide-footer hide-header size="xl">
+      <b-modal ref="announce-modal" id="announce-modal" centered hide-footer hide-header size="lg">
         <p class="my-2 text-center">
-          <strong class="text-danger mb-2 d-block">โปรดอ่าน</strong>
+          <strong class="text-danger mb-2 d-block" style="font-size: 1.5rem;">โปรดอ่าน</strong>
           ให้นักศึกษาทุกคนที่จะสมัครเข้ารับทุนการศึกษา จัดเตรียมเอกสารให้พร้อมก่อนการสมัครทุน<br />
           เช่น เหตุผลในการรับทุน รูปถ่ายบ้าน รูปถ่ายครอบครัว ใบแสดงผลการศึกษา ทะเบียนกิจกรรม และอื่น ๆ <br />
           <strong class="text-danger">ศึกษาข้อมูลเพิ่มเติมตามเอกสารประกอบการสมัคร</strong><br />
@@ -173,7 +164,7 @@ export default {
   data() {
     return {
       checking: false,
-      showForm: false,
+      showForm: true,
       loggedIn: this.$auth.loggedIn,
       prevData: [],
     }
