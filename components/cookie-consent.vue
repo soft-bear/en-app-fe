@@ -7,7 +7,7 @@
             เว็บไซต์นี้มีการใช้งานคุกกี้เพื่อให้ท่านสามารถใช้บริการได้อย่างต่อเนื่องและอำนวยความสะดวกในการใช้งานเว็บไซต์<br />
             รวมถึงช่วยให้เราปรับปรุงการนำเสนอเนื้อหาตรงตามความต้องการของท่าน โดยสามารถศึกษารายละเอียดเพิ่มเติมได้ใน
             <a href="https://docs.t-reg.co/6827fa77-6460-4fa2-ac5a-b7eea72f6f79/CookPol/ubu_cookie.pdf" target="_blank" rel="noopener noreferrer">นโยบายการใช้คุกกี้</a><br />
-            <button class="btn btn-sm btn-success mt-1" @click="acceptCookies">ยอมรับ</button>
+            <button class="btn btn-sm btn-outline-eng mt-1" @click="acceptCookies">ยอมรับ</button>
           </p>
         </div>
       </div>

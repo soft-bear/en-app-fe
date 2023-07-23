@@ -3,8 +3,8 @@
     <b-overlay :show="loading">
       <div class="row my-4">
         <b-col>
-          <div class="card">
-            <div class="card-header">
+          <div class="card border-eng">
+            <div class="card-header bg-eng text-white">
               <div class="row">
                 <div class="col">
                   <div :style="loggedIn && data.is_active ? 'line-height: 34.6px;' : ''">
@@ -12,7 +12,7 @@
                   </div>
                 </div>
                 <div class="col text-right" v-if="loggedIn && data.is_active">
-                  <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
+                  <b-button variant="outline-light" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
                 </div>
               </div>
             </div>
@@ -126,8 +126,8 @@
         </div>
         <div class="row mb-4" v-else>
           <div class="col">
-            <div class="card border-primary" v-if="showForm">
-              <div class="card-header bg-primary text-white text-center">
+            <div class="card border-eng" v-if="showForm">
+              <div class="card-header bg-eng text-white text-center">
                 แบบฟอร์มลงทะเบียนทุนการศึกษา<br />
                 <small class="text-sm">ขั้นตอนที่ {{ currStep }}/{{ allStep }}</small>
               </div>
@@ -141,7 +141,7 @@
             <div class="card" v-else>
               <div class="card-body text-center">
                 <div class="d-block">
-                  <b-button variant="outline-primary" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
+                  <b-button variant="outline-eng" class="mt-1" size="sm" @click="onClickRegisterButton" :disabled="checking">สมัครทุนการศึกษา</b-button>
                 </div>
               </div>
             </div>

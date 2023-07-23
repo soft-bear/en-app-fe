@@ -114,7 +114,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <button type="submit" class="btn btn-sm btn-primary">เพิ่ม</button>
+                  <button type="submit" class="btn btn-sm btn-outline-primary">เพิ่ม</button>
                 </div>
               </div>
               <div class="row">
@@ -201,7 +201,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <button type="submit" class="btn btn-primary btn-sm">เพิ่ม</button>
+                  <button type="submit" class="btn btn-outline-primary btn-sm">เพิ่ม</button>
                 </div>
               </div>
               <div class="row">
@@ -265,7 +265,7 @@
     </div>
     <div class="row mt-4">
       <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit" :disabled="loading" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
+        <button class="btn btn-sm btn-outline-eng" type="submit" :disabled="loading" @click="handleSubmit">ดำเนินการต่อไป &gt;&gt;</button>
       </div>
     </div>
   </div>

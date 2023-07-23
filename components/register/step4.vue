@@ -2,87 +2,6 @@
   <div class="small">
     <div class="row">
       <div class="col-12">
-        <div class="card border-eng">
-          <div class="card-header bg-eng text-white">กิจกรรม/จิตอาสา</div>
-          <div class="card-body">
-            <form @submit.stop.prevent="addActivity">
-              <div class="row">
-                <div class="mb-3 col-md-12">
-                  <div>
-                    <label class="form-label" for="job">งานที่ทำ</label>
-                    <input class="form-control form-control-sm" id="job" v-model="volunteer_activitie.name" required />
-                  </div>
-                </div>
-                <div class="mb-3 col-md-4">
-                  <div>
-                    <label class="form-label" for="semester">ภาคเรียน</label>
-                      <select name="semester" required id="semester" v-model="volunteer_activitie.semester" class="form-control form-control-sm">
-                        <option value="">== เลือก ==</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                      </select>
-                  </div>
-                </div>
-                <div class="mb-3 col-md-4">
-                  <div>
-                    <label class="form-label" for="year">ปีการศึกษา</label>
-                    <input class="form-control form-control-sm" id="year" v-model="volunteer_activitie.year" required type="number" min="0" />
-                  </div>
-                </div>
-                <div class="mb-3 col-md-4">
-                  <div>
-                    <label class="form-label" for="activity_hours">ชั่วโมงกิจกรรม</label>
-                    <input class="form-control form-control-sm" id="activity_hours" v-model="volunteer_activitie.activity_hours" required step="any" type="number" min="0" />
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div>
-                    <button class="btn btn-sm btn-primary" type="submit">เพิ่ม</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="row">
-              <div class="col"><hr /></div>
-            </div>
-            <div class="card border-secondary small m-0">
-              <div class="card-header bg-secondary text-white">
-                <span class="align-middle">ประวัติการทำกิจกรรม</span>
-              </div>
-              <div class="card-body">
-                <table class="table table-sm m-0 table-hover text-nowrap border-left border-right border-bottom">
-                  <thead>
-                    <tr>
-                      <th>ชื่อกิจกรรม</th>
-                      <th class="d-none d-xl-table-cell">ภาคเรียน</th>
-                      <th class="d-none d-md-table-cell">ปีการศึกษา</th>
-                      <th>ชั่วโมงกิจกรรม</th>
-                      <th>ดำเนินการ</th>
-                    </tr>
-                  </thead>
-                  <tbody v-if="form.volunteer_activities.length" >
-                    <tr v-for="(activity, index) in form.volunteer_activities" :key="index" class="align-middle">
-                      <td>{{ activity.name }}</td>
-                      <td>{{ activity.semester }}</td>
-                      <td>{{ activity.year }}</td>
-                      <td>{{ activity.activity_hours }}</td>
-                      <td>
-                        <button type="button" class="btn btn-xs btn-danger small" @click="delActivity(index)">ลบ</button>
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tbody v-else>
-                    <tr>
-                      <td colspan="5" class="text-center">
-                        <span class="align-middle">ยังไม่มีข้อมูล</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="card border-eng mt-2">
           <div class="card-header bg-eng text-white">เหตุผลความจำเป็นที่จะขอรับทุน</div>
           <div class="card-body">
@@ -91,6 +10,160 @@
                 <div class="form-group">
                     <label class="form-label" for="reason">ระบุความจำเป็นในการขอรับทุน</label>
                     <b-form-textarea id="reason" v-model="form.reason" pl rows="3" max-rows="6"></b-form-textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card border-eng mt-2">
+          <div class="card-header bg-eng text-white">ผู้ให้การอุปการะมีภาระค่าใช้จ่ายส่งเสียเลียงดูผู้ที่อยู่ในอุปการะที่ไม่มีรายได้</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                {{ form.option.choice4 }}
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group">
+                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับประถมหรือไม่ได้ศึกษา</label>
+                        <input v-model="form.sponsor.choice1" type="number" required min="0" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group">
+                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับมัธยม</label>
+                        <input v-model="form.sponsor.choice2" type="number" required min="0" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group">
+                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับอุดมศึกษา</label>
+                        <input v-model="form.sponsor.choice3" type="number" required min="0" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group">
+                        <label>อุปการะญาติที่ไม่มีรายได้มีโรคประจำตัวไม่สามารถทำงานประกอบอาชีพได้</label>
+                        <input v-model="form.sponsor.choice4" type="number" required min="0" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-12">
+                      <div class="form-group">
+                        <label>อุปการะญาติที่ไม่มีรายได้และเป็นผู้ป่วยติดเตียง</label>
+                        <input v-model="form.sponsor.choice5" type="number" required min="0" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card border-eng mt-2">
+          <div class="card-header bg-eng text-white">ข้อมูลอื่น ๆ</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>รายได้ครอบครัว หรือรายได้ผู้อุปการะต่อปี</label>
+                  <select v-model="form.option.choice1" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option1" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>สถานะครอบครัว</label>
+                  <select v-model="form.option.choice2" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option2" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>จำนวนเงินที่นักศึกษาได้รับจากผู้อุปการะ (ไม่รวมเงินกู้ยืมจาก กยศ./กรอ.)</label>
+                  <select v-model="form.option.choice3" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option3" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>ค่าใช้จ่ายรายเดือนของนักศึกษา (ไม่รวมค่าหอพัก)</label>
+                  <select v-model="form.option.choice5" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option5" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>ค่าหอพักของนักศึกษา (รวมค่าน้ำค่าไฟฟ้า)</label>
+                  <select v-model="form.option.choice6" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option6" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>บ้านที่อยู่อาศัย</label>
+                  <select v-model="form.option.choice7" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option7" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>มีจิตอาสาบำเพ็ญประโยชน์ (1 ปีการศึกษาที่ผ่านมา)</label>
+                  <select v-model="form.option.choice8" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option8" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>มีความขยันหมั่นเพียร นักศึกษาทางานหารายได้เพื่อแบ่งเบาภาระครอบครัว</label>
+                  <select v-model="form.option.choice9" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option9" :key="index">{{ data.value }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="form-group">
+                  <label>ผลการเรียนและการทำงาน</label>
+                  <select v-model="form.option.choice10" class="form-control form-control-sm" required>
+                    <option value="">== เลือก ==</option>
+                    <option :value="data.id" v-for="(data, index) in option10" :key="index">{{ data.value }}</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -145,6 +218,25 @@ export default {
         volunteer_activities: [],
         attachment: '',
         reason: '',
+        option: {
+          choice1: '',
+          choice2: '',
+          choice3: '',
+          choice4: '',
+          choice5: '',
+          choice6: '',
+          choice7: '',
+          choice8: '',
+          choice9: '',
+          choice10: '',
+        },
+        sponsor: {
+          choice1: 0,
+          choice2: 0,
+          choice3: 0,
+          choice4: 0,
+          choice5: 0,
+        },
       },
       volunteer_activitie: {
         name: '',
@@ -152,14 +244,115 @@ export default {
         year: '',
         activity_hours: ''
       },
+      option1: [
+        { id: 1, value: 'รายได้ 200,001 - 240,000 บาท/ปี' },
+        { id: 2, value: 'รายได้ 160,001 - 200,000 บาท/ปี' },
+        { id: 3, value: 'รายได้ 120,001 - 160,000 บาท/ปี' },
+        { id: 4, value: 'รายได้ 80,001 - 120,000 บาท/ปี' },
+        { id: 5, value: 'รายได้ไม่เกิน 80,000 บาท/ปี' },
+      ],
+      option2: [
+        { id: 6, value: 'อยู่ด้วยกันเลี้ยงดูทั้งคู่/หย่าร้างแต่เลี้ยงดูทั้งคู่ (ไม่มีครอบครัวใหม่)' },
+        { id: 7, value: 'หย่าร้าง แต่เลี้ยงดูทั้งคู่ (มีครอบครัวใหม่)' },
+        { id: 8, value: 'พิการ 1 คน/เสียชีวิต 1 คน/หย่าร้าง/1 คนเลี้ยงดู' },
+        { id: 9, value: 'เสียชีวิตทั้งคู่/หย่าร้างไม่เลี้ยงดูทั้งคู่/มีผู้อุปการะ' },
+        { id: 10, value: 'เสียชีวิตทั้งคู่/หย่าร้างไม่เลี้ยงดูทั้งคู่/ไม่มีผู้อุปการะ' },
+      ],
+      option3: [
+        { id: 11, value: 'มากกว่า 6,001 บาทขึ้นไป' },
+        { id: 12, value: 'จำนวนเงิน 5,001 - 6,000 บาท/เดือน' },
+        { id: 13, value: 'จำนวนเงิน 4,001 - 5,000 บาท/เดือน' },
+        { id: 14, value: 'จำนวนเงิน 3,001 - 4,000 บาท/เดือน' },
+        { id: 15, value: 'จำนวนเงิน 2,001 - 3,000 บาท/เดือน' },
+        { id: 16, value: 'จำนวนเงิน 0 - 2,000 บาท/เดือน' },
+      ],
+      option4: [
+        { id: 17, value: 'ผู้ที่อยู่ในอุปการะที่ไม่มีรายได้ 3 จุด' },
+        { id: 18, value: 'ผู้ที่อยู่ในอุปการะที่ไม่มีรายได้ 5 จุด' },
+        { id: 19, value: 'ผู้ที่อยู่ในอุปการะที่ไม่มีรายได้ 7 จุด' },
+        { id: 20, value: 'ผู้ที่อยู่ในอุปการะที่ไม่มีรายได้ 9 จุด' },
+        { id: 21, value: 'ผู้ที่อยู่ในอุปการะที่ไม่มีรายได้ 11 จุดขึ้นไป' },
+      ],
+      option5: [
+        { id: 22, value: 'มากกว่า 6,001 บาทขึ้นไป' },
+        { id: 23, value: 'จำนวนเงิน 5,001 - 6,000 บาท/เดือน' },
+        { id: 24, value: 'จำนวนเงิน 4,001 - 5,000 บาท/เดือน' },
+        { id: 25, value: 'จำนวนเงิน 3,001 - 4,000 บาท/เดือน' },
+        { id: 26, value: 'จำนวนเงิน 2,001 - 3,000 บาท/เดือน' },
+        { id: 27, value: 'จำนวนเงิน 0 - 2,000 บาท/เดือน' },
+      ],
+      option6: [
+        { id: 28, value: 'มากกว่า 3,000 บาทขึ้นไป' },
+        { id: 29, value: 'จำนวนเงิน 2,501 - 3,000 บาท/เดือน' },
+        { id: 30, value: 'จำนวนเงิน 2,001 - 2,500 บาท/เดือน' },
+        { id: 31, value: 'จำนวนเงิน 1,501 - 2,000 บาท/เดือน' },
+        { id: 32, value: 'จำนวนเงิน 1,001 - 1,500 บาท/เดือน' },
+        { id: 33, value: 'ไม่ได้เช่าหอพักหรือค่าเช่าหอพักไม่เกิน 1,000 บาท/เดือน' },
+      ],
+      option7: [
+        { id: 34, value: 'มีบ้านเป็นของตนเองสภาพพร้อมอยู่อาศัย' },
+        { id: 35, value: 'มีบ้านเป็นของตนเองสภาพไม่สมบูรณ์' },
+        { id: 36, value: 'ไม่มีบ้านเป็นของตนเองโดยอาศัยญาติและไม่ได้จ่ายค่าเช่า' },
+        { id: 37, value: 'มีบ้านเป็นของตนเองไม่ได้อยู่อาศัยแต่ไปเช่าบ้านอยู่อาศัย (ตามอาชีพ)' },
+        { id: 38, value: 'ไม่มีบ้านเป็นของตนเองต้องเช่าบ้านอยู่อาศัย' },
+      ],
+      option8: [
+        { id: 39, value: 'จำนวน 21 - 30 ชั่วโมง' },
+        { id: 40, value: 'จำนวน 31 - 40 ชั่วโมง' },
+        { id: 41, value: 'จำนวน 41 - 50 ชั่วโมง' },
+        { id: 42, value: 'จำนวน 51 - 60 ชั่วโมง' },
+        { id: 43, value: 'จำนวน 61 ชั่วโมงขึ้นไป' },
+      ],
+      option9: [
+        { id: 44, value: 'ไม่ได้ทำงานเลย' },
+        { id: 45, value: 'ทำงานช่วยที่บ้านทำให้ลดต้นทุนในการจ้างแรงงาน' },
+        { id: 46, value: 'ทำงานที่บ้านทำให้เพิ่มรายได้หรือทำงานบางช่วงแล้วแต่โอกาส' },
+        { id: 47, value: 'ทำงานช่วงปิดเทอม' },
+        { id: 48, value: 'ทำงานทุกเสาร์-อาทิตย์' },
+        { id: 49, value: 'ทำงานหารายได้ระหว่างเรียนตลอด' },
+      ],
+      option10: [
+        { id: 50, value: 'ผลการเรียน ต่ากว่า 2.00' },
+        { id: 51, value: 'ผลการเรียน 2.00 - 2.50' },
+        { id: 52, value: 'ผลการเรียน 2.51 - 3.00' },
+        { id: 53, value: 'ผลการเรียน 3.01 - 3.50' },
+        { id: 54, value: 'ผลการเรียน 3.51 ขึ้นไป' },
+      ],
       loading: false,
+    }
+  },
+  watch: {
+    sponsor: {
+      handler(next) {
+        this.setSponcer()
+      },
+      deep: true
+    }
+  },
+  computed: {
+    sponsorPoint() {
+      const choice1 = this.form.sponsor.choice1 * 1
+      const choice2 = this.form.sponsor.choice2 * 2
+      const choice3 = this.form.sponsor.choice3 * 3
+      const choice4 = this.form.sponsor.choice4 * 1
+      const choice5 = this.form.sponsor.choice5 * 2
+
+      return [choice1,choice2,choice3,choice4,choice5].reduce((a,b) => a+b, 0)
     }
   },
   methods: {
     ...mapActions({
       nextStep: 'application/nextStep',
       pushStep: 'application/pushStep',
+      clearStep: 'application/clearStep'
     }),
+    setSponcer() {
+      if (this.sponsorPoint <= 3) {this.form.option.choice4 = 17}
+      if (this.sponsorPoint >= 5) {this.form.option.choice4 = 18}
+      if (this.sponsorPoint >= 7) {this.form.option.choice4 = 19}
+      if (this.sponsorPoint >= 9) {this.form.option.choice4 = 20}
+      if (this.sponsorPoint >= 11) {this.form.option.choice4 = 21}
+    },
     messageBox(data, error = false) {
       return this.$bvModal.msgBoxOk(data, {
         title: !error ? 'สำเร็จ' : 'ผิดพลาด',
@@ -205,8 +398,9 @@ export default {
         this.messageBox('ลงทะเบียนสำเร็จแล้ว, กำลังเปลี่ยนหน้าไปยังกลุ่มเฟสบุ๊คนักศึกษาทุนคณะวิศวกรรมศาสตร์ ปีการศึกษา 2566 (ขอให้นักศึกษาที่สมัครทุนเข้ากลุ่มทุกคน)')
         .then(() => {
           this.$emit('closeForm')
-          this.nextStep(this.$store.state.application.curStep)
-          window.location.href = 'https://www.facebook.com/groups/2010597925947541'
+          this.clearStep()
+          // this.nextStep(this.$store.state.application.curStep)
+          // window.location.href = 'https://www.facebook.com/groups/2010597925947541'
           // this.$router.push('/follow')
         })
       } catch (error) {
@@ -221,6 +415,7 @@ export default {
 		},
   },
   mounted() {
+    this.setSponcer()
     Object.keys(this.form).forEach(key => {
       if (key != 'scholarship_id' && this.prevData[key]) {
         this.form[key] = this.prevData[key]
