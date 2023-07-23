@@ -58,10 +58,10 @@ export default {
     },
     txtColor(status) {
       switch (status) {
-        case 'opening': return 'text-success'; break;
+        case 'opening': return 'text-primary'; break;
         case 'in_progress': return 'text-warning'; break;
         case 'canceled': return 'text-danger'; break;
-        case 'announced': return 'text-primary'; break;
+        case 'announced': return 'text-success'; break;
         default: return 'text-muted'; break;
       }
     }
