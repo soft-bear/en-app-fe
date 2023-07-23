@@ -7,15 +7,9 @@
           <img v-else src="/images/en-ubu-logo-min.jpg" alt="EN UBU LOGO" class="card-img-top" />
           <div class="card-body">
             <nuxt-link :to="`/announce/view/${post.slug}`">
-              <h5 class="card-title" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">{{ post.title }}</h5>
+              <h5 class="card-title multipleline-ellipsis small">{{ post.title }}</h5>
             </nuxt-link>
-            <div class="card-text multipleline-ellipsis" v-html="post.content"></div>
-            <div class="d-flex justify-content-between align-items-center mt-2">
-              <div class="btn-group">
-                <nuxt-link :to="`/announce/view/${post.slug}`" role="button" class="btn btn-sm btn-outline-secondary">อ่าน</nuxt-link>
-              </div>
-              <small class="text-muted">{{ getPostDuration(post.created_at) }}</small>
-            </div>
+            <div class="text-muted small">{{ getPostDuration(post.created_at) }}</div>
           </div>
         </div>
       </div>
