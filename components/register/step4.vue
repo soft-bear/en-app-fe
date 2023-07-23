@@ -390,6 +390,8 @@ export default {
 				payload.append('attachment', this.form.attachment)
         payload.append('reason', this.form.reason)
         payload.append('volunteer_activities', JSON.stringify(this.form.volunteer_activities))
+        payload.append('option', JSON.stringify(this.form.option))
+        payload.append('sponsor', JSON.stringify(this.form.sponsor))
         payload.append('submission_id', this.$store.state.application.submissionId)
 
 				await this.$axios.post(`/scholarships/registration/store`, payload, { headers: { 'Content-Type': 'multipart/form-data' } })
