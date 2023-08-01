@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="card border-eng">
-          <div class="card-header bg-eng text-white">ข้อมูลรายได้ของนักศึกษา</div>
+          <div class="card-header bg-eng text-white">ข้อมูลรายได้ของนักศึกษา (ต่อเดือน)</div>
           <div class="card-body">
             <div class="row">
               <div class="mb-3 col-md-4">
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">ข้อมูลรายจ่ายของนักศึกษา</div>
+          <div class="card-header bg-eng text-white">ข้อมูลรายจ่ายของนักศึกษา (ต่อเดือน)</div>
           <div class="card-body">
             <div class="row">
               <div class="mb-3 col-md-4">
