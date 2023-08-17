@@ -1,206 +1,208 @@
 <template>
   <div class="small">
-    <div class="row">
-      <div class="col-12">
-        <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">เหตุผลความจำเป็นที่จะขอรับทุน</div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                    <label class="form-label" for="reason">ระบุความจำเป็นในการขอรับทุน</label>
-                    <b-form-textarea id="reason" v-model="form.reason" pl rows="3" max-rows="6"></b-form-textarea>
+    <form @submit.stop.prevent="handleSubmit">
+      <div class="row">
+        <div class="col-12">
+          <div class="card border-eng mt-2">
+            <div class="card-header bg-eng text-white">เหตุผลความจำเป็นที่จะขอรับทุน</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                      <label class="form-label" for="reason">ระบุความจำเป็นในการขอรับทุน</label>
+                      <b-form-textarea id="reason" v-model="form.reason" pl rows="3" max-rows="6"></b-form-textarea>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">ผู้ให้การอุปการะมีภาระค่าใช้จ่ายส่งเสียเลียงดูผู้ที่อยู่ในอุปการะที่ไม่มีรายได้</div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12">
-                  <div class="row">
-                    <div class="col-12 col-md-12">
-                      <div class="form-group">
-                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับประถมหรือไม่ได้ศึกษา</label>
-                        <input v-model="form.sponsor.choice1" type="number" required min="0" class="form-control form-control-sm">
+          <div class="card border-eng mt-2">
+            <div class="card-header bg-eng text-white">ผู้ให้การอุปการะมีภาระค่าใช้จ่ายส่งเสียเลียงดูผู้ที่อยู่ในอุปการะที่ไม่มีรายได้</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับประถมหรือไม่ได้ศึกษา</label>
+                          <input v-model="form.sponsor.choice1" type="number" required min="0" class="form-control form-control-sm">
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-12">
-                      <div class="form-group">
-                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับมัธยม</label>
-                        <input v-model="form.sponsor.choice2" type="number" required min="0" class="form-control form-control-sm">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับมัธยม</label>
+                          <input v-model="form.sponsor.choice2" type="number" required min="0" class="form-control form-control-sm">
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-12">
-                      <div class="form-group">
-                        <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับอุดมศึกษา</label>
-                        <input v-model="form.sponsor.choice3" type="number" required min="0" class="form-control form-control-sm">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label>ผู้ที่อยู่ในอุปการะกำลังศึกษาในระดับอุดมศึกษา</label>
+                          <input v-model="form.sponsor.choice3" type="number" required min="0" class="form-control form-control-sm">
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-12">
-                      <div class="form-group">
-                        <label>อุปการะญาติที่ไม่มีรายได้มีโรคประจำตัวไม่สามารถทำงานประกอบอาชีพได้</label>
-                        <input v-model="form.sponsor.choice4" type="number" required min="0" class="form-control form-control-sm">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label>อุปการะญาติที่ไม่มีรายได้มีโรคประจำตัวไม่สามารถทำงานประกอบอาชีพได้</label>
+                          <input v-model="form.sponsor.choice4" type="number" required min="0" class="form-control form-control-sm">
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-12">
-                      <div class="form-group">
-                        <label>อุปการะญาติที่ไม่มีรายได้และเป็นผู้ป่วยติดเตียง</label>
-                        <input v-model="form.sponsor.choice5" type="number" required min="0" class="form-control form-control-sm">
+                    <div class="row">
+                      <div class="col-12 col-md-12">
+                        <div class="form-group">
+                          <label>อุปการะญาติที่ไม่มีรายได้และเป็นผู้ป่วยติดเตียง</label>
+                          <input v-model="form.sponsor.choice5" type="number" required min="0" class="form-control form-control-sm">
+                        </div>
                       </div>
                     </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">ข้อมูลอื่น ๆ</div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>รายได้ครอบครัว หรือรายได้ผู้อุปการะต่อปี</label>
-                  <select v-model="form.option.choice1" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option1" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>สถานะครอบครัว</label>
-                  <select v-model="form.option.choice2" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option2" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>จำนวนเงินที่นักศึกษาได้รับจากผู้อุปการะ (ไม่รวมเงินกู้ยืมจาก กยศ./กรอ.)</label>
-                  <select v-model="form.option.choice3" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option3" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>ค่าใช้จ่ายรายเดือนของนักศึกษา (ไม่รวมค่าหอพัก)</label>
-                  <select v-model="form.option.choice5" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option5" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>ค่าหอพักของนักศึกษา (รวมค่าน้ำค่าไฟฟ้า)</label>
-                  <select v-model="form.option.choice6" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option6" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>บ้านที่อยู่อาศัย</label>
-                  <select v-model="form.option.choice7" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option7" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>มีจิตอาสาบำเพ็ญประโยชน์ (1 ปีการศึกษาที่ผ่านมา)</label>
-                  <select v-model="form.option.choice8" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option8" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>มีความขยันหมั่นเพียร นักศึกษาทางานหารายได้เพื่อแบ่งเบาภาระครอบครัว</label>
-                  <select v-model="form.option.choice9" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option9" :key="index">{{ data.value }}</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-md-12">
-                <div class="form-group">
-                  <label>ผลการเรียนและการทำงาน</label>
-                  <select v-model="form.option.choice10" class="form-control form-control-sm" required>
-                    <option value="">== เลือก ==</option>
-                    <option :value="data.id" v-for="(data, index) in option10" :key="index">{{ data.value }}</option>
-                  </select>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="card border-eng mt-2">
-          <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง&nbsp;<small class="text-danger">ไม่เกิน 10MB</small></div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                    <label class="form-label" for="attachment">เลือกเอกสารประเภท PDF</label>
-                    <b-form-file id="attachment" @change="handleDocumentUpload" size="sm" required></b-form-file>
+          <div class="card border-eng mt-2">
+            <div class="card-header bg-eng text-white">ข้อมูลอื่น ๆ</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>รายได้ครอบครัว หรือรายได้ผู้อุปการะต่อปี</label>
+                    <select v-model="form.option.choice1" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option1" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>สถานะครอบครัว</label>
+                    <select v-model="form.option.choice2" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option2" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>จำนวนเงินที่นักศึกษาได้รับจากผู้อุปการะ (ไม่รวมเงินกู้ยืมจาก กยศ./กรอ.)</label>
+                    <select v-model="form.option.choice3" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option3" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>ค่าใช้จ่ายรายเดือนของนักศึกษา (ไม่รวมค่าหอพัก)</label>
+                    <select v-model="form.option.choice5" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option5" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>ค่าหอพักของนักศึกษา (รวมค่าน้ำค่าไฟฟ้า)</label>
+                    <select v-model="form.option.choice6" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option6" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>บ้านที่อยู่อาศัย</label>
+                    <select v-model="form.option.choice7" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option7" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>มีจิตอาสาบำเพ็ญประโยชน์ (1 ปีการศึกษาที่ผ่านมา)</label>
+                    <select v-model="form.option.choice8" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option8" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>มีความขยันหมั่นเพียร นักศึกษาทางานหารายได้เพื่อแบ่งเบาภาระครอบครัว</label>
+                    <select v-model="form.option.choice9" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option9" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-12">
+                  <div class="form-group">
+                    <label>ผลการเรียนและการทำงาน</label>
+                    <select v-model="form.option.choice10" class="form-control form-control-sm" required>
+                      <option value="">== เลือก ==</option>
+                      <option :value="data.id" v-for="(data, index) in option10" :key="index">{{ data.value }}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card border-eng mt-2">
+            <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง&nbsp;<small class="text-danger">ไม่เกิน 10MB</small></div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                      <label class="form-label" for="attachment">เลือกเอกสารประเภท PDF</label>
+                      <b-form-file id="attachment" @change="handleDocumentUpload" size="sm" required></b-form-file>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-2" v-if="Object.values(errors).length">
-      <div class="col">
-        <div class="alert alert-danger">
-          <ul class="list-unstyled m-0">
-            <li v-for="(error, index) in Object.values(errors)" :key="index">
-              <ul class="list-unstyled">
-                <li v-for="(sub, index) in error" :key="index">{{ sub }}</li>
-              </ul>
-            </li>
-          </ul>
+      <div class="row mt-2" v-if="Object.values(errors).length">
+        <div class="col">
+          <div class="alert alert-danger">
+            <ul class="list-unstyled m-0">
+              <li v-for="(error, index) in Object.values(errors)" :key="index">
+                <ul class="list-unstyled">
+                  <li v-for="(sub, index) in error" :key="index">{{ sub }}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col text-center">
-        <button class="btn btn-sm btn-success" type="submit" :disabled="loading" @click="handleSubmit">สมัครทุนการศึกษา</button>
+      <div class="row mt-4">
+        <div class="col text-center">
+          <button class="btn btn-sm btn-success" type="submit" :disabled="loading">สมัครทุนการศึกษา</button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -400,8 +402,8 @@ export default {
         .then(() => {
           this.$emit('closeForm')
           this.clearStep()
-          // this.nextStep(this.$store.state.application.curStep)
-          // window.location.href = 'https://www.facebook.com/groups/2010597925947541'
+          this.nextStep(this.$store.state.application.curStep)
+          window.location.href = 'https://www.facebook.com/groups/2010597925947541'
           // this.$router.push('/follow')
         })
       } catch (error) {
@@ -418,6 +420,14 @@ export default {
   mounted() {
     this.setSponcer()
     Object.keys(this.form).forEach(key => {
+      if (['option_json', 'sponsor_json'].includes(key)) {
+        if (key == 'option_json') {
+          this.form['option'] = this.prevData[key]
+        }
+        if (key == 'sponsor_json') {
+          this.form['sponsor'] = this.prevData[key]
+        }
+      }
       if (key != 'scholarship_id' && this.prevData[key]) {
         this.form[key] = this.prevData[key]
       }
