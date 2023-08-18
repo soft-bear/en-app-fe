@@ -420,14 +420,6 @@ export default {
   mounted() {
     this.setSponcer()
     Object.keys(this.form).forEach(key => {
-      if (['option', 'sponsor'].includes(key)) {
-        if (key == 'option') {
-          this.form[key] = this.prevData['option_json']
-        }
-        if (key == 'sponsor') {
-          this.form[key] = this.prevData['sponsor_json']
-        }
-      }
       if (key != 'scholarship_id' && this.prevData[key]) {
         this.form[key] = this.prevData[key]
       }
