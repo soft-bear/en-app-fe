@@ -50,7 +50,7 @@
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>ช่วงการรับสมัคร</strong></div>
-                    <div class="col-12 col-md-8">{{ onlyDate(data.from_date) }} - {{ onlyDate(data.to_date) }} {{ data.is_active ? `(${dateDiff} วัน)` : '' }}</div>
+                    <div class="col-12 col-md-8">{{ onlyDate(data.from_date) }}&nbsp;{{ onlyTime(data.from_date) }} - {{ onlyDate(data.to_date) }}&nbsp;{{ onlyTime(data.to_date) }} {{ data.is_active ? `(${dateDiff} วัน)` : '' }}</div>
                   </div>
                   <div class="mb-1 row">
                     <div class="col-12 col-md-4"><strong>วันที่ประกาศผล</strong></div>
