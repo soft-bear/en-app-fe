@@ -30,7 +30,7 @@
               <a :href="`https://api.en-ubu.xyz/scholarships/registration/std?token=1a9cbc4c3ac98a409bc262ca9209c630&pdf=true&key=${ item.key }`" target="_blank" rel="noopener noreferrer" class="dropdown dropdown-item btn-sm">ใบสมัคร</a>
               <a :href="`${ item.attachment?.path }`" target="_blank" rel="noopener noreferrer" class="dropdown dropdown-item btn-sm">เอกสารแนบ</a>
             </b-dropdown>
-            <button class="btn btn-xs btn-danger" v-if="item.status == 'pending' || item.is_active" @click="destroy(item.id)" :disabled="loading">ลบข้อมูล</button>
+            <button class="btn btn-xs btn-danger" v-if="item.status == 'pending' || true" @click="destroy(item.id)" :disabled="loading">ลบข้อมูล</button>
           </td>
         </tr>
       </tbody>
