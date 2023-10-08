@@ -170,7 +170,7 @@
             </div>
           </div>
           <div class="card border-eng mt-2">
-            <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง&nbsp;<small class="text-danger">ไม่เกิน 10MB</small></div>
+            <div class="card-header bg-eng text-white">เอกสารที่เกี่ยวข้อง&nbsp;<small class="text-light">(ใบเกรด /รูปครอบครัว /รูปบ้าน (ภายใน-นอก)/เกียรติบัตรต่าง ๆ) ไม่เกิน 10MB</small></div>
             <div class="card-body">
               <div class="row">
                 <div class="col">
