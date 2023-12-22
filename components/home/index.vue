@@ -1,11 +1,11 @@
 <template>
   <b-row class="my-4">
-    <b-col cols="12" lg="6">
+    <b-col cols="12">
       <b-overlay :show="loading">
         <content-homepage-card-list :card-data="sortScholarship" card-name="ทุนการศึกษา" target="scholarship" />
       </b-overlay>
     </b-col>
-    <b-col cols="12" lg="6" class="mt-2 mt-md-0">
+    <b-col cols="12" class="mt-2">
       <b-overlay :show="loading">
         <content-homepage-card-list :card-data="sortAnnounce" card-name="ประชาสัมพันธ์" target="announce" />
       </b-overlay>
