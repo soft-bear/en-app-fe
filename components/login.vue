@@ -5,17 +5,30 @@
       </b-form-input>
     </b-form-group>
 
-    <b-form-group label="รหัสผ่าน :">
+    <b-form-group label="รหัสผ่าน :" v-if="!isReset">
       <b-form-input :state="isInputPassword" v-model="password" type="password" placeholder="ระบุรหัสผ่าน" required size="sm"></b-form-input>
     </b-form-group>
 
-    <div class="d-block text-center">
-      <b-button type="submit" variant="outline-success" size="sm" :disabled="loading || !(isInputPassword && emailValidation)">
+    <div v-if="!isReset">
+      <span class="btn btn-link pl-0 text-danger btn-sm" @click="isReset = true">ลืมรหัสผ่าน</span>
+    </div>
+
+    <div class="d-block text-center" v-if="!isReset">
+      <b-button type="submit" variant="outline-primary" size="sm" :disabled="loading || !(isInputPassword && emailValidation)">
         เข้าสู่ระบบ
       </b-button>
       <nuxt-link class="btn btn-outline-secondary btn-sm" to="/register">
         ลงทะเบียน
       </nuxt-link>
+
+    </div>
+    <div class="d-block text-center" v-else>
+      <b-button type="button" variant="outline-primary" size="sm" :disabled="loading || !(emailValidation)" @click="sendEmailToResetPassword">
+        ตั้งค่ารหัสผ่านใหม่
+      </b-button>
+      <b-button type="button" variant="outline-secondary" size="sm" @click="isReset = false">
+        กลับ
+      </b-button>
     </div>
   </b-form>
 </template>
@@ -25,6 +38,7 @@ export default {
   data() {
     return {
       loading: false,
+      isReset: false,
       username: '',
       password: '',
     }
@@ -60,10 +74,41 @@ export default {
         })
       }
       this.loading = false
+    },
+		async sendEmailToResetPassword() {
+      this.loading = true
+
+      try {
+        const payload = { username: this.username }
+				await this.$axios.post('/auth/reset/password', payload)
+
+				this.username = ''
+				this.isReset = false
+
+
+        this.$bvModal.msgBoxOk('ส่งอีเมลเพื่อส่งลิงก์สำหรับตั้งค่ารหัสผ่านใหม่เรียบร้อยแล้ว', {
+          title: 'สำเร็จ',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'success',
+          headerClass: 'py-2 border-bottom-0',
+          footerClass: 'py-2 border-top-0',
+          centered: true
+        })
+      } catch (error) {
+        this.$bvModal.msgBoxOk(error.message, {
+          title: 'ผิดพลาด',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'danger',
+          headerClass: 'py-2 border-bottom-0',
+          footerClass: 'py-2 border-top-0',
+          centered: true
+        })
+      }
+
+      this.loading = false
     }
-  },
-  created() {
-    console.log(this)
   }
 }
 </script>
