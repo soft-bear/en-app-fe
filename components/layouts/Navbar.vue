@@ -11,6 +11,7 @@
 				<b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown :text="$auth.user.data.name" v-if="loggedIn">
             <nuxt-link class="dropdown-item" to="/account">บัญชีผู้ใช้</nuxt-link>
+            <nuxt-link class="dropdown-item" to="/profile">ข้อมูลส่วนตัว</nuxt-link>
             <nuxt-link class="dropdown-item" to="/follow">ติดตามผล</nuxt-link>
             <b-dropdown-divider></b-dropdown-divider>
             <a class="dropdown-item" style="cursor: pointer;" @click="handleLogOut">ออกจากระบบ</a>
