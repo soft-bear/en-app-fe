@@ -345,9 +345,10 @@ export default {
       })
     },
     delJob(index) {
-      const newArray = [...this.form.jobs]
+      
+      const newArray = [...this.form.job_histories]
       newArray.splice(index, 1)
-      this.form.jobs = newArray
+      this.form.job_histories = newArray
     },
     addJob() {
       this.form.job_histories.push({
