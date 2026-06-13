@@ -1,68 +1,105 @@
-# en-ubu-app
+# EN-UBU Scholarship System
 
-## Build Setup
+[![Nuxt.js](https://img.shields.io/badge/Nuxt.js-2.15.8-00C58E?logo=nuxt.js)](https://nuxtjs.org)
+[![Vue.js](https://img.shields.io/badge/Vue.js-2.7.10-4FC08D?logo=vue.js)](https://vuejs.org)
+[![BootstrapVue](https://img.shields.io/badge/BootstrapVue-2.22.0-563D7C?logo=bootstrap)](https://bootstrap-vue.org)
 
-```bash
-# install dependencies
-$ npm install
+**ระบบทุนการศึกษาออนไลน์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยอุบลราชธานี**
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+This is the Frontend repository for the EN-UBU Scholarship Management System, built with Nuxt.js (SSR). It provides a streamlined interface for students to browse, apply, and track their scholarship applications.
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+---
 
-# generate static project
-$ npm run generate
+## 🛠 Tech Stack
+
+- **Core Framework:** Nuxt.js 2.15.8 (Vue 2)
+- **UI Framework:** BootstrapVue
+- **Authentication:** Nuxt Auth (@nuxtjs/auth-next) with Laravel Sanctum
+- **HTTP Client:** Axios
+- **State Management:** Vuex
+- **Utilities:** Moment.js (with Thai locale), SweetAlert2, FullCalendar
+
+---
+
+## 📁 Project Structure
+
+```text
+├── assets/             # Global styles (app.css, custom login/main styles)
+├── components/         
+│   ├── content/        # Feature-specific components (Scholarship, Announce)
+│   ├── layouts/        # Global UI parts (Navbar, Footer)
+│   └── register/       # Registration multi-step flow logic
+├── layouts/            # Page layouts (default, content, normal)
+├── middleware/         # Auth guards (auth, guest)
+├── pages/              # Routing and view components
+├── plugins/            # Third-party integrations (Moment Thai)
+├── static/             # Static assets (images, favicon)
+└── store/              # Vuex modules
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+---
 
-## Special Directories
+## 🚀 Getting Started
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+### Prerequisites
 
-### `assets`
+- Node.js (Recommended: LTS v14 or v16 for Nuxt 2 compatibility)
+- npm or yarn
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+### Installation
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd en-app-fe
+   ```
 
-### `components`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+3. Configure Environment Variables:
+   Copy `.env.example` to `.env` and update the values:
+   ```bash
+   cp .env.example .env
+   ```
+   - `API_URL`: Backend API endpoint (Laravel).
+   - `APP_TITLE`: Application title.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+### Development
 
-### `layouts`
+```bash
+# Serve with hot reload at localhost:3000
+npm run dev
+```
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+### Production
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+```bash
+# Build for production
+npm run build
 
-### `pages`
+# Start the production server
+npm run start
+```
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+---
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+## 📋 Development Guidelines
 
-### `plugins`
+- **Commit Message:** Follow [Conventional Commits](https://www.conventionalcommits.org/).
+- **Linting:** Run `npm run lint` before committing to ensure code consistency.
+- **Components:** Favor modularity. Use `components/content` for domain-specific logic.
+- **Styling:** Adhere to the faculty identity (Primary: `#771E10`). Avoid deep nesting in CSS; prefer utility classes from Bootstrap.
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+---
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+## 🏗 CI/CD & Deployment
 
-### `static`
+- **Docker:** Production-ready `Dockerfile` included for SSR deployment.
+- **Workflow:** GitHub Actions for automated builds (see `.github/workflows/production.yml`).
+- **Target:** Optimized for deployment on GHCR or custom VPS.
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+---
+*Maintained by Engineering UBU Development Team*
