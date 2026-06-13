@@ -97,7 +97,7 @@
 
 <script>
 export default {
-  middleware: ['authenticated'],
+  middleware: ['guest'],
   data() {
     return {
       errors: {},

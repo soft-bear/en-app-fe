@@ -59,19 +59,27 @@
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.current_address.sub_district" type="district" @select="setCurAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.current_address.sub_district" type="district" @select="setCurAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
-                    <ThailandAutoComplete v-model="form.current_address.district" type="amphoe" @select="setCurAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.current_address.district" type="amphoe" @select="setCurAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>จังหวัด</label>
-                    <ThailandAutoComplete v-model="form.current_address.province" type="province" @select="setCurAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.current_address.province" type="province" @select="setCurAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>รหัสไปรษณีย์</label>
-                    <ThailandAutoComplete v-model="form.current_address.zipcode" type="zipcode" size="default" @select="setCurAddr" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.current_address.zipcode" type="zipcode" size="default" @select="setCurAddr" required />
+                    </client-only>
                   </div>
                 </div>
               </div>
@@ -89,19 +97,27 @@
                 <div class="row">
                   <div class="col-12 col-md-3">
                     <label>ตำบล</label>
-                    <ThailandAutoComplete v-model="form.original_address.sub_district" type="district" @select="setOriAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.original_address.sub_district" type="district" @select="setOriAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>อำเภอ</label>
-                    <ThailandAutoComplete v-model="form.original_address.district" type="amphoe" @select="setOriAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.original_address.district" type="amphoe" @select="setOriAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>จังหวัด</label>
-                    <ThailandAutoComplete v-model="form.original_address.province" type="province" @select="setOriAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.original_address.province" type="province" @select="setOriAddr" size="default" required />
+                    </client-only>
                   </div>
                   <div class="col-12 col-md-3">
                     <label>รหัสไปรษณีย์</label>
-                    <ThailandAutoComplete v-model="form.original_address.zipcode" type="zipcode" @select="setOriAddr" size="default" required />
+                    <client-only>
+                      <ThailandAutoComplete v-model="form.original_address.zipcode" type="zipcode" @select="setOriAddr" size="default" required />
+                    </client-only>
                   </div>
                 </div>
               </div>

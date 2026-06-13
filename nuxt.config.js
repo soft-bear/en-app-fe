@@ -1,13 +1,7 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: process.env.APP_TITLE || 'en-ubu-fe',
+    title: 'en-ubu-fe',
     htmlAttrs: {
       lang: 'en'
     },
@@ -15,11 +9,25 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/en-ubu-logo.ico' }
     ]
+  },
+
+  // Runtime Config for better security and flexibility
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.API_URL || 'https://en-ubu-be.test'
+    },
+    appTitle: process.env.APP_TITLE || 'ระบบทุนการศึกษาออนไลน์'
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.API_URL || 'https://en-ubu-be.test'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -63,8 +71,6 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.API_URL || 'https://en-ubu-be.test',
     credentials: true
   },
 
@@ -75,7 +81,7 @@ export default {
     strategies: {
       'laravelSanctum': {
 				provider: 'laravel/sanctum',
-				url: `${process.env.API_URL || 'https://en-ubu-be.test'}`
+				url: process.env.API_URL || 'https://en-ubu-be.test'
 			},
       sanctumToken: {
         provider: 'laravel/jwt',

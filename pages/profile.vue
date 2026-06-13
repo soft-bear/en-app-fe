@@ -33,7 +33,9 @@
 
 <script>
 export default {
-    data() {
+  middleware: ['auth'],
+  data() {
+
         return {}
     }
 }

@@ -17,7 +17,8 @@
           </p>
         </b-col>
         <b-col cols="12" lg="6" md="6" class="text-left text-md-right">
-          <a href="https://docs.t-reg.co/6827fa77-6460-4fa2-ac5a-b7eea72f6f79/CookPol/ubu_cookie.pdf" class="text-muted" rel="noreferrer noopener">นโยบายคุกกี้</a>
+          <a href="https://docs.t-reg.co/6827fa77-6460-4fa2-ac5a-b7eea72f6f79/CookPol/ubu_cookie.pdf" class="text-muted mr-3" target="_blank" rel="noreferrer noopener">นโยบายคุกกี้</a>
+          <a href="javascript:void(0)" class="text-muted" @click="$root.$emit('show-cookie-settings')">ตั้งค่าคุกกี้</a>
         </b-col>
       </b-row>
     </b-container>

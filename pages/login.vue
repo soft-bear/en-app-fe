@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  middleware: ['authenticated'],
+  middleware: ['guest'],
   layout: 'content'
 }
 </script>
